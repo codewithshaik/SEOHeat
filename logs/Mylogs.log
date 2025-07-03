@@ -1,0 +1,152 @@
+2024-08-20 01:53:06 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 01:53:06 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 01:54:36 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 01:54:36 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 01:57:29 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 01:57:29 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:00:51 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:00:51 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:02:01 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:02:01 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:07:32 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:07:32 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:09:03 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:09:03 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:11:14 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:11:14 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:11:47 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:11:47 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:13:21 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:13:21 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:15:52 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:15:52 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:16:33 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:16:33 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:17:12 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:17:12 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:17:14 INFO  Hooks:76 - Browser setup completed
+2024-08-20 02:17:14 INFO  Hooks:76 - Browser setup completed
+2024-08-20 02:17:14 INFO  Hooks:84 - Browser session terminated
+2024-08-20 02:17:14 INFO  Hooks:84 - Browser session terminated
+2024-08-20 02:18:18 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:18:18 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:18:19 INFO  Hooks:76 - Browser setup completed
+2024-08-20 02:18:19 INFO  Hooks:76 - Browser setup completed
+2024-08-20 02:18:22 INFO  Hooks:84 - Browser session terminated
+2024-08-20 02:18:22 INFO  Hooks:84 - Browser session terminated
+2024-08-20 02:59:02 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:59:02 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-08-20 02:59:04 INFO  Hooks:76 - Browser setup completed
+2024-08-20 02:59:04 INFO  Hooks:76 - Browser setup completed
+2024-08-20 02:59:04 INFO  Hooks:84 - Browser session terminated
+2024-08-20 02:59:04 INFO  Hooks:84 - Browser session terminated
+2024-11-02 01:17:49 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 01:17:49 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 01:25:53 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 01:25:53 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 01:25:56 INFO  Hooks:76 - Browser setup completed
+2024-11-02 01:25:56 INFO  Hooks:76 - Browser setup completed
+2024-11-02 01:25:56 INFO  LoginPage:24 - In OpenUrl
+2024-11-02 01:25:56 INFO  LoginPage:24 - In OpenUrl
+2024-11-02 01:25:56 INFO  Hooks:84 - Browser session terminated
+2024-11-02 01:25:56 INFO  Hooks:84 - Browser session terminated
+2024-11-02 01:31:37 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 01:31:37 INFO  Hooks:34 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 01:31:39 INFO  Hooks:76 - Browser setup completed
+2024-11-02 01:31:39 INFO  Hooks:76 - Browser setup completed
+2024-11-02 01:31:39 INFO  LoginPage:24 - In OpenUrl
+2024-11-02 01:31:39 INFO  LoginPage:24 - In OpenUrl
+2024-11-02 01:31:40 INFO  Hooks:84 - Browser session terminated
+2024-11-02 01:31:40 INFO  Hooks:84 - Browser session terminated
+2024-11-02 01:39:21 INFO  Hooks:35 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 01:39:21 INFO  Hooks:35 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 01:43:28 INFO  Hooks:35 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 01:43:28 INFO  Hooks:35 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 02:06:02 INFO  Hooks:35 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 02:06:02 INFO  Hooks:35 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 02:08:13 INFO  Hooks:35 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 02:08:13 INFO  Hooks:35 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 02:09:35 INFO  Hooks:35 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 02:09:35 INFO  Hooks:35 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 02:09:36 INFO  Hooks:77 - Browser setup completed
+2024-11-02 02:09:36 INFO  Hooks:77 - Browser setup completed
+2024-11-02 02:09:36 INFO  LoginPage:24 - In OpenUrl
+2024-11-02 02:09:36 INFO  LoginPage:24 - In OpenUrl
+2024-11-02 02:09:36 INFO  Hooks:85 - Browser session terminated
+2024-11-02 02:09:36 INFO  Hooks:85 - Browser session terminated
+2024-11-02 02:28:34 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 02:28:34 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 02:28:36 INFO  Hooks:78 - Browser setup completed
+2024-11-02 02:28:36 INFO  Hooks:78 - Browser setup completed
+2024-11-02 02:28:36 INFO  LoginPage:24 - In OpenUrl
+2024-11-02 02:28:36 INFO  LoginPage:24 - In OpenUrl
+2024-11-02 02:28:36 INFO  Hooks:86 - Browser session terminated
+2024-11-02 02:28:36 INFO  Hooks:86 - Browser session terminated
+2024-11-02 02:42:17 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 02:42:17 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 02:42:18 INFO  Hooks:78 - Browser setup completed
+2024-11-02 02:42:18 INFO  Hooks:78 - Browser setup completed
+2024-11-02 02:42:18 INFO  LoginPage:24 - In OpenUrl
+2024-11-02 02:42:18 INFO  LoginPage:24 - In OpenUrl
+2024-11-02 02:42:18 INFO  Hooks:86 - Browser session terminated
+2024-11-02 02:42:18 INFO  Hooks:86 - Browser session terminated
+2024-11-02 02:42:56 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 02:42:56 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 02:44:03 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 02:44:03 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 02:44:03 INFO  Hooks:79 - Browser setup completed
+2024-11-02 02:44:03 INFO  Hooks:79 - Browser setup completed
+2024-11-02 02:44:03 INFO  LoginPage:24 - In OpenUrl
+2024-11-02 02:44:03 INFO  LoginPage:24 - In OpenUrl
+2024-11-02 02:44:04 INFO  Hooks:87 - Browser session terminated
+2024-11-02 02:44:04 INFO  Hooks:87 - Browser session terminated
+2024-11-02 02:48:22 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 02:48:22 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 02:48:23 INFO  Hooks:79 - Browser setup completed
+2024-11-02 02:48:23 INFO  Hooks:79 - Browser setup completed
+2024-11-02 02:48:23 INFO  LoginPage:24 - In OpenUrl
+2024-11-02 02:48:23 INFO  LoginPage:24 - In OpenUrl
+2024-11-02 02:48:23 INFO  Hooks:87 - Browser session terminated
+2024-11-02 02:48:23 INFO  Hooks:87 - Browser session terminated
+2024-11-02 02:53:14 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 02:53:14 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 03:06:43 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 03:06:43 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 03:06:44 INFO  Hooks:79 - Browser setup completed
+2024-11-02 03:06:44 INFO  Hooks:79 - Browser setup completed
+2024-11-02 03:06:44 INFO  LoginPage:24 - In OpenUrl
+2024-11-02 03:06:44 INFO  LoginPage:24 - In OpenUrl
+2024-11-02 03:06:45 INFO  Hooks:87 - Browser session terminated
+2024-11-02 03:06:45 INFO  Hooks:87 - Browser session terminated
+2024-11-02 03:19:56 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 03:19:56 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-02 03:19:57 INFO  Hooks:79 - Browser setup completed
+2024-11-02 03:19:57 INFO  Hooks:79 - Browser setup completed
+2024-11-02 03:19:57 INFO  LoginPage:24 - In OpenUrl
+2024-11-02 03:19:57 INFO  LoginPage:24 - In OpenUrl
+2024-11-02 03:19:57 INFO  Hooks:87 - Browser session terminated
+2024-11-02 03:19:57 INFO  Hooks:87 - Browser session terminated
+2024-11-03 03:09:20 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-03 03:09:20 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-03 03:09:22 INFO  Hooks:79 - Browser setup completed
+2024-11-03 03:09:22 INFO  Hooks:79 - Browser setup completed
+2024-11-03 03:09:23 INFO  LoginPage:24 - In OpenUrl
+2024-11-03 03:09:23 INFO  LoginPage:24 - In OpenUrl
+2024-11-03 03:09:23 INFO  Hooks:87 - Browser session terminated
+2024-11-03 03:09:23 INFO  Hooks:87 - Browser session terminated
+2024-11-04 00:56:36 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-04 00:56:36 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-04 00:56:39 INFO  Hooks:79 - Browser setup completed
+2024-11-04 00:56:39 INFO  Hooks:79 - Browser setup completed
+2024-11-04 00:56:39 INFO  LoginPage:24 - In OpenUrl
+2024-11-04 00:56:39 INFO  LoginPage:24 - In OpenUrl
+2024-11-04 00:56:39 INFO  Hooks:87 - Browser session terminated
+2024-11-04 00:56:39 INFO  Hooks:87 - Browser session terminated
+2024-11-20 14:38:38 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-20 14:38:38 INFO  Hooks:36 - Starting new browser session for scenario: USCheckVisaSlots_LoginPage
+2024-11-20 14:38:39 INFO  Hooks:79 - Browser setup completed
+2024-11-20 14:38:39 INFO  Hooks:79 - Browser setup completed
+2024-11-20 14:38:39 INFO  LoginPage:24 - In OpenUrl
+2024-11-20 14:38:39 INFO  LoginPage:24 - In OpenUrl
+2024-11-20 14:38:40 INFO  Hooks:87 - Browser session terminated
+2024-11-20 14:38:40 INFO  Hooks:87 - Browser session terminated
