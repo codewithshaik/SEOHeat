@@ -1,0 +1,168 @@
+pipeline {
+    agent {
+        node {
+            label 'cm-linux'
+            tools {
+                maven 'linux/maven:Latest'
+                jdk 'linux/jdk11:Latest'
+            }
+        }
+    }
+
+    parameters {
+        choice(name: 'host', choices: ['local', 'grid'], description: 'Choose where to run tests')
+        string(name: 'GRID_URL', defaultValue: '', description: 'Grid URL (only required if host is grid)')
+        string(name: 'ENVIRONMENT', defaultValue: 'dev', description: 'Execution environment')
+        string(name: 'TagName', defaultValue: '', description: 'Execution tag name')
+        choice(name: 'HEADLESS_MODE', choices: ['true', 'false'], description: 'Enable headless mode')
+        string(name: 'branch', defaultValue: 'main', description: 'Git branch to build from')
+        string(name: 'MRS_VALUE', defaultValue: '', description: 'MRS value')
+        string(name: 'MRT_VALUE', defaultValue: '', description: 'MRT value')
+    }
+
+    options {
+        timestamps()
+        skipDefaultCheckout(true)
+    }
+
+    environment {
+        DOMAIN = ''
+    }
+
+    stages {
+        stage('Setup Domain') {
+            steps {
+                script {
+                    if (env.GIT_URL?.contains('account-information')) {
+                        env.DOMAIN = "IS-${params.TagName}"
+                    }
+                }
+            }
+        }
+
+        stage('Print Tool Versions') {
+            steps {
+                sh 'mvn -v'
+                sh 'java -version'
+            }
+        }
+
+        stage('Checkout Code') {
+            steps {
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: params.branch]],
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [
+                        [$class: 'CleanBeforeCheckout'],
+                        [$class: 'WipeWorkspace']
+                    ],
+                    userRemoteConfigs: [[
+                        url: 'https://your.repo.url/visa-monitoring.git',
+                        credentialsId: 'your_git_credentials'
+                    ]]
+                ])
+            }
+        }
+
+        stage('Start BrowserstackLocal') {
+            when { expression { params.host != 'grid' } }
+            steps {
+                script {
+                    echo 'Skipping BrowserStack setup for local runs (no need)'
+                }
+            }
+        }
+
+        stage('Run Visa Slot Monitoring Script') {
+            steps {
+                script {
+                    try {
+                        echo '🟢 Starting Visa Slot Monitoring Script'
+                        sh """
+                            mvn clean install \
+                              -Denvironment=${params.ENVIRONMENT} \
+                              -DtagName=${params.TagName} \
+                              -DheadlessMode=${params.HEADLESS_MODE} \
+                              -Dhost=${params.host} \
+                              -DgridURL=${params.GRID_URL} \
+                              -Dmrs=${params.MRS_VALUE} \
+                              -Dmrt=${params.MRT_VALUE}
+                        """
+                        echo '✅ Visa Slot Monitoring Completed'
+                    } catch (e) {
+                        echo "❌ Visa Slot Monitoring Failed: ${e.message}"
+                        currentBuild.result = 'FAILURE'
+                    }
+                }
+            }
+        }
+
+        stage('Generate and Publish Reports') {
+            steps {
+                script {
+                    try {
+                        def reportHtml = readFile('target/cucumber-html-reports/overview-features.html')
+                        def table = (reportHtml =~ /(<table[\s\S]*?<\/table>)/)[0]
+                        table = table
+                            .replaceAll(/<table\b[^>]*>/, '<table border="1" style="border-collapse: collapse; width: 100%;">')
+                            .replaceAll(/<td\b[^>]*>/, '<td border="1">')
+                            .replaceAll(/<a\b[^>]*>/, '')
+                            .replaceAll(/<\/a>/, '')
+
+                        writeFile file: 'summary_report.html', text: """
+                            <html><body>
+                              <h2>Note: Please download attachment for full report</h2>
+                              <p>Test Execution Tag: <b>${params.TagName}</b></p>
+                              <p>Test Environment: <b>${params.ENVIRONMENT}</b></p>
+                              ${table}
+                              <p>Kindly contact your Automation Team for questions.</p>
+                              <p>Thank you.</p>
+                            </body></html>
+                        """
+                        archiveArtifacts artifacts: 'summary_report.html', fingerprint: true
+                    } catch (err) {
+                        echo "⚠️ Report generation failed: ${err.message}"
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo "🔚 Build completed with status: ${currentBuild.result ?: 'SUCCESS'}"
+            def status = currentBuild.result ?: 'SUCCESS'
+                        def reportLink = "${env.BUILD_URL}artifact/summary_report.html"
+
+                        emailext(
+                            to: 'shaikmahaboobsubhani00@gmail.com',
+                            subject: "Visa Slot Monitor - Execution Summary | Build #${env.BUILD_NUMBER} | ${status}",
+                            body: """
+                                <html>
+                                  <body>
+                                    <h2>Visa Slot Monitoring - Execution Summary</h2>
+                                    <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+                                      <tr><th>Execution Tag</th><td>${params.TagName}</td></tr>
+                                      <tr><th>Environment</th><td>${params.ENVIRONMENT}</td></tr>
+                                      <tr><th>Branch</th><td>${params.branch}</td></tr>
+                                      <tr><th>MRS Value</th><td>${params.MRS_VALUE}</td></tr>
+                                      <tr><th>MRT Value</th><td>${params.MRT_VALUE}</td></tr>
+                                      <tr><th>Host</th><td>${params.host}</td></tr>
+                                      <tr><th>Headless Mode</th><td>${params.HEADLESS_MODE}</td></tr>
+                                      <tr><th>Status</th><td><b style="color:${status == 'SUCCESS' ? 'green' : 'red'};">${status}</b></td></tr>
+                                    </table>
+                                    <br/>
+                                    <p>📄 <b>Full Report:</b> <a href="${reportLink}">Click here to view the complete HTML report</a></p>
+                                    <br/>
+                                    <p>📬 Kindly contact <b>hshaik</b> for any queries.</p>
+                                    <p>Thanks,<br/>Jenkins</p>
+                                  </body>
+                                </html>
+                            """,
+                            mimeType: 'text/html',
+                            attachLog: true
+                        )
+        }
+    }
+}
