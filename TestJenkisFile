@@ -58,7 +58,7 @@ pipeline {
                         [$class: 'WipeWorkspace']
                     ],
                     userRemoteConfigs: [[
-                        url: 'https://your.repo.url/visa-monitoring.git',
+                        url: 'https://github.com/Mrshaik-hub/visaSlotMonitoring.git',
                         credentialsId: 'your_git_credentials'
                     ]]
                 ])
@@ -78,7 +78,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        echo '🟢 Starting Visa Slot Monitoring Script'
+                        echo 'Starting Visa Slot Monitoring Script'
                         sh """
                             mvn clean install \
                               -Denvironment=${params.ENVIRONMENT} \
@@ -89,9 +89,9 @@ pipeline {
                               -Dmrs=${params.MRS_VALUE} \
                               -Dmrt=${params.MRT_VALUE}
                         """
-                        echo '✅ Visa Slot Monitoring Completed'
+                        echo 'Visa Slot Monitoring Completed'
                     } catch (e) {
-                        echo "❌ Visa Slot Monitoring Failed: ${e.message}"
+                        echo "Visa Slot Monitoring Failed: ${e.message}"
                         currentBuild.result = 'FAILURE'
                     }
                 }
@@ -122,7 +122,7 @@ pipeline {
                         """
                         archiveArtifacts artifacts: 'summary_report.html', fingerprint: true
                     } catch (err) {
-                        echo "⚠️ Report generation failed: ${err.message}"
+                        echo "Report generation failed: ${err.message}"
                     }
                 }
             }
@@ -131,38 +131,39 @@ pipeline {
 
     post {
         always {
-            echo "🔚 Build completed with status: ${currentBuild.result ?: 'SUCCESS'}"
+            echo "Build completed with status: ${currentBuild.result ?: 'SUCCESS'}"
             def status = currentBuild.result ?: 'SUCCESS'
-                        def reportLink = "${env.BUILD_URL}artifact/summary_report.html"
+            def reportLink = "${env.BUILD_URL}artifact/summary_report.html"
 
-                        emailext(
-                            to: 'shaikmahaboobsubhani00@gmail.com',
-                            subject: "Visa Slot Monitor - Execution Summary | Build #${env.BUILD_NUMBER} | ${status}",
-                            body: """
-                                <html>
-                                  <body>
-                                    <h2>Visa Slot Monitoring - Execution Summary</h2>
-                                    <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%;">
-                                      <tr><th>Execution Tag</th><td>${params.TagName}</td></tr>
-                                      <tr><th>Environment</th><td>${params.ENVIRONMENT}</td></tr>
-                                      <tr><th>Branch</th><td>${params.branch}</td></tr>
-                                      <tr><th>MRS Value</th><td>${params.MRS_VALUE}</td></tr>
-                                      <tr><th>MRT Value</th><td>${params.MRT_VALUE}</td></tr>
-                                      <tr><th>Host</th><td>${params.host}</td></tr>
-                                      <tr><th>Headless Mode</th><td>${params.HEADLESS_MODE}</td></tr>
-                                      <tr><th>Status</th><td><b style="color:${status == 'SUCCESS' ? 'green' : 'red'};">${status}</b></td></tr>
-                                    </table>
-                                    <br/>
-                                    <p>📄 <b>Full Report:</b> <a href="${reportLink}">Click here to view the complete HTML report</a></p>
-                                    <br/>
-                                    <p>📬 Kindly contact <b>hshaik</b> for any queries.</p>
-                                    <p>Thanks,<br/>Jenkins</p>
-                                  </body>
-                                </html>
-                            """,
-                            mimeType: 'text/html',
-                            attachLog: true
-                        )
+            emailext(
+                to: 'shaikmahaboobsubhani00@gmail.com',
+                subject: "Visa Slot Monitor - Execution Summary | Build #${env.BUILD_NUMBER} | ${status}",
+                body: """
+                    <html>
+                      <body>
+                        <h2>Visa Slot Monitoring - Execution Summary</h2>
+                        <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+                          <tr><th>Execution Tag</th><td>${params.TagName}</td></tr>
+                          <tr><th>Environment</th><td>${params.ENVIRONMENT}</td></tr>
+                          <tr><th>Branch</th><td>${params.branch}</td></tr>
+                          <tr><th>MRS Value</th><td>${params.MRS_VALUE}</td></tr>
+                          <tr><th>MRT Value</th><td>${params.MRT_VALUE}</td></tr>
+                          <tr><th>Host</th><td>${params.host}</td></tr>
+                          <tr><th>Headless Mode</th><td>${params.HEADLESS_MODE}</td></tr>
+                          <tr><th>Status</th><td><b style="color:${status == 'SUCCESS' ? 'green' : 'red'};">${status}</b></td></tr>
+                        </table>
+                        <br/>
+                        <p>Full Report: <a href="${reportLink}">Click here to view the complete HTML report</a></p>
+                        <br/>
+                        <p>Kindly contact <b>hshaik</b> for any queries.</p>
+                        <p>Thanks,<br/>Jenkins</p>
+                      </body>
+                    </html>
+                """,
+                mimeType: 'text/html',
+                attachLog: true
+            )
         }
     }
 }
+
