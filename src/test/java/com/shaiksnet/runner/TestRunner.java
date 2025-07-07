@@ -40,12 +40,12 @@ public class TestRunner {
         System.out.println("Test Suite Execution Ended.");
 
         // Generate the custom report
-        Collection<File> jsonFiles = FileUtils.listFiles(new File(System.getProperty("user.dir")+"/target/cucmber"),
+        Collection<File> jsonFiles = FileUtils.listFiles(new File(System.getProperty("user.dir")+"/target/cucumber"),
                 new String[]{"json"}, true);
         List<String> jsonPaths = new ArrayList<>(jsonFiles.size());
         jsonFiles.forEach(file -> jsonPaths.add(file.getAbsolutePath()));
 
-        Configuration config = new Configuration(new File("target"), "ShaiksProject"); // Adjust "Shaiks Project" as needed
+        Configuration config = new Configuration(new File("target"), "ApplyMate"); // Adjust "Shaiks Project" as needed
         ReportBuilder reportBuilder = new ReportBuilder(jsonPaths, config);
         reportBuilder.generateReports();
     }

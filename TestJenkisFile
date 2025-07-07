@@ -1,12 +1,9 @@
 pipeline {
-    agent {
-        node {
-            label 'cm-linux'
-            tools {
-                maven 'linux/maven:Latest'
-                jdk 'linux/jdk11:Latest'
-            }
-        }
+    agent any
+
+    tools {
+        maven 'maven'      // Use your Maven tool name from Global Tool Configuration
+        jdk 'jdk22'        // Use your JDK tool name from Global Tool Configuration
     }
 
     parameters {
@@ -33,8 +30,8 @@ pipeline {
         stage('Setup Domain') {
             steps {
                 script {
-                    if (env.GIT_URL?.contains('account-information')) {
-                        env.DOMAIN = "IS-${params.TagName}"
+                    if (env.GIT_URL && env.GIT_URL.contains('visa')) {
+                        env.DOMAIN = "IS-${params.TagName ?: ''}"
                     }
                 }
             }
@@ -42,8 +39,15 @@ pipeline {
 
         stage('Print Tool Versions') {
             steps {
-                sh 'mvn -v'
-                sh 'java -version'
+                script {
+                    if (isUnix()) {
+                        sh 'mvn -v'
+                        sh 'java -version'
+                    } else {
+                        bat 'mvn -v'
+                        bat 'java -version'
+                    }
+                }
             }
         }
 
@@ -65,12 +69,10 @@ pipeline {
             }
         }
 
-        stage('Start BrowserstackLocal') {
+        stage('Start in Local or Grid') {
             when { expression { params.host != 'grid' } }
             steps {
-                script {
-                    echo 'Skipping BrowserStack setup for local runs (no need)'
-                }
+                echo 'Skipping BrowserStack setup for local runs (no need)'
             }
         }
 
@@ -79,91 +81,169 @@ pipeline {
                 script {
                     try {
                         echo 'Starting Visa Slot Monitoring Script'
-                        sh """
-                            mvn clean install \
-                              -Denvironment=${params.ENVIRONMENT} \
-                              -DtagName=${params.TagName} \
-                              -DheadlessMode=${params.HEADLESS_MODE} \
-                              -Dhost=${params.host} \
-                              -DgridURL=${params.GRID_URL} \
-                              -Dmrs=${params.MRS_VALUE} \
-                              -Dmrt=${params.MRT_VALUE}
-                        """
+                        if (isUnix()) {
+                            sh """
+                                mvn clean install \\
+                                  -Denvironment=${params.ENVIRONMENT} \\
+                                  -DtagName=${params.TagName} \\
+                                  -DheadlessMode=${params.HEADLESS_MODE} \\
+                                  -Dhost=${params.host} \\
+                                  -DgridURL=${params.GRID_URL} \\
+                                  -Dmrs=${params.MRS_VALUE} \\
+                                  -Dmrt=${params.MRT_VALUE}
+                            """
+                        } else {
+                            bat """
+                                mvn clean install ^
+                                  -Denvironment=${params.ENVIRONMENT} ^
+                                  -DtagName=${params.TagName} ^
+                                  -DheadlessMode=${params.HEADLESS_MODE} ^
+                                  -Dhost=${params.host} ^
+                                  -DgridURL=${params.GRID_URL} ^
+                                  -Dmrs=${params.MRS_VALUE} ^
+                                  -Dmrt=${params.MRT_VALUE}
+                            """
+                        }
                         echo 'Visa Slot Monitoring Completed'
                     } catch (e) {
-                        echo "Visa Slot Monitoring Failed: ${e.message}"
+                        echo "Visa Slot Monitoring Failed: ${e.getMessage()}"
                         currentBuild.result = 'FAILURE'
                     }
                 }
             }
         }
 
-        stage('Generate and Publish Reports') {
-            steps {
-                script {
-                    try {
-                        def reportHtml = readFile('target/cucumber-html-reports/overview-features.html')
-                        def table = (reportHtml =~ /(<table[\s\S]*?<\/table>)/)[0]
-                        table = table
-                            .replaceAll(/<table\b[^>]*>/, '<table border="1" style="border-collapse: collapse; width: 100%;">')
-                            .replaceAll(/<td\b[^>]*>/, '<td border="1">')
-                            .replaceAll(/<a\b[^>]*>/, '')
-                            .replaceAll(/<\/a>/, '')
+    stage('Publish Cucumber HTML Report') {
+  steps {
+    publishHTML(target: [
+      reportName: 'Cucumber Report',
+      reportDir: 'target/cucumber-html-reports',
+      reportFiles: 'overview-features.html',
+      keepAll: true,
+      alwaysLinkToLastBuild: true,
+      allowMissing: false
+    ])
+  }
+}
+       stage('Generate and Publish Reports') {
+    steps {
+        script {
+            try {
+                def mainReport = 'target/cucumber-html-reports/overview-features.html'
+                def failedReport = 'target/cucumber-html-reports/overview-failures.html'
 
-                        writeFile file: 'summary_report.html', text: """
-                            <html><body>
-                              <h2>Note: Please download attachment for full report</h2>
-                              <p>Test Execution Tag: <b>${params.TagName}</b></p>
-                              <p>Test Environment: <b>${params.ENVIRONMENT}</b></p>
-                              ${table}
-                              <p>Kindly contact your Automation Team for questions.</p>
-                              <p>Thank you.</p>
-                            </body></html>
-                        """
-                        archiveArtifacts artifacts: 'summary_report.html', fingerprint: true
-                    } catch (err) {
-                        echo "Report generation failed: ${err.message}"
-                    }
+                if (!fileExists(mainReport)) {
+                    echo("Report file not found: ${mainReport}")
+                    writeFile file: 'summary_report.html', text: """
+                        <html><body>
+                          <h2>No Report Found</h2>
+                          <p>The expected report <b>${mainReport}</b> was not generated.</p>
+                          <p>Tag: <b>${params.TagName}</b></p>
+                          <p>Environment: <b>${params.ENVIRONMENT}</b></p>
+                        </body></html>
+                    """
+                } else {
+                    def reportHtml = readFile(mainReport)
+                    def matcher = reportHtml =~ /<table[\\s\\S]*?<\\/table>/
+                    def table = matcher.find() ? matcher.group(0) : '<p>No test summary table found in report.</p>'
+
+                    // Beautify table
+                    table = table
+                        .replaceAll(/<table\\b[^>]*>/, '<table border="1" style="border-collapse: collapse; width: 100%;">')
+                        .replaceAll(/<td\\b[^>]*>/, '<td border="1">')
+                        .replaceAll(/<a\\b[^>]*>/, '')
+                        .replaceAll(/<\\/a>/, '')
+
+                    // Optional link to failed report
+                    def failureLink = fileExists(failedReport)
+                        ? "<p><a href='target/cucumber-html-reports/overview-failures.html' target='_blank'>View Failures</a></p>"
+                        : "<p>No test failures found.</p>"
+
+                    writeFile file: 'summary_report.html', text: """
+                        <html><body>
+                          <h2>Cucumber Test Execution Summary</h2>
+                          <p>Tag: <b>${params.TagName}</b></p>
+                          <p>Environment: <b>${params.ENVIRONMENT}</b></p>
+                          ${table}
+                          ${failureLink}
+                          <p><a href='target/cucumber-html-reports/overview-features.html' target='_blank'>Full Report</a></p>
+                          <p>Thank you,<br/>Automation Team</p>
+                        </body></html>
+                    """
+                }
+
+                // Archive reports
+                archiveArtifacts artifacts: 'summary_report.html', fingerprint: true
+                archiveArtifacts artifacts: 'target/cucumber-html-reports/**/*.html', fingerprint: true
+
+                // Publish main HTML report
+                publishHTML(target: [
+                    reportName : 'Cucumber Report',
+                    reportDir  : 'target/cucumber-html-reports',
+                    reportFiles: 'overview-features.html',
+                    keepAll    : true,
+                    alwaysLinkToLastBuild: true
+                ])
+
+            } catch (err) {
+                echo "Report generation failed: ${err.getMessage()}"
+                writeFile file: 'summary_report.html', text: """
+                    <html><body>
+                      <h2>Report Generation Failed</h2>
+                      <p>Error: ${err.getMessage()}</p>
+                      <p>Tag: <b>${params.TagName}</b></p>
+                      <p>Environment: <b>${params.ENVIRONMENT}</b></p>
+                    </body></html>
+                """
+                archiveArtifacts artifacts: 'summary_report.html', fingerprint: true
+                currentBuild.result = 'FAILURE'
+            }
+        }
+    }
+ }
+}
+
+
+    post {
+        always {
+            script {
+                def status = currentBuild.result ?: 'SUCCESS'
+                def reportLink = "${env.BUILD_URL}artifact/summary_report.html"
+                echo "Build completed with status: ${status}"
+
+                try {
+                    emailext(
+                        to: 'shaikmahaboobsubhani00@gmail.com',
+                        subject: "Visa Slot Monitor - Execution Summary | Build #${env.BUILD_NUMBER} | ${status}",
+                        body: """
+                            <html>
+                              <body>
+                                <h2>Visa Slot Monitoring - Execution Summary</h2>
+                                <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+                                  <tr><th>Execution Tag</th><td>${params.TagName}</td></tr>
+                                  <tr><th>Environment</th><td>${params.ENVIRONMENT}</td></tr>
+                                  <tr><th>Branch</th><td>${params.branch}</td></tr>
+                                  <tr><th>MRS Value</th><td>${params.MRS_VALUE}</td></tr>
+                                  <tr><th>MRT Value</th><td>${params.MRT_VALUE}</td></tr>
+                                  <tr><th>Host</th><td>${params.host}</td></tr>
+                                  <tr><th>Headless Mode</th><td>${params.HEADLESS_MODE}</td></tr>
+                                  <tr><th>Status</th><td><b style="color:${status == 'SUCCESS' ? 'green' : 'red'};">${status}</b></td></tr>
+                                </table>
+                                <br/>
+                                <p>Full Report: <a href="${reportLink}">Click here to view the complete HTML report</a></p>
+                                <br/>
+                                <p>Kindly contact <b>hshaik</b> for any queries.</p>
+                                <p>Thanks,<br/>Jenkins</p>
+                              </body>
+                            </html>
+                        """,
+                        mimeType: 'text/html',
+                        attachLog: true
+                    )
+                } catch (emailErr) {
+                    echo "Email sending failed: ${emailErr.getMessage()}"
                 }
             }
         }
     }
-
-    post {
-        always {
-            echo "Build completed with status: ${currentBuild.result ?: 'SUCCESS'}"
-            def status = currentBuild.result ?: 'SUCCESS'
-            def reportLink = "${env.BUILD_URL}artifact/summary_report.html"
-
-            emailext(
-                to: 'shaikmahaboobsubhani00@gmail.com',
-                subject: "Visa Slot Monitor - Execution Summary | Build #${env.BUILD_NUMBER} | ${status}",
-                body: """
-                    <html>
-                      <body>
-                        <h2>Visa Slot Monitoring - Execution Summary</h2>
-                        <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%;">
-                          <tr><th>Execution Tag</th><td>${params.TagName}</td></tr>
-                          <tr><th>Environment</th><td>${params.ENVIRONMENT}</td></tr>
-                          <tr><th>Branch</th><td>${params.branch}</td></tr>
-                          <tr><th>MRS Value</th><td>${params.MRS_VALUE}</td></tr>
-                          <tr><th>MRT Value</th><td>${params.MRT_VALUE}</td></tr>
-                          <tr><th>Host</th><td>${params.host}</td></tr>
-                          <tr><th>Headless Mode</th><td>${params.HEADLESS_MODE}</td></tr>
-                          <tr><th>Status</th><td><b style="color:${status == 'SUCCESS' ? 'green' : 'red'};">${status}</b></td></tr>
-                        </table>
-                        <br/>
-                        <p>Full Report: <a href="${reportLink}">Click here to view the complete HTML report</a></p>
-                        <br/>
-                        <p>Kindly contact <b>hshaik</b> for any queries.</p>
-                        <p>Thanks,<br/>Jenkins</p>
-                      </body>
-                    </html>
-                """,
-                mimeType: 'text/html',
-                attachLog: true
-            )
-        }
-    }
 }
-

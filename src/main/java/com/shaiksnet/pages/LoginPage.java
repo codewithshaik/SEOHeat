@@ -22,8 +22,10 @@ public class LoginPage {
 
         try{
             logger.info("In OpenUrl");
-            String url = Util.getProperty(psLbl_defaultimplicitywait);
+            String url = Util.getProperty("loginUrl");
+            System.out.println(url);
             driver.get(url);
+
             logger.info("OpenUrl Completed");
 
         }catch (Exception e){

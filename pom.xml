@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>visaSlotMonitoring</artifactId>
+    <artifactId>ApplyMate</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>

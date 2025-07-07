@@ -25,6 +25,7 @@ public class Hooks {
     public void setup(Scenario scenario) {
         String scenarioName = FilenameUtils.getBaseName(scenario.getUri().toString());
         String oldScenarioName = Util.getProperty("scenarioName");
+        boolean headlessoption = Boolean.parseBoolean(Util.getProperty("HeadlessMode"));
 
         if (driver == null || !scenarioName.equals(oldScenarioName)) {
             if (driver != null) {
@@ -48,10 +49,13 @@ public class Hooks {
                 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+driverPath);
                 System.out.println(System.getProperty("user.dir")+driverPath);
                 ChromeOptions options = new ChromeOptions();
+                if(headlessoption){
+                    options.addArguments("--headless");
+                }
                 HashMap<String, Object> chromePrefs = new HashMap<>();
                 chromePrefs.put("plugins.always_open_pdf_externally", true);
                 //options.setExperimentalOption("prefs", chromePrefs);
-               // options.addArguments("user-data-dir=/path/to/fresh/profile");
+                // options.addArguments("user-data-dir=/path/to/fresh/profile");
                 driver = new ChromeDriver(options);
             } else if (host.equalsIgnoreCase("BrowserStack")) {
                 ChromeOptions options = new ChromeOptions();
