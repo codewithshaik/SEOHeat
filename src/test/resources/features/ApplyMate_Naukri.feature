@@ -4,8 +4,7 @@ Feature: Naukri Apply mate
 
   Background:
     Given the user logs into naukri.com
-      | shaikmahaboobsubhani0777@gmail.com |
-      | WXVjYW50Y2F0Y2htZTEyISE=           |
+
 
 
   Scenario: updating naukri profile with keywords, job application and resume
