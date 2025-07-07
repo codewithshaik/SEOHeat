@@ -51,7 +51,7 @@ public class LoginPage {
         }
     }
 
-    public void userLoginIntoCheckUsVisaSlotsNet() {
+    public void userLoginIntonaukri() {
         try{
 
             Util.implicitWait(driver);
@@ -59,7 +59,7 @@ public class LoginPage {
 
 
         }catch (Exception e){
-            fail("Step: userLoginIntoCheckUsVisaSlotsNet failed");
+            fail("Step: userLoginIntonaukri failed");
         }
 
 

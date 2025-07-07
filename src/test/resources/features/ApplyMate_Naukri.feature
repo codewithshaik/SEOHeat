@@ -3,7 +3,7 @@
     I want to use this template for naukri daily login and resume
 
   Background:
-    Given the user logs into US Check visa slots with valid credentials
+    Given the user logs into naukri.com
 
 
     Scenario: logging into the net
