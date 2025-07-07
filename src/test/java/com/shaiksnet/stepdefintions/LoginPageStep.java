@@ -12,8 +12,8 @@ public class LoginPageStep {
     private final LoginPage LoginPage = new LoginPage(Hooks.getDriver());
 
     @Then("the user logs into naukri.com")
-    public void the_user_logs_into_naukri_com(DataTable dataTable) {
-        LoginPage.userLoginIntonaukri(dataTable);
+    public void the_user_logs_into_naukri_com() {
+        LoginPage.userLoginIntonaukri();
     }
 
     @And("the user login into flowCv")
