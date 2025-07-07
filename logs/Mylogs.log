@@ -590,3 +590,63 @@
 2025-07-08 00:23:07 INFO  LoginPage:188 - userLoginIntonaukri started
 2025-07-08 00:23:17 INFO  Hooks:97 - Browser session terminated
 2025-07-08 00:23:17 INFO  Hooks:97 - Browser session terminated
+2025-07-08 00:27:36 INFO  Hooks:37 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 00:27:36 INFO  Hooks:37 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 00:27:37 INFO  Hooks:89 - Browser setup completed
+2025-07-08 00:27:37 INFO  Hooks:89 - Browser setup completed
+2025-07-08 00:27:37 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 00:27:37 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 00:27:37 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 00:27:37 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 00:27:38 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 00:27:38 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 00:27:54 INFO  Hooks:97 - Browser session terminated
+2025-07-08 00:27:54 INFO  Hooks:97 - Browser session terminated
+2025-07-08 00:28:00 INFO  Hooks:37 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 00:28:00 INFO  Hooks:37 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 00:28:02 INFO  Hooks:89 - Browser setup completed
+2025-07-08 00:28:02 INFO  Hooks:89 - Browser setup completed
+2025-07-08 00:28:02 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 00:28:02 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 00:28:02 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 00:28:02 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 00:28:03 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 00:28:03 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 00:28:28 INFO  Hooks:37 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 00:28:28 INFO  Hooks:37 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 00:28:30 INFO  Hooks:89 - Browser setup completed
+2025-07-08 00:28:30 INFO  Hooks:89 - Browser setup completed
+2025-07-08 00:28:30 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 00:28:30 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 00:28:30 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 00:28:30 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 00:28:31 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 00:28:31 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 00:28:33 INFO  LoginPage:188 - userLoginIntonaukri started
+2025-07-08 00:28:33 INFO  LoginPage:188 - userLoginIntonaukri started
+2025-07-08 01:28:03 INFO  Hooks:37 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 01:28:03 INFO  Hooks:37 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 01:28:06 INFO  Hooks:89 - Browser setup completed
+2025-07-08 01:28:06 INFO  Hooks:89 - Browser setup completed
+2025-07-08 01:28:06 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 01:28:06 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 01:28:06 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 01:28:06 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 01:28:06 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 01:28:06 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 01:28:14 INFO  Hooks:97 - Browser session terminated
+2025-07-08 01:28:14 INFO  Hooks:97 - Browser session terminated
+2025-07-08 01:28:20 INFO  Hooks:37 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 01:28:20 INFO  Hooks:37 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 01:28:22 INFO  Hooks:89 - Browser setup completed
+2025-07-08 01:28:22 INFO  Hooks:89 - Browser setup completed
+2025-07-08 01:28:22 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 01:28:22 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 01:28:22 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 01:28:22 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 01:28:23 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 01:28:23 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 01:28:25 INFO  LoginPage:188 - userLoginIntonaukri started
+2025-07-08 01:28:25 INFO  LoginPage:188 - userLoginIntonaukri started
+2025-07-08 01:28:35 INFO  Hooks:97 - Browser session terminated
+2025-07-08 01:28:35 INFO  Hooks:97 - Browser session terminated

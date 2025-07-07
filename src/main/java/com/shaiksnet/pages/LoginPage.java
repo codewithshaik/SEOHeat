@@ -134,7 +134,7 @@ public class LoginPage {
 
     }
 
-    public void userLoginIntonaukri(DataTable dataTable) {
+    public void userLoginIntonaukri( ) {
         try{
             logger.info("userLoginIntonaukri started");
             String loginType = Util.getProperty("loginType");
@@ -146,7 +146,7 @@ public class LoginPage {
             Thread.sleep(1000);
 
             if(loginType.equalsIgnoreCase("mail")|| loginType.equalsIgnoreCase("gmail")){
-                String encodedPassword = dataTable.cell(1,0);
+                String encodedPassword = Util.getProperty("NaukriPasswordBase64");
                 System.out.println("Encoded password: " + encodedPassword);
                 byte[] decodedBytes = Base64.getDecoder().decode(encodedPassword);
                 String decodedString = new String(decodedBytes);
@@ -155,7 +155,7 @@ public class LoginPage {
 
                 WebElement userName = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"username")));
                 WebElement password = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"password")));
-                userName.sendKeys(dataTable.cell(0,0));
+                userName.sendKeys(Util.getProperty("naukriGmail"));
                 password.sendKeys(decodedString);
 
                 WebElement submitBtn = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"logonBtn")));
@@ -176,6 +176,8 @@ public class LoginPage {
                 WebElement otpInput = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"otpInput")));
                 otpInput.sendKeys(otp);
 
+            }else{
+                fail("please provide Naukri login type in OTP or gmail only");
             }
             {
 
