@@ -14,6 +14,8 @@ pipeline {
         string(name: 'Naukri app password (Base 64)', defaultValue: '', description: 'Naukri app password (Base 64)')
         choice(name: 'HeadlessMode', choices: ['true', 'false'], description: 'Please select headless mode')
         string(name: 'TagName', defaultValue: '', description: 'Please select the tag name to run the scenario')
+        string(name: 'git Url', description: 'Git repository URL')
+        string(name: 'Git Branch', description: 'Git branch to checkout')
 
 
     }
@@ -53,22 +55,22 @@ pipeline {
         }
 
         stage('Checkout Code') {
-            steps {
-                checkout([
-                    $class: 'GitSCM',
-                    branches: [[name: params.branch]],
-                    doGenerateSubmoduleConfigurations: false,
-                    extensions: [
-                        [$class: 'CleanBeforeCheckout'],
-                        [$class: 'WipeWorkspace']
-                    ],
-                    userRemoteConfigs: [[
-                        url: 'https://github.com/Mrshaik-hub/ApplyMate.git',
-                        credentialsId: 'your_git_credentials'
-                    ]]
-                ])
-            }
-        }
+               steps {
+                   checkout([
+                       $class: 'GitSCM',
+                       branches: [[name: "*/${params.git branch}"]],
+                       doGenerateSubmoduleConfigurations: false,
+                       extensions: [
+                           [$class: 'CleanBeforeCheckout'],
+                           [$class: 'WipeWorkspace']
+                       ],
+                       userRemoteConfigs: [[
+                           url: params.git Url
+                           // credentialsId removed as repo is public
+                       ]]
+                   ])
+               }
+           }
 
         stage('Start in Local or Grid') {
             when { expression { params.host != 'grid' } }
