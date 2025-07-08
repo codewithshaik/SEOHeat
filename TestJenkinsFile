@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         maven 'maven'      // Use your Maven tool name from Global Tool Configuration
-        jdk 'jdk22'        // Use your JDK tool name from Global Tool Configuration
+        jdk 'jdk21'        // Use your JDK tool name from Global Tool Configuration
     }
 
     parameters {
