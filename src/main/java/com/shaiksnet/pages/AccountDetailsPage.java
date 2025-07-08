@@ -8,7 +8,9 @@ import org.openqa.selenium.WebDriver;
 import io.cucumber.datatable.DataTable;
 import org.openqa.selenium.WebElement;
 
-import java.sql.Driver;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class AccountDetailsPage {
     private final WebDriver driver;
@@ -17,16 +19,70 @@ public class AccountDetailsPage {
     public AccountDetailsPage(WebDriver driver) {
         this.driver = driver;
     }
+    public static String getFixedLengthSkillsString(int targetLength) {
+        List<String> allSkills = Arrays.asList(
+                "Java", "Core Java", "Selenium WebDriver", "TestNG", "JUnit", "Cucumber", "REST Assured", "Postman",
+                "Karate", "API Testing", "Automation Testing", "Manual Testing", "SDET", "Agile", "Scrum", "POM",
+                "BDD", "TDD", "Maven", "Gradle", "Jenkins", "Git", "GitHub", "Bitbucket", "CI/CD", "DevOps", "Docker",
+                "Kubernetes", "Linux", "MySQL", "MongoDB", "Oracle", "Swagger", "JSON", "XML", "YAML", "STLC", "SDLC",
+                "JIRA", "Confluence", "XPath", "Playwright", "Cypress", "Appium", "BrowserStack", "Sauce Labs",
+                "Bug Tracking", "Test Strategy", "Test Planning", "Smoke Testing", "Regression Testing",
+                "Functional Testing", "Cross Browser Testing", "Test Reporting", "Version Control"
+        );
+
+        Collections.shuffle(allSkills);
+
+        StringBuilder result = new StringBuilder();
+        for (String skill : allSkills) {
+            if (result.length() + skill.length() + 2 > targetLength) break; // +2 for ", "
+            if (result.length() > 0) result.append(", ");
+            result.append(skill);
+        }
+
+        return result.toString();
+    }
+
+    public static String get245Chars() {
+        String skills245 = getFixedLengthSkillsString(245);
+        return skills245 ;
+    }
 
     public  void theUserUpdateNaukriKeywords(DataTable dataTable) {
         try {
-           WebElement naukriSkill =  driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"findNaukriSkill")));
+              logger.info("In theUserUpdateNaukriKeywords started");
+              WebElement viewProfile = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"viewProfile")));
+              viewProfile.click();
+           WebElement naukriSkill =  driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"updateHeadLine")));
            naukriSkill.click();
-           WebElement naukriSkillInput = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"naukriSkillInput")));
-              naukriSkillInput.sendKeys(dataTable.cell(0, 0));
-              naukriSkillInput.sendKeys(dataTable.cell(1, 0), dataTable.cell(2, 0));
-              WebElement naukriSkillAddButton = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"naukriSkillAddButton")));
-              naukriSkillInput.click();
+           WebElement naukriSkillInput = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"skillInput")));
+           naukriSkillInput.clear();
+           String  skills = get245Chars();
+           naukriSkillInput.sendKeys(skills);
+              WebElement naukriSkillAddButton = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"naukriSkillSaveBtn")));
+            naukriSkillAddButton.click();
+
+            //key skills update
+            WebElement keySkill =  driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"keySkills")));
+            Thread.sleep(2000);
+            keySkill.click();
+            Thread.sleep(2000);
+            WebElement keySkillInput = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"keySkillInput")));
+            //removeskills
+            Thread.sleep(5000); // Wait for the UI to load
+            while (true) {
+                List<WebElement> removeButtons = driver.findElements(By.xpath(Util.getXpath(getClass().getSimpleName(),"removeSkills"))); // Update this to match your site
+                if (removeButtons.isEmpty()) break;
+                removeButtons.get(0).click(); // Remove first skill
+                Thread.sleep(500); // Add small wait if needed for UI to update
+            }
+            keySkillInput.sendKeys(skills);
+            Thread.sleep(2000);
+            WebElement keySkillAddButton = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"keySkillSaveBtn")));
+            keySkillAddButton.click();
+
+
+
+            logger.info("In theUserUpdateNaukriKeywords completed");
 
         } catch (Exception e) {
             logger.error("Failed to update Naukri keywords", e);
