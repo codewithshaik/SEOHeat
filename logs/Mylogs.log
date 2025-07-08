@@ -650,3 +650,71 @@
 2025-07-08 01:28:25 INFO  LoginPage:188 - userLoginIntonaukri started
 2025-07-08 01:28:35 INFO  Hooks:97 - Browser session terminated
 2025-07-08 01:28:35 INFO  Hooks:97 - Browser session terminated
+2025-07-08 13:44:09 INFO  Hooks:37 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 13:44:09 INFO  Hooks:37 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 13:44:10 INFO  Hooks:89 - Browser setup completed
+2025-07-08 13:44:10 INFO  Hooks:89 - Browser setup completed
+2025-07-08 13:44:10 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 13:44:10 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 13:44:10 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 13:44:10 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 13:44:13 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 13:44:13 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 13:44:21 INFO  Hooks:97 - Browser session terminated
+2025-07-08 13:44:21 INFO  Hooks:97 - Browser session terminated
+2025-07-08 13:49:36 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 13:49:36 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 13:49:38 INFO  Hooks:118 - Browser session terminated
+2025-07-08 13:49:38 INFO  Hooks:118 - Browser session terminated
+2025-07-08 13:53:01 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 13:53:01 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 13:53:02 INFO  Hooks:110 - Browser setup completed
+2025-07-08 13:53:02 INFO  Hooks:110 - Browser setup completed
+2025-07-08 13:53:02 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 13:53:02 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 13:53:02 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 13:53:02 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 13:53:04 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 13:53:04 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 13:53:10 INFO  Hooks:118 - Browser session terminated
+2025-07-08 13:53:10 INFO  Hooks:118 - Browser session terminated
+2025-07-08 13:53:18 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 13:53:18 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 13:53:20 INFO  Hooks:110 - Browser setup completed
+2025-07-08 13:53:20 INFO  Hooks:110 - Browser setup completed
+2025-07-08 13:53:20 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 13:53:20 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 13:53:20 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 13:53:20 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 13:53:21 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 13:53:21 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 13:53:23 INFO  LoginPage:190 - userLoginIntonaukri started
+2025-07-08 13:53:23 INFO  LoginPage:190 - userLoginIntonaukri started
+2025-07-08 13:53:33 INFO  Hooks:118 - Browser session terminated
+2025-07-08 13:53:33 INFO  Hooks:118 - Browser session terminated
+2025-07-08 13:54:29 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 13:54:29 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 13:54:30 INFO  Hooks:110 - Browser setup completed
+2025-07-08 13:54:30 INFO  Hooks:110 - Browser setup completed
+2025-07-08 13:54:30 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 13:54:30 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 13:54:30 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 13:54:30 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 13:54:32 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 13:54:32 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 13:54:33 INFO  LoginPage:190 - userLoginIntonaukri started
+2025-07-08 13:54:33 INFO  LoginPage:190 - userLoginIntonaukri started
+2025-07-08 13:55:22 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 13:55:22 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 13:55:37 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 13:55:37 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 13:55:38 INFO  Hooks:110 - Browser setup completed
+2025-07-08 13:55:38 INFO  Hooks:110 - Browser setup completed
+2025-07-08 13:55:38 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 13:55:38 INFO  LoginPage:139 - userLoginIntonaukri started
+2025-07-08 13:55:38 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 13:55:38 INFO  LoginPage:30 - In OpenUrl
+2025-07-08 13:55:40 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 13:55:40 INFO  LoginPage:35 - OpenUrl Completed
+2025-07-08 13:56:54 INFO  Hooks:118 - Browser session terminated
+2025-07-08 13:56:54 INFO  Hooks:118 - Browser session terminated

@@ -1,18 +1,20 @@
 package com.shaiksnet.stepdefintions;
 
 import com.shaiksnet.pages.AccountDetailsPage;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.datatable.DataTable;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class AccountDetailsPageStep {
     private final AccountDetailsPage accountDetailsPage = new AccountDetailsPage(Hooks.getDriver());
 
-
     @When("the user update naukri keywords")
     public void theUserUpdateNaukriKeywords(DataTable dataTable) {
-        AccountDetailsPage.theUserUpdateNaukriKeywords(dataTable);
+        accountDetailsPage.theUserUpdateNaukriKeywords(dataTable);
     }
 
     @When("the user updates naukri resume")

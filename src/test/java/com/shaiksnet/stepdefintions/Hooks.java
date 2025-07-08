@@ -10,6 +10,10 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.HasDevTools;
+import org.openqa.selenium.devtools.v128.network.Network;
+import org.openqa.selenium.devtools.v129.storage.Storage;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -62,6 +66,23 @@ public class Hooks {
                 options.setExperimentalOption("prefs", chromePrefs);
                 options.addArguments("user-data-dir=/path/to/fresh/profile");
                 driver = new ChromeDriver(options);
+
+                // Access DevTools
+//                DevTools devTools = ((HasDevTools) driver).getDevTools();
+//                devTools.createSession();
+//
+//                // Clear browser cache
+//                devTools.send(Network.clearBrowserCache());
+//
+//                // Clear browser cookies
+//                devTools.send(Network.clearBrowserCookies());
+//
+//                // Clear site data (storage, etc.)
+//                devTools.send(Storage.clearDataForOrigin(
+//                        "*", // Wildcard for all origins doesn't work — use actual origin if needed
+//                        "all"
+//                ));
+
             } else if (host.equalsIgnoreCase("BrowserStack")) {
                 ChromeOptions options = new ChromeOptions();
                 DesiredCapabilities caps = new DesiredCapabilities();
