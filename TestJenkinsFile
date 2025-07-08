@@ -12,8 +12,8 @@ pipeline {
         string(name: 'naukri Gmail', defaultValue: '', description: 'Please provide naukri gmail')
         string(name: 'Naukri Registered Phone Number', defaultValue: '', description: 'Please provide Naukri Registered Number')
         choice(name: 'Naukri app password (Base 64)', defaultValue:'', description: 'Naukri app password (Base 64)')
-        string(name: 'HeadlessMode', choices( ['true', 'false'], description: 'please select headless mode')
-        string(name: 'TagName', defaultValue: '', description: 'please select the tag Name to run the Scenario')
+        choice(name: 'HeadlessMode', choices: ['true', 'false'], description: 'Please select headless mode')
+        string(name: 'TagName', defaultValue: '', description: 'Please select the tag name to run the scenario')
 
 
     }
