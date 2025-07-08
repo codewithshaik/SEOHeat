@@ -13,17 +13,17 @@ public class AccountDetailsPageStep {
     private final AccountDetailsPage accountDetailsPage = new AccountDetailsPage(Hooks.getDriver());
 
     @When("the user update naukri keywords")
-    public void theUserUpdateNaukriKeywords(DataTable dataTable) {
-        accountDetailsPage.theUserUpdateNaukriKeywords(dataTable);
+    public void theUserUpdateNaukriKeywords() {
+        accountDetailsPage.theUserUpdateNaukriKeywords();
     }
 
     @When("the user updates naukri resume")
-    public void theUserUpdatesNaukriResume(DataTable dataTable) {
+    public void theUserUpdatesNaukriResume() {
 
     }
 
     @When("the user updates naukri profile")
-    public void theUserUpdatesNaukriProfile(DataTable dataTable) {
+    public void theUserUpdatesNaukriProfile() {
 
     }
 
@@ -43,7 +43,7 @@ public class AccountDetailsPageStep {
     }
 
     @When("the user updates naukri job search")
-    public void theUserUpdatesNaukriJobSearch(DataTable dataTable) {
+    public void theUserUpdatesNaukriJobSearch() {
 
     }
 
