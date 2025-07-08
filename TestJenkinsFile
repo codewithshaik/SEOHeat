@@ -14,8 +14,8 @@ pipeline {
         string(name: 'Naukri app password (Base 64)', defaultValue: '', description: 'Naukri app password (Base 64)')
         choice(name: 'HeadlessMode', choices: ['true', 'false'], description: 'Please select headless mode')
         string(name: 'TagName', defaultValue: '', description: 'Please select the tag name to run the scenario')
-        string(name: 'git Url', description: 'Git repository URL')
-        string(name: 'Git Branch', description: 'Git branch to checkout')
+        string(name: 'gitUrl', description: 'Git repository URL')
+        string(name: 'GitBranch', description: 'Git branch to checkout')
 
 
     }
@@ -58,14 +58,14 @@ pipeline {
                steps {
                    checkout([
                        $class: 'GitSCM',
-                       branches: [[name: "*/${params.git branch}"]],
+                       branches: [[name: "*/${params.gitbranch}"]],
                        doGenerateSubmoduleConfigurations: false,
                        extensions: [
                            [$class: 'CleanBeforeCheckout'],
                            [$class: 'WipeWorkspace']
                        ],
                        userRemoteConfigs: [[
-                           url: params.git Url
+                           url: params.gitUrl
                            // credentialsId removed as repo is public
                        ]]
                    ])
