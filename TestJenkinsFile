@@ -58,7 +58,7 @@ pipeline {
                steps {
                    checkout([
                        $class: 'GitSCM',
-                       branches: [[name: "*/${params.gitbranch}"]],
+                       branches: [[name: "*/${params.gitBranch}"]],
                        doGenerateSubmoduleConfigurations: false,
                        extensions: [
                            [$class: 'CleanBeforeCheckout'],
