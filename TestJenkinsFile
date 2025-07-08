@@ -86,10 +86,10 @@ pipeline {
                             sh """
                                 mvn clean install \\
                                   -Denvironment=${params.Host} \\
-                                  -DloginType=${params.Naukri login Type} \\
-                                  -DnaukriGmail=${params.naukri Gmail} \\
-                                  -DotpNumber=${params.Naukri Registered Phone Number} \\
-                                  -DNaukriPasswordBase64=${params.Naukri app password (Base 64)} \\
+                                  -DloginType=${params['Naukri login Type']} \\
+                                  -DnaukriGmail=${params['naukri Gmail']} \\
+                                  -DotpNumber=${params['Naukri Registered Phone Number']} \\
+                                  -DNaukriPasswordBase64=${params['Naukri app password (Base 64)']} \\
                                   -DHeadlessMode=${params.HeadlessMode} \\
                                   -Dcucumber.filter.tags=${params.TagName}
                             """
@@ -97,10 +97,10 @@ pipeline {
                             bat """
                                 mvn clean install ^
                                   -Denvironment=${params.Host} ^
-                                  -DloginType=${params.Naukri login Type} ^
-                                  -DnaukriGmail=${params.naukri Gmail} ^
-                                  -DotpNumber=${params.Naukri Registered Phone Number} ^
-                                  -DNaukriPasswordBase64=${params.Naukri app password (Base 64)} ^
+                                  -DloginType=${params['Naukri login Type']} ^
+                                  -DnaukriGmail=${params['naukri Gmail']} ^
+                                  -DotpNumber=${params['Naukri Registered Phone Number']} ^
+                                  -DNaukriPasswordBase64=${params['Naukri app password (Base 64)']} ^
                                   -DHeadlessMode=${params.HeadlessMode} ^
                                   -Dcucumber.filter.tags=${params.TagName}
                             """
