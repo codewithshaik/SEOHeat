@@ -14,8 +14,8 @@ pipeline {
         string(name: 'Naukri app password (Base 64)', defaultValue: '', description: 'Naukri app password (Base 64)')
         choice(name: 'HeadlessMode', choices: ['true', 'false'], description: 'Please select headless mode')
         string(name: 'TagName', defaultValue: '', description: 'Please select the tag name to run the scenario')
-        string(name: 'gitUrl', description: 'Git repository URL')
-        string(name: 'GitBranch', description: 'Git branch to checkout')
+        string(name: 'gitUrl', defaultValue: 'https://github.com/Mrshaik-hub/ApplyMate.git', description: 'Git repository URL')
+        string(name: 'gitBranch', defaultValue: 'main', description: 'Git branch to checkout')
 
 
     }
