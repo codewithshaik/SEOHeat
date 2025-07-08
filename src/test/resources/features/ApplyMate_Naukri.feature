@@ -6,13 +6,13 @@ Feature: Naukri Apply mate
     Given the user logs into naukri.com
 
 
-
   Scenario: updating naukri profile with keywords, job application and resume
     When the user update naukri keywords
-      | keywords |
-      | java     |
-      | selenium |
-      | rest api |
+      | Resume Headline | key Skills  |
+      | Karate          | API Testing |
+      | CI/CD           | Maven       |
+      | MongoDB         | GitHub      |
+      | UI Automation   | POM         |
 
     When the user updates naukri job search
       | jobSearch     |

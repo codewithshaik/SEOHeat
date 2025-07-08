@@ -12,8 +12,7 @@ import org.openqa.selenium.WebElement;
 
 import javax.mail.*;
 import javax.mail.internet.MimeMultipart;
-import java.util.Base64;
-import java.util.Properties;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,7 +28,6 @@ public class LoginPage {
         try{
             logger.info("In OpenUrl");
             String url = Util.getProperty("loginUrl");
-            System.out.println(url);
             driver.get(url);
 
             logger.info("OpenUrl Completed");
@@ -134,63 +132,68 @@ public class LoginPage {
 
     }
 
+
     public void userLoginIntonaukri( ) {
         try{
             logger.info("userLoginIntonaukri started");
             String loginType = Util.getProperty("loginType");
-            Util.implicitWait(driver);
             openUrl();
+            Util.implicitWait(driver);
+            if(!driver.getCurrentUrl().contains("homepage")){
+                WebElement loginBtn = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"loginButton")));
+                loginBtn.click();
+                Thread.sleep(1000);
 
-            WebElement loginBtn = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"loginButton")));
-            loginBtn.click();
-            Thread.sleep(1000);
+                if(loginType.equalsIgnoreCase("mail")|| loginType.equalsIgnoreCase("gmail")){
+                    String encodedPassword = Util.getProperty("NaukriPasswordBase64");
+                    System.out.println("Encoded password: " + encodedPassword);
+                    byte[] decodedBytes = Base64.getDecoder().decode(encodedPassword);
+                    String decodedString = new String(decodedBytes);
+                    System.out.println("Decoded string: " + decodedString);
+                    Util.implicitWait(driver);
 
-            if(loginType.equalsIgnoreCase("mail")|| loginType.equalsIgnoreCase("gmail")){
-                String encodedPassword = Util.getProperty("NaukriPasswordBase64");
-                System.out.println("Encoded password: " + encodedPassword);
-                byte[] decodedBytes = Base64.getDecoder().decode(encodedPassword);
-                String decodedString = new String(decodedBytes);
-                System.out.println("Decoded string: " + decodedString);
-                Util.implicitWait(driver);
+                    WebElement userName = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"username")));
+                    WebElement password = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"password")));
+                    userName.sendKeys(Util.getProperty("naukriGmail"));
+                    password.sendKeys(decodedString);
 
-                WebElement userName = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"username")));
-                WebElement password = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"password")));
-                userName.sendKeys(Util.getProperty("naukriGmail"));
-                password.sendKeys(decodedString);
+                    WebElement submitBtn = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"logonBtn")));
+                    submitBtn.click();
+                } else if (loginType.equalsIgnoreCase("otp")) {
+                    WebElement otpLogin = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"otpLoginBtn")));
+                    otpLogin.click();
+                    Util.implicitWait(driver);
+                    WebElement otpPhoneNumber = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"mobNumberInput")));
+                    otpPhoneNumber.sendKeys(Util.getProperty("otpNumber"));
+                    Util.implicitWait(driver);
+                    WebElement getOtpBtn = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"getOtpBtn")));
+                    getOtpBtn.click();
+                    Thread.sleep(5000);
+                    gmailOtpReader();// Wait for OTP to be received
+                    String otp = gmailOtpReader();
+                    System.out.println("OTP received: " + otp);
+                    WebElement otpInput = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"otpInput")));
+                    otpInput.sendKeys(otp);
+
+                }else{
+                    fail("please provide Naukri login type in OTP or gmail only");
+                }
+                {
+
+                }
+
 
                 WebElement submitBtn = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"logonBtn")));
                 submitBtn.click();
-            } else if (loginType.equalsIgnoreCase("otp")) {
-                WebElement otpLogin = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"otpLoginBtn")));
-                otpLogin.click();
-                Util.implicitWait(driver);
-                WebElement otpPhoneNumber = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"mobNumberInput")));
-                otpPhoneNumber.sendKeys(Util.getProperty("otpNumber"));
-                Util.implicitWait(driver);
-                WebElement getOtpBtn = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"getOtpBtn")));
-                getOtpBtn.click();
-                Thread.sleep(5000);
-                gmailOtpReader();// Wait for OTP to be received
-                String otp = gmailOtpReader();
-                System.out.println("OTP received: " + otp);
-                WebElement otpInput = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"otpInput")));
-                otpInput.sendKeys(otp);
 
-            }else{
-                fail("please provide Naukri login type in OTP or gmail only");
-            }
-            {
-
+            }else {
+                System.out.println("user already logged in");
             }
 
 
-            WebElement submitBtn = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"logonBtn")));
-            submitBtn.click();
-
-            logger.info("userLoginIntonaukri started");
-            Thread.sleep(10000);
+            logger.info("userLoginIntonaukri comple");
         }catch (Exception e){
-            fail("Step: userLoginIntonaukri failed");
+            logger.error("Step: userLoginIntonaukri failed");
         }
 
 
