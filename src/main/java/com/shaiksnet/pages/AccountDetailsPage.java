@@ -47,7 +47,7 @@ public class AccountDetailsPage {
         return skills245 ;
     }
 
-    public  void theUserUpdateNaukriKeywords(DataTable dataTable) {
+    public  void theUserUpdateNaukriKeywords() {
         try {
               logger.info("In theUserUpdateNaukriKeywords started");
               WebElement viewProfile = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"viewProfile")));
@@ -68,12 +68,14 @@ public class AccountDetailsPage {
             Thread.sleep(2000);
             WebElement keySkillInput = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"keySkillInput")));
             //removeskills
-            Thread.sleep(5000); // Wait for the UI to load
-            while (true) {
-                List<WebElement> removeButtons = driver.findElements(By.xpath(Util.getXpath(getClass().getSimpleName(),"removeSkills"))); // Update this to match your site
-                if (removeButtons.isEmpty()) break;
-                removeButtons.get(0).click(); // Remove first skill
-                Thread.sleep(500); // Add small wait if needed for UI to update
+            Thread.sleep(3000); // Wait for skills to load
+
+            int skillCount = driver.findElements(By.xpath(Util.getXpath(getClass().getSimpleName(), "removeSkills"))).size();
+
+            for (int i = 0; i < skillCount; i++) {
+                WebElement removeButton = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(), "removeSkills")));
+                removeButton.click();
+                Thread.sleep(300); // Allow DOM to refresh after each removal
             }
             keySkillInput.sendKeys(skills);
             Thread.sleep(2000);

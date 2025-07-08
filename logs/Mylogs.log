@@ -3426,3 +3426,71 @@ Session ID: b3f4ed41c112bfeb11ed33adfaf7d958
 2025-07-08 19:26:39 INFO  AccountDetailsPage:85 - In theUserUpdateNaukriKeywords completed
 2025-07-08 19:26:39 INFO  Hooks:118 - Browser session terminated
 2025-07-08 19:26:39 INFO  Hooks:118 - Browser session terminated
+2025-07-08 19:52:20 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 19:52:20 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 19:52:21 INFO  Hooks:110 - Browser setup completed
+2025-07-08 19:52:21 INFO  Hooks:110 - Browser setup completed
+2025-07-08 19:52:21 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-08 19:52:21 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-08 19:52:21 INFO  LoginPage:29 - In OpenUrl
+2025-07-08 19:52:21 INFO  LoginPage:29 - In OpenUrl
+2025-07-08 19:52:22 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-08 19:52:22 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-08 19:52:22 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-08 19:52:22 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-08 19:52:22 INFO  Hooks:118 - Browser session terminated
+2025-07-08 19:52:22 INFO  Hooks:118 - Browser session terminated
+2025-07-08 19:53:35 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 19:53:35 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 19:53:36 INFO  Hooks:110 - Browser setup completed
+2025-07-08 19:53:36 INFO  Hooks:110 - Browser setup completed
+2025-07-08 19:53:36 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-08 19:53:36 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-08 19:53:36 INFO  LoginPage:29 - In OpenUrl
+2025-07-08 19:53:36 INFO  LoginPage:29 - In OpenUrl
+2025-07-08 19:53:37 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-08 19:53:37 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-08 19:53:37 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-08 19:53:37 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-08 19:53:37 INFO  AccountDetailsPage:52 - In theUserUpdateNaukriKeywords started
+2025-07-08 19:53:37 INFO  AccountDetailsPage:52 - In theUserUpdateNaukriKeywords started
+2025-07-08 19:55:07 INFO  AccountDetailsPage:85 - In theUserUpdateNaukriKeywords completed
+2025-07-08 19:55:07 INFO  AccountDetailsPage:85 - In theUserUpdateNaukriKeywords completed
+2025-07-08 19:55:07 INFO  Hooks:118 - Browser session terminated
+2025-07-08 19:55:07 INFO  Hooks:118 - Browser session terminated
+2025-07-08 19:57:47 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 19:57:47 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 19:57:48 INFO  Hooks:110 - Browser setup completed
+2025-07-08 19:57:48 INFO  Hooks:110 - Browser setup completed
+2025-07-08 19:57:48 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-08 19:57:48 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-08 19:57:48 INFO  LoginPage:29 - In OpenUrl
+2025-07-08 19:57:48 INFO  LoginPage:29 - In OpenUrl
+2025-07-08 19:57:49 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-08 19:57:49 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-08 19:57:49 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-08 19:57:49 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-08 19:57:49 INFO  AccountDetailsPage:52 - In theUserUpdateNaukriKeywords started
+2025-07-08 19:57:49 INFO  AccountDetailsPage:52 - In theUserUpdateNaukriKeywords started
+2025-07-08 19:58:10 INFO  AccountDetailsPage:87 - In theUserUpdateNaukriKeywords completed
+2025-07-08 19:58:10 INFO  AccountDetailsPage:87 - In theUserUpdateNaukriKeywords completed
+2025-07-08 19:58:11 INFO  Hooks:118 - Browser session terminated
+2025-07-08 19:58:11 INFO  Hooks:118 - Browser session terminated
+2025-07-08 19:58:46 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 19:58:46 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-08 19:58:47 INFO  Hooks:110 - Browser setup completed
+2025-07-08 19:58:47 INFO  Hooks:110 - Browser setup completed
+2025-07-08 19:58:47 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-08 19:58:47 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-08 19:58:47 INFO  LoginPage:29 - In OpenUrl
+2025-07-08 19:58:47 INFO  LoginPage:29 - In OpenUrl
+2025-07-08 19:58:49 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-08 19:58:49 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-08 19:58:49 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-08 19:58:49 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-08 19:58:49 INFO  AccountDetailsPage:52 - In theUserUpdateNaukriKeywords started
+2025-07-08 19:58:49 INFO  AccountDetailsPage:52 - In theUserUpdateNaukriKeywords started
+2025-07-08 19:59:11 INFO  AccountDetailsPage:87 - In theUserUpdateNaukriKeywords completed
+2025-07-08 19:59:11 INFO  AccountDetailsPage:87 - In theUserUpdateNaukriKeywords completed
+2025-07-08 19:59:11 INFO  Hooks:118 - Browser session terminated
+2025-07-08 19:59:11 INFO  Hooks:118 - Browser session terminated

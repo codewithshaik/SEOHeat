@@ -7,14 +7,14 @@ pipeline {
     }
 
     parameters {
-        choice(name: 'host', choices: ['local', 'grid'], description: 'Choose where to run tests')
-        string(name: 'GRID_URL', defaultValue: '', description: 'Grid URL (only required if host is grid)')
-        string(name: 'ENVIRONMENT', defaultValue: 'dev', description: 'Execution environment')
-        string(name: 'TagName', defaultValue: '', description: 'Execution tag name')
-        choice(name: 'HEADLESS_MODE', choices: ['true', 'false'], description: 'Enable headless mode')
-        string(name: 'branch', defaultValue: 'main', description: 'Git branch to build from')
-        string(name: 'MRS_VALUE', defaultValue: '', description: 'MRS value')
-        string(name: 'MRT_VALUE', defaultValue: '', description: 'MRT value')
+        choice(name: 'Host', choices: ['local', 'grid'], description: 'please choose the host for your test run')
+        string(name: 'Naukri login Type', choices: ['otp', 'gmail']'', description: 'naukri login type (otp or gmail)')
+        string(name: 'naukri Gmail', defaultValue: 'dev', description: 'Please provide naukri gmail')
+        string(name: 'Naukri Registered Phone Number', defaultValue: '', description: 'Please provide Naukri Registered Number')
+        choice(name: 'Naukri app password (Base 64)', defaultValue, description: 'Naukri app password (Base 64)')
+        string(name: 'HeadlessMode', defaultValue:  choices: ['true', 'false'], description: 'please select headless mode')
+        string(name: 'TagName', defaultValue: '', description: 'please select the tag Name to run the Scenario')
+
     }
 
     options {
@@ -30,7 +30,7 @@ pipeline {
         stage('Setup Domain') {
             steps {
                 script {
-                    if (env.GIT_URL && env.GIT_URL.contains('visa')) {
+                    if (env.GIT_URL && env.GIT_URL.contains('Mate')) {
                         env.DOMAIN = "IS-${params.TagName ?: ''}"
                     }
                 }
@@ -62,7 +62,7 @@ pipeline {
                         [$class: 'WipeWorkspace']
                     ],
                     userRemoteConfigs: [[
-                        url: 'https://github.com/Mrshaik-hub/visaSlotMonitoring.git',
+                        url: 'https://github.com/Mrshaik-hub/ApplyMate.git',
                         credentialsId: 'your_git_credentials'
                     ]]
                 ])
@@ -76,7 +76,7 @@ pipeline {
             }
         }
 
-        stage('Run Visa Slot Monitoring Script') {
+        stage('Run ApplyMate Script') {
             steps {
                 script {
                     try {
@@ -84,29 +84,29 @@ pipeline {
                         if (isUnix()) {
                             sh """
                                 mvn clean install \\
-                                  -Denvironment=${params.ENVIRONMENT} \\
-                                  -DtagName=${params.TagName} \\
-                                  -DheadlessMode=${params.HEADLESS_MODE} \\
-                                  -Dhost=${params.host} \\
-                                  -DgridURL=${params.GRID_URL} \\
-                                  -Dmrs=${params.MRS_VALUE} \\
-                                  -Dmrt=${params.MRT_VALUE}
+                                  -Denvironment=${params.Host} \\
+                                  -DloginType=${params.Naukri login Type} \\
+                                  -DnaukriGmail=${params.naukri Gmail} \\
+                                  -DotpNumber=${params.Naukri Registered Phone Number} \\
+                                  -DNaukriPasswordBase64=${params.Naukri app password (Base 64)} \\
+                                  -DHeadlessMode=${params.HeadlessMode} \\
+                                  -Dcucumber.filter.tags=${params.TagName}
                             """
                         } else {
                             bat """
                                 mvn clean install ^
-                                  -Denvironment=${params.ENVIRONMENT} ^
-                                  -DtagName=${params.TagName} ^
-                                  -DheadlessMode=${params.HEADLESS_MODE} ^
-                                  -Dhost=${params.host} ^
-                                  -DgridURL=${params.GRID_URL} ^
-                                  -Dmrs=${params.MRS_VALUE} ^
-                                  -Dmrt=${params.MRT_VALUE}
+                                  -Denvironment=${params.Host} ^
+                                  -DloginType=${params.Naukri login Type} ^
+                                  -DnaukriGmail=${params.naukri Gmail} ^
+                                  -DotpNumber=${params.Naukri Registered Phone Number} ^
+                                  -DNaukriPasswordBase64=${params.Naukri app password (Base 64)} ^
+                                  -DHeadlessMode=${params.HeadlessMode} ^
+                                  -Dcucumber.filter.tags=${params.TagName}
                             """
                         }
-                        echo 'Visa Slot Monitoring Completed'
+                        echo 'ApplyMate Completed'
                     } catch (e) {
-                        echo "Visa Slot Monitoring Failed: ${e.getMessage()}"
+                        echo "ApplyMate Failed: ${e.getMessage()}"
                         currentBuild.result = 'FAILURE'
                     }
                 }
@@ -139,7 +139,7 @@ pipeline {
                           <h2>No Report Found</h2>
                           <p>The expected report <b>${mainReport}</b> was not generated.</p>
                           <p>Tag: <b>${params.TagName}</b></p>
-                          <p>Environment: <b>${params.ENVIRONMENT}</b></p>
+
                         </body></html>
                     """
                 } else {
@@ -163,7 +163,7 @@ pipeline {
                         <html><body>
                           <h2>Cucumber Test Execution Summary</h2>
                           <p>Tag: <b>${params.TagName}</b></p>
-                          <p>Environment: <b>${params.ENVIRONMENT}</b></p>
+
                           ${table}
                           ${failureLink}
                           <p><a href='target/cucumber-html-reports/overview-features.html' target='_blank'>Full Report</a></p>
@@ -192,7 +192,7 @@ pipeline {
                       <h2>Report Generation Failed</h2>
                       <p>Error: ${err.getMessage()}</p>
                       <p>Tag: <b>${params.TagName}</b></p>
-                      <p>Environment: <b>${params.ENVIRONMENT}</b></p>
+
                     </body></html>
                 """
                 archiveArtifacts artifacts: 'summary_report.html', fingerprint: true
