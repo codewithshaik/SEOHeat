@@ -7,17 +7,17 @@ pipeline {
     }
 
     parameters {
-        choice(name: 'Host', choices: ['local', 'grid'], description: 'please choose the host for your test run')
-        choice(name: 'Naukri login Type', choices: ['otp', 'gmail'], description: 'Naukri login type (otp or gmail)')
-        string(name: 'naukri Gmail', defaultValue: '', description: 'Please provide naukri gmail')
-        string(name: 'Naukri Registered Phone Number', defaultValue: '', description: 'Please provide Naukri Registered Number')
-        string(name: 'Naukri app password (Base 64)', defaultValue: '', description: 'Naukri app password (Base 64)')
-        choice(name: 'HeadlessMode', choices: ['true', 'false'], description: 'Please select headless mode')
-        string(name: 'TagName', defaultValue: '', description: 'Please select the tag name to run the scenario')
+        choice(name: 'Host', choices: ['local', 'grid'], description: 'Please choose the host for your test run')
+        choice(name: 'NaukriLoginType', choices: ['otp', 'gmail'], description: 'Naukri login type (otp or gmail)')
+        string(name: 'naukriGmail', defaultValue: '', description: 'Please provide Naukri Gmail')
+        string(name: 'naukriPhoneNumber', defaultValue: '', description: 'Please provide Naukri Registered Number')
+        string(name: 'naukriAppPassword', defaultValue: '', description: 'Naukri app password (Base64 encoded)')
+        choice(name: 'HeadlessMode', choices: ['true', 'false'], description: 'Headless mode selection')
+        string(name: 'TagName', defaultValue: '', description: 'Tag name to run the scenario')
+
+        // Git parameters (fix starts here)
         string(name: 'gitUrl', defaultValue: 'https://github.com/Mrshaik-hub/ApplyMate.git', description: 'Git repository URL')
-        string(name: 'gitBranch', defaultValue: 'main', description: 'Git branch to checkout')
-
-
+        string(name: 'gitBranch', defaultValue: 'main', description: 'Git branch to checkout') // <-- make sure this is correct
     }
 
     options {
@@ -55,22 +55,22 @@ pipeline {
         }
 
         stage('Checkout Code') {
-               steps {
-                   checkout([
-                       $class: 'GitSCM',
-                       branches: [[name: "*/${params.gitBranch}"]],
-                       doGenerateSubmoduleConfigurations: false,
-                       extensions: [
-                           [$class: 'CleanBeforeCheckout'],
-                           [$class: 'WipeWorkspace']
-                       ],
-                       userRemoteConfigs: [[
-                           url: params.gitUrl
-                           // credentialsId removed as repo is public
-                       ]]
-                   ])
-               }
-           }
+            steps {
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: "*/${params.gitBranch}"]],
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [
+                        [$class: 'CleanBeforeCheckout'],
+                        [$class: 'WipeWorkspace']
+                    ],
+                    userRemoteConfigs: [[
+                        url: params.gitUrl
+                        // credentialsId omitted since it's a public repo
+                    ]]
+                ])
+            }
+        }
 
         stage('Start in Local or Grid') {
             when { expression { params.host != 'grid' } }
@@ -88,10 +88,10 @@ pipeline {
                             sh """
                                 mvn clean install \\
                                   -Denvironment=${params.Host} \\
-                                  -DloginType=${params['Naukri login Type']} \\
-                                  -DnaukriGmail=${params['naukri Gmail']} \\
-                                  -DotpNumber=${params['Naukri Registered Phone Number']} \\
-                                  -DNaukriPasswordBase64=${params['Naukri app password (Base 64)']} \\
+                                  -DloginType=${params['NaukriLoginType']} \\
+                                  -DnaukriGmail=${params['NaukriGmail']} \\
+                                  -DotpNumber=${params['NaukriRegisteredPhoneNumber']} \\
+                                  -DNaukriPasswordBase64=${params['naukriAppPassword']} \\
                                   -DHeadlessMode=${params.HeadlessMode} \\
                                   -Dcucumber.filter.tags=${params.TagName}
                             """
@@ -99,10 +99,10 @@ pipeline {
                             bat """
                                 mvn clean install ^
                                   -Denvironment=${params.Host} ^
-                                  -DloginType=${params['Naukri login Type']} ^
-                                  -DnaukriGmail=${params['naukri Gmail']} ^
-                                  -DotpNumber=${params['Naukri Registered Phone Number']} ^
-                                  -DNaukriPasswordBase64=${params['Naukri app password (Base 64)']} ^
+                                  -DloginType=${params['NaukriLoginType']} ^
+                                  -DnaukriGmail=${params['NaukriGmail']} ^
+                                  -DotpNumber=${params['naukriPhoneNumber']} ^
+                                  -DNaukriPasswordBase64=${params['naukriAppPassword']} ^
                                   -DHeadlessMode=${params.HeadlessMode} ^
                                   -Dcucumber.filter.tags=${params.TagName}
                             """
