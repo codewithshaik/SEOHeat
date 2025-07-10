@@ -65,7 +65,7 @@ pipeline {
                         [$class: 'WipeWorkspace']
                     ],
                     userRemoteConfigs: [[
-                        url: 'https://github.com/Mrshaik-hub/visaSlotMonitoring.git',
+                        url: 'https://github.com/Mrshaik-hub/ApplyMate.git',
                         credentialsId: 'your_git_credentials'
                     ]]
                 ])
