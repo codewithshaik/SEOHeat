@@ -54,19 +54,19 @@ pipeline {
             }
         }
 
-        stage('Checkout Code') {
+         stage('Checkout Code') {
             steps {
                 checkout([
                     $class: 'GitSCM',
-                    branches: [[name: "*/${params.gitBranch}"]],
+                    branches: [[name: params.branch]],
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [
                         [$class: 'CleanBeforeCheckout'],
                         [$class: 'WipeWorkspace']
                     ],
                     userRemoteConfigs: [[
-                        url: params.gitUrl
-                        // credentialsId omitted since it's a public repo
+                        url: 'https://github.com/Mrshaik-hub/visaSlotMonitoring.git',
+                        credentialsId: 'your_git_credentials'
                     ]]
                 ])
             }
