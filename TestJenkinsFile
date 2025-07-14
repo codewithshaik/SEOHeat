@@ -299,7 +299,7 @@ pipeline {
             )
             
             echo "detailed email sent for build #${env.BUILD_NUMBER}"
-        }
+        
               }
             }
         }
