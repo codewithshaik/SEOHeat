@@ -213,128 +213,93 @@ pipeline {
    post {
     always {
         script {
-            // Set build status
             def status = currentBuild.result ?: 'SUCCESS'
             def reportLink = "${env.BUILD_URL}artifact/summary_report.html"
             
-            echo "=== BUILD STATUS ==="
-            echo "Status: ${status}"
-            echo "Report URL: ${reportLink}"
-            echo "Build URL: ${env.BUILD_URL}"
+            // Build the parameter rows dynamically
+            def parameterRows = ""
+            def availableParams = [
+                'Execution Tag' : params.TAGNAME,
+                'Gmail'         : params.NAUKRI_GMAIL,
+                'Branch'       : params.GIT_BRANCH,
+            ]
             
-            // Verify all parameters exist
-            echo "=== PARAMETERS ==="
-            echo "TagName: ${params.getOrDefault('TAGNAME')}"
-            echo "GMAIL: ${params.getOrDefault('NAUKRI_GMAIL')}"
-            echo "Branch: ${params.getOrDefault('GIT_BRANCH')}"
-            
-            try {
-                echo "=== ATTEMPTING TO SEND EMAIL ==="
-                
-                // First try simple text email (basic connectivity test)
-                mail(
-                    to: 'shaikmahaboobsubhani00@gmail.com',
-                    subject: "TEST: NAUKRI AI Build #${env.BUILD_NUMBER}",
-                    body: """
-                        Simple test email from pipeline
-                        Status: ${status}
-                        Build: ${env.BUILD_URL}
+            availableParams.each { name, value ->
+                if (value != null) {
+                    parameterRows += """
+                        <tr>
+                            <th style="text-align:left; padding:8px; background:#f2f2f2; border:1px solid #ddd;">${name}</th>
+                            <td style="padding:8px; border:1px solid #ddd;">${value}</td>
+                        </tr>
                     """
-                )
-                echo " Simple text email sent successfully"
-                
-                // Then try HTML email without attachments
-                emailext(
-                    to: 'shaikmahaboobsubhani00@gmail.com',
-                    subject: "NAUKRI AI - Execution Summary | Build #${env.BUILD_NUMBER} | ${status}",
-                    body: """
-                        <html>
-                        <body>
-                            <h2>Simplified Test Version</h2>
-                            <p>Status: <b style="color:${status == 'SUCCESS' ? 'green' : 'red'};">${status}</b></p>
-                            <p>Build: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
-                        </body>
-                        </html>
-                    """,
-                    mimeType: 'text/html',
-                    attachLog: false
-                )
-                echo " Basic HTML email sent successfully"
-                
-                // Finally try the full email with attachments
-                emailext(
-                    to: 'shaikmahaboobsubhani@gmail.com',
-                    subject: "NAUKRI AI - Execution Summary | Build #${env.BUILD_NUMBER} | ${status}",
-                    body: """
-                        <html>
-                        <body>
-                            <h2>NAUKRI AI - Execution Summary</h2>
-                            <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%;">
-                                ${params.TagName ? '<tr><th>Execution Tag</th><td>' + params.TagName + '</td></tr>' : ''}
-                                ${params.ENVIRONMENT ? '<tr><th>Environment</th><td>' + params.ENVIRONMENT + '</td></tr>' : ''}
-                                ${params.branch ? '<tr><th>Branch</th><td>' + params.branch + '</td></tr>' : ''}
-                                ${params.MRS_VALUE ? '<tr><th>MRS Value</th><td>' + params.MRS_VALUE + '</td></tr>' : ''}
-                                ${params.MRT_VALUE ? '<tr><th>MRT Value</th><td>' + params.MRT_VALUE + '</td></tr>' : ''}
-                                ${params.host ? '<tr><th>Host</th><td>' + params.host + '</td></tr>' : ''}
-                                ${params.HEADLESS_MODE ? '<tr><th>Headless Mode</th><td>' + params.HEADLESS_MODE + '</td></tr>' : ''}
-                                <tr><th>Status</th><td><b style="color:${status == 'SUCCESS' ? 'green' : 'red'};">${status}</b></td></tr>
-                            </table>
-                            <br/>
-                            <p>Full Report: <a href="${reportLink}">Click here to view the complete HTML report</a></p>
-                            <br/>
-                            <p>Kindly contact <b>shaik</b> for any queries.</p>
-                        </body>
-                        </html>
-                    """,
-                    mimeType: 'text/html',
-                    attachLog: true,
-                    compressLog: true
-                )
-                echo " Full HTML email with attachments sent successfully"
-                
-            } catch (Exception e) {
-                echo " Email sending failed: ${e.toString()}"
-                
-                // Network diagnostics
-                echo "=== NETWORK DIAGNOSTICS ==="
-                try {
-                    def smtpServer = Jenkins.instance.getDescriptor('hudson.plugins.emailext.ExtendedEmailPublisher').smtpServer
-                    echo "Attempting to connect to SMTP server: ${smtpServer}"
-                    
-                    // Test basic connectivity
-                    def pingResult = sh(script: "ping -c 4 ${smtpServer} || true", returnStdout: true)
-                    echo "Ping results:\n${pingResult}"
-                    
-                    // Test port connectivity
-                    def ncResult = sh(script: "nc -zv ${smtpServer} 587 || true", returnStdout: true)
-                    echo "Netcat results:\n${ncResult}"
-                    
-                } catch (Exception diagErr) {
-                    echo " Diagnostics failed: ${diagErr.toString()}"
                 }
-                
-                // Fallback notification
-                echo "=== ATTEMPTING FALLBACK NOTIFICATION ==="
-                try {
-                    mail(
-                        to: 'shaikmahaboobsubhani00@gmail.com',
-                        subject: "URGENT: Email System Failure for Build #${env.BUILD_NUMBER}",
-                        body: """
-                            The automated build email failed to send properly.
-                            
-                            Build Status: ${status}
-                            Build URL: ${env.BUILD_URL}
-                            
-                            Error Details:
-                            ${e.toString()}
-                            
-                            Please check Jenkins logs for full details.
-                        """
-                    )
-                    echo " Fallback notification sent"
-                } catch (Exception fallbackErr) {
-                    echo " CRITICAL: Fallback notification also failed: ${fallbackErr.toString()}"
-                }
+            }
+            
+            // Single email with all details
+            emailext(
+                to: 'shaikmahaboobsubhani00@gmail.com',
+                subject: "NAUKRI AI - Build #${env.BUILD_NUMBER} | ${status}",
+                body: """
+                    <html>
+                    <head>
+                        <style>
+                            body { font-family: Arial, sans-serif; line-height: 1.6; }
+                            .status-${status.toLowerCase()} { 
+                                color: ${status == 'SUCCESS' ? '#4CAF50' : '#F44336'};
+                                font-weight: bold;
+                            }
+                            table { 
+                                border-collapse: collapse; 
+                                width: 100%; 
+                                margin: 15px 0;
+                            }
+                            th, td { 
+                                padding: 8px; 
+                                text-align: left; 
+                                border: 1px solid #ddd;
+                            }
+                            th { 
+                                background-color: #f2f2f2; 
+                            }
+                            .footer { 
+                                margin-top: 20px; 
+                                color: #666; 
+                                font-size: 0.9em;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <h2 style="color:#333;">NAUKRI AI - Execution Summary</h2>
+                        
+                        <table>
+                            <tr>
+                                <th style="width:30%;">Build Information</th>
+                                <td>#${env.BUILD_NUMBER}</td>
+                            </tr>
+                            ${parameterRows}
+                            <tr>
+                                <th>Status</th>
+                                <td class="status-${status.toLowerCase()}">${status}</td>
+                            </tr>
+                        </table>
+                        
+                        <p><strong>Build URL:</strong> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                        <p><strong>Detailed Report:</strong> <a href="${reportLink}">Download Report</a></p>
+                        
+                        <div class="footer">
+                            <p>This is an automated notification. Please contact <b>shaik</b> for any queries.</p>
+                            <p>Jenkins Automation</p>
+                        </div>
+                    </body>
+                    </html>
+                """,
+                mimeType: 'text/html',
+                attachLog: true,
+                compressLog: true
+            )
+            
+            echo "detailed email sent for build #${env.BUILD_NUMBER}"
+        }
               }
             }
         }
