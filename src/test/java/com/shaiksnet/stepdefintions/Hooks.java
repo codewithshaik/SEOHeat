@@ -52,36 +52,26 @@ public class Hooks {
 
             if (host.equalsIgnoreCase("Local")) {
                 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+driverPath);
-                System.out.println(System.getProperty("user.dir")+driverPath);
+
                 ChromeOptions options = new ChromeOptions();
+//                options.addArguments("--remote-allow-origins=*");
+//                options.addArguments("--no-sandbox");
+//                options.addArguments("--disable-dev-shm-usage");
+//                options.addArguments("--disable-gpu");
+//                // or just "--headless" for older versions
+//                options.addArguments("--window-size=1920,1080");
+
                 if(headlessoption){
-                    options.addArguments("--headless");
+                    options.addArguments("--headless=new");
                 }
-                options.addArguments("--remote-allow-origins=*");
-                options.addArguments("--no-sandbox");
-                options.addArguments("--disable-dev-shm-usage");
-                options.addArguments("--disable-gpu");
+
+
                 HashMap<String, Object> chromePrefs = new HashMap<>();
                 chromePrefs.put("plugins.always_open_pdf_externally", true);
-                options.setExperimentalOption("prefs", chromePrefs);
-                options.addArguments("user-data-dir=/path/to/fresh/profile");
+//                options.setExperimentalOption("prefs", chromePrefs);
+//                options.addArguments("user-data-dir=/path/to/fresh/profile");
                 driver = new ChromeDriver(options);
 
-                // Access DevTools
-//                DevTools devTools = ((HasDevTools) driver).getDevTools();
-//                devTools.createSession();
-//
-//                // Clear browser cache
-//                devTools.send(Network.clearBrowserCache());
-//
-//                // Clear browser cookies
-//                devTools.send(Network.clearBrowserCookies());
-//
-//                // Clear site data (storage, etc.)
-//                devTools.send(Storage.clearDataForOrigin(
-//                        "*", // Wildcard for all origins doesn't work — use actual origin if needed
-//                        "all"
-//                ));
 
             } else if (host.equalsIgnoreCase("BrowserStack")) {
                 ChromeOptions options = new ChromeOptions();
