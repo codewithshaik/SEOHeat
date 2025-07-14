@@ -213,71 +213,135 @@ pipeline {
    post {
     always {
         script {
+            // Set build status
             def status = currentBuild.result ?: 'SUCCESS'
             def reportLink = "${env.BUILD_URL}artifact/summary_report.html"
             
-            echo "Build completed with status: ${status}"
-            echo "Report link: ${reportLink}"
+            echo "=== BUILD STATUS ==="
+            echo "Status: ${status}"
+            echo "Report URL: ${reportLink}"
+            echo "Build URL: ${env.BUILD_URL}"
+            
+            // Verify all parameters exist
+            echo "=== PARAMETERS ==="
+            echo "TagName: ${params.getOrDefault('TagName', 'NOT PROVIDED')}"
+            echo "Environment: ${params.getOrDefault('ENVIRONMENT', 'NOT PROVIDED')}"
+            echo "Branch: ${params.getOrDefault('branch', 'NOT PROVIDED')}"
             
             try {
-                // First try simple text email
+                echo "=== ATTEMPTING TO SEND EMAIL ==="
+                
+                // First try simple text email (basic connectivity test)
                 mail(
                     to: 'shaikmahaboobsubhani00@gmail.com',
-                    subject: "TEST - NAUKRI AI Build #${env.BUILD_NUMBER}",
-                    body: "Simple test email from pipeline"
-                )
-                echo "Simple email sent successfully"
-                
-                // Then try the full HTML email
-                emailext(
-                    to: 'shaikmahaboobsubhani00@gmail.com',
-                    subject: "NAUKRI AI - Execution Summary | Build #${env.BUILD_NUMBER} | ${status}",
+                    subject: "TEST: NAUKRI AI Build #${env.BUILD_NUMBER}",
                     body: """
-                        <html><body>
-                        <h2>Simplified Test Version</h2>
-                        <p>Status: ${status}</p>
-                        </body></html>
-                    """,
-                    mimeType: 'text/html',
-                    attachLog: false
+                        Simple test email from pipeline
+                        Status: ${status}
+                        Build: ${env.BUILD_URL}
+                    """
                 )
-                echo "HTML email sent successfully"
+                echo " Simple text email sent successfully"
                 
-                // Finally try the full version
+                // Then try HTML email without attachments
                 emailext(
                     to: 'shaikmahaboobsubhani00@gmail.com',
                     subject: "NAUKRI AI - Execution Summary | Build #${env.BUILD_NUMBER} | ${status}",
                     body: """
                         <html>
-                          <body>
+                        <body>
+                            <h2>Simplified Test Version</h2>
+                            <p>Status: <b style="color:${status == 'SUCCESS' ? 'green' : 'red'};">${status}</b></p>
+                            <p>Build: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                        </body>
+                        </html>
+                    """,
+                    mimeType: 'text/html',
+                    attachLog: false
+                )
+                echo " Basic HTML email sent successfully"
+                
+                // Finally try the full email with attachments
+                emailext(
+                    to: 'shaikmahaboobsubhani00@gmail.com',
+                    subject: "NAUKRI AI - Execution Summary | Build #${env.BUILD_NUMBER} | ${status}",
+                    body: """
+                        <html>
+                        <body>
                             <h2>NAUKRI AI - Execution Summary</h2>
                             <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%;">
-                              <tr><th>Execution Tag</th><td>${params.TagName}</td></tr>
-                              <tr><th>Environment</th><td>${params.ENVIRONMENT}</td></tr>
-                              <tr><th>Branch</th><td>${params.branch}</td></tr>
-                              <tr><th>MRS Value</th><td>${params.MRS_VALUE}</td></tr>
-                              <tr><th>MRT Value</th><td>${params.MRT_VALUE}</td></tr>
-                              <tr><th>Host</th><td>${params.host}</td></tr>
-                              <tr><th>Headless Mode</th><td>${params.HEADLESS_MODE}</td></tr>
-                              <tr><th>Status</th><td><b style="color:${status == 'SUCCESS' ? 'green' : 'red'};">${status}</b></td></tr>
+                                ${params.TagName ? '<tr><th>Execution Tag</th><td>' + params.TagName + '</td></tr>' : ''}
+                                ${params.ENVIRONMENT ? '<tr><th>Environment</th><td>' + params.ENVIRONMENT + '</td></tr>' : ''}
+                                ${params.branch ? '<tr><th>Branch</th><td>' + params.branch + '</td></tr>' : ''}
+                                ${params.MRS_VALUE ? '<tr><th>MRS Value</th><td>' + params.MRS_VALUE + '</td></tr>' : ''}
+                                ${params.MRT_VALUE ? '<tr><th>MRT Value</th><td>' + params.MRT_VALUE + '</td></tr>' : ''}
+                                ${params.host ? '<tr><th>Host</th><td>' + params.host + '</td></tr>' : ''}
+                                ${params.HEADLESS_MODE ? '<tr><th>Headless Mode</th><td>' + params.HEADLESS_MODE + '</td></tr>' : ''}
+                                <tr><th>Status</th><td><b style="color:${status == 'SUCCESS' ? 'green' : 'red'};">${status}</b></td></tr>
                             </table>
                             <br/>
-                            <p>Full Report: <a href="${reportLink}">Click here</a></p>
-                          </body>
+                            <p>Full Report: <a href="${reportLink}">Click here to view the complete HTML report</a></p>
+                            <br/>
+                            <p>Kindly contact <b>shaik</b> for any queries.</p>
+                        </body>
                         </html>
                     """,
                     mimeType: 'text/html',
                     attachLog: true,
-                    compressLog: true
+                    compressLog: true,
+                    // Advanced SMTP settings (uncomment if needed)
+                    // smtpServer: 'your.smtp.server.com',
+                    // smtpPort: '587',
+                    // smtpAuth: true,
+                    // smtpUser: 'your_username',
+                    // smtpPassword: 'your_password',
+                    // smtpStarttls: true
                 )
+                echo " Full HTML email with attachments sent successfully"
                 
             } catch (Exception e) {
-                echo "Email failed: ${e.toString()}"
-                // Write full stack trace to build log
-                def sw = new StringWriter()
-                e.printStackTrace(new PrintWriter(sw))
-                echo sw.toString()
-            }
+                echo " Email sending failed: ${e.toString()}"
+                
+                // Network diagnostics
+                echo "=== NETWORK DIAGNOSTICS ==="
+                try {
+                    def smtpServer = Jenkins.instance.getDescriptor('hudson.plugins.emailext.ExtendedEmailPublisher').smtpServer
+                    echo "Attempting to connect to SMTP server: ${smtpServer}"
+                    
+                    // Test basic connectivity
+                    def pingResult = sh(script: "ping -c 4 ${smtpServer} || true", returnStdout: true)
+                    echo "Ping results:\n${pingResult}"
+                    
+                    // Test port connectivity
+                    def ncResult = sh(script: "nc -zv ${smtpServer} 587 || true", returnStdout: true)
+                    echo "Netcat results:\n${ncResult}"
+                    
+                } catch (Exception diagErr) {
+                    echo " Diagnostics failed: ${diagErr.toString()}"
+                }
+                
+                // Fallback notification
+                echo "=== ATTEMPTING FALLBACK NOTIFICATION ==="
+                try {
+                    mail(
+                        to: 'shaikmahaboobsubhani00@gmail.com',
+                        subject: "URGENT: Email System Failure for Build #${env.BUILD_NUMBER}",
+                        body: """
+                            The automated build email failed to send properly.
+                            
+                            Build Status: ${status}
+                            Build URL: ${env.BUILD_URL}
+                            
+                            Error Details:
+                            ${e.toString()}
+                            
+                            Please check Jenkins logs for full details.
+                        """
+                    )
+                    echo " Fallback notification sent"
+                } catch (Exception fallbackErr) {
+                    echo " CRITICAL: Fallback notification also failed: ${fallbackErr.toString()}"
+                }
             }
         }
     }
