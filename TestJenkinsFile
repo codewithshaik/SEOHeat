@@ -7,17 +7,18 @@ pipeline {
     }
 
     parameters {
-        choice(name: 'Host', choices: ['local', 'grid'], description: 'Please choose the host for your test run')
-        choice(name: 'NaukriLoginType', choices: ['otp', 'gmail'], description: 'Naukri login type (otp or gmail)')
-        string(name: 'naukriGmail', defaultValue: '', description: 'Please provide Naukri Gmail')
-        string(name: 'naukriPhoneNumber', defaultValue: '', description: 'Please provide Naukri Registered Number')
-        string(name: 'naukriAppPassword', defaultValue: '', description: 'Naukri app password (Base64 encoded)')
-        choice(name: 'HeadlessMode', choices: ['true', 'false'], description: 'Headless mode selection')
-        string(name: 'TagName', defaultValue: '', description: 'Tag name to run the scenario')
+        choice(name: 'HOST', choices: ['local', 'grid'], description: 'Please choose the host for your test run')
+        choice(name: 'NAUKRI_LOGIN_TYPE', choices: ['otp', 'gmail'], description: 'Naukri login type (otp or gmail)')
+        string(name: 'NAUKRI_GMAIL', defaultValue: '', description: 'Please provide Naukri Gmail')
+        string(name: 'GMAIL_APP_PASSWORD', defaultValue: '', description: 'Please provide Naukri Gmail App password')
+        string(name: 'NAUKRI_PHONE_NUMBER', defaultValue: '', description: 'Please provide Naukri Registered Number')
+        string(name: 'NAUKRI_PASSWORD', defaultValue: '', description: 'Naukri app password (Base64 encoded)')
+        choice(name: 'HEADLESS_MODE', choices: ['true', 'false'], description: 'Headless mode selection')
+        string(name: 'TAGNAME', defaultValue: '', description: 'Tag name to run the scenario')
 
         // Git parameters (fix starts here)
-        string(name: 'gitUrl', defaultValue: 'https://github.com/Mrshaik-hub/ApplyMate.git', description: 'Git repository URL')
-        string(name: 'gitBranch', defaultValue: 'main', description: 'Git branch to checkout') // <-- make sure this is correct
+        string(name: 'GIT_URL', defaultValue: 'https://github.com/Mrshaik-hub/ApplyMate.git', description: 'Git repository URL')
+        string(name: 'GIT_BRANCH', defaultValue: 'main', description: 'Git branch to checkout') // <-- make sure this is correct
     }
 
     options {
@@ -34,7 +35,7 @@ pipeline {
             steps {
                 script {
                     if (env.GIT_URL && env.GIT_URL.contains('Mate')) {
-                        env.DOMAIN = "IS-${params.TagName ?: ''}"
+                        env.DOMAIN = "IS-${params.TAGNAME ?: ''}"
                     }
                 }
             }
@@ -58,7 +59,7 @@ pipeline {
             steps {
                 checkout([
                     $class: 'GitSCM',
-                    branches: [[name: params.gitBranch]],
+                    branches: [[name: params.GIT_BRANCH]],
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [
                         [$class: 'CleanBeforeCheckout'],
@@ -87,24 +88,26 @@ pipeline {
                         if (isUnix()) {
                             sh """
                                 mvn clean install \\
-                                  -Denvironment=${params.Host} \\
-                                  -DloginType=${params['NaukriLoginType']} \\
-                                  -DnaukriGmail=${params['NaukriGmail']} \\
-                                  -DotpNumber=${params['NaukriRegisteredPhoneNumber']} \\
-                                  -DNaukriPasswordBase64=${params['naukriAppPassword']} \\
-                                  -DHeadlessMode=${params.HeadlessMode} \\
-                                  -Dcucumber.filter.tags=${params.TagName}
+                                  -Denvironment=${params.HOST} \\
+                                  -DloginType=${params['NAUKRI_LOGIN_TYPE']} \\
+                                  -DnaukriGmail=${params['NAUKRI_GMAIL']} \\
+                                  -DgmailAppPassword=${params['GMAIL_APP_PASSWORD']} \\
+                                  -DotpNumber=${params['NAUKRI_PHONE_NUMBER']} \\
+                                  -DNaukriPasswordBase64=${params['NAUKRI_PASSWORD']} \\
+                                  -DHeadlessMode=${params.HEADLESS_MODE} \\
+                                  -Dcucumber.filter.tags=${params.TAGNAME}
                             """
                         } else {
                             bat """
                                 mvn clean install ^
-                                  -Denvironment=${params.Host} ^
-                                  -DloginType=${params['NaukriLoginType']} ^
-                                  -DnaukriGmail=${params['NaukriGmail']} ^
-                                  -DotpNumber=${params['naukriPhoneNumber']} ^
-                                  -DNaukriPasswordBase64=${params['naukriAppPassword']} ^
-                                  -DHeadlessMode=${params.HeadlessMode} ^
-                                  -Dcucumber.filter.tags=${params.TagName}
+                                  -Denvironment=${params.HOST} ^
+                                  -DloginType=${params['NAUKRI_LOGIN_TYPE']} ^
+                                  -DnaukriGmail=${params['NAUKRI_GMAIL']} ^
+                                  -DgmailAppPassword=${params['GMAIL_APP_PASSWORD']} ^
+                                  -DotpNumber=${params['NAUKRI_PHONE_NUMBER']} ^
+                                  -DNaukriPasswordBase64=${params['NAUKRI_PASSWORD']} ^
+                                  -DHeadlessMode=${params.HEADLESS_MODE} ^
+                                  -Dcucumber.filter.tags=${params.TAGNAME}
                             """
                         }
                         echo 'ApplyMate Completed'
@@ -128,124 +131,124 @@ pipeline {
     ])
   }
 }
-       stage('Generate and Publish Reports') {
-    steps {
-        script {
-            try {
-                def mainReport = 'target/cucumber-html-reports/overview-features.html'
-                def failedReport = 'target/cucumber-html-reports/overview-failures.html'
+         stage('Generate and Publish Reports') {
+           steps {
+               script {
+                   try {
+                       def mainReport = 'target/cucumber-html-reports/overview-features.html'
+                       def failedReport = 'target/cucumber-html-reports/overview-failures.html'
 
-                if (!fileExists(mainReport)) {
-                    echo("Report file not found: ${mainReport}")
-                    writeFile file: 'summary_report.html', text: """
-                        <html><body>
-                          <h2>No Report Found</h2>
-                          <p>The expected report <b>${mainReport}</b> was not generated.</p>
-                          <p>Tag: <b>${params.TagName}</b></p>
+                       if (!fileExists(mainReport)) {
+                           echo("Report file not found: ${mainReport}")
+                           writeFile file: 'summary_report.html', text: """
+                               <html><body>
+                                 <h2>No Report Found</h2>
+                                 <p>The expected report <b>${mainReport}</b> was not generated.</p>
+                                 <p>Tag: <b>${params.TAGNAME}</b></p>
+                                 <p>Environment: <b>${params.NAUKRI_GMAIL}</b></p>
+                               </body></html>
+                           """
+                       } else {
+                           def reportHtml = readFile(mainReport)
+                           def matcher = reportHtml =~ /<table[\\s\\S]*?<\\/table>/
+                           def table = matcher.find() ? matcher.group(0) : '<p>No test summary table found in report.</p>'
 
-                        </body></html>
-                    """
-                } else {
-                    def reportHtml = readFile(mainReport)
-                    def matcher = reportHtml =~ /<table[\\s\\S]*?<\\/table>/
-                    def table = matcher.find() ? matcher.group(0) : '<p>No test summary table found in report.</p>'
+                           // Beautify table
+                           table = table
+                               .replaceAll(/<table\\b[^>]*>/, '<table border="1" style="border-collapse: collapse; width: 100%;">')
+                               .replaceAll(/<td\\b[^>]*>/, '<td border="1">')
+                               .replaceAll(/<a\\b[^>]*>/, '')
+                               .replaceAll(/<\\/a>/, '')
 
-                    // Beautify table
-                    table = table
-                        .replaceAll(/<table\\b[^>]*>/, '<table border="1" style="border-collapse: collapse; width: 100%;">')
-                        .replaceAll(/<td\\b[^>]*>/, '<td border="1">')
-                        .replaceAll(/<a\\b[^>]*>/, '')
-                        .replaceAll(/<\\/a>/, '')
+                           // Optional link to failed report
+                           def failureLink = fileExists(failedReport)
+                               ? "<p><a href='target/cucumber-html-reports/overview-failures.html' target='_blank'>View Failures</a></p>"
+                               : "<p>No test failures found.</p>"
 
-                    // Optional link to failed report
-                    def failureLink = fileExists(failedReport)
-                        ? "<p><a href='target/cucumber-html-reports/overview-failures.html' target='_blank'>View Failures</a></p>"
-                        : "<p>No test failures found.</p>"
+                           writeFile file: 'summary_report.html', text: """
+                               <html><body>
+                                 <h2>Cucumber Test Execution Summary</h2>
+                                 <p>Tag: <b>${params.TAGNAME}</b></p>
+                                 <p>Environment: <b>${params.NAUKRI_GMAIL}</b></p>
+                                 ${table}
+                                 ${failureLink}
+                                 <p><a href='target/cucumber-html-reports/overview-features.html' target='_blank'>Full Report</a></p>
+                                 <p>Thank you,<br/>Automation Team</p>
+                               </body></html>
+                           """
+                       }
 
-                    writeFile file: 'summary_report.html', text: """
-                        <html><body>
-                          <h2>Cucumber Test Execution Summary</h2>
-                          <p>Tag: <b>${params.TagName}</b></p>
+                       // Archive reports
+                       archiveArtifacts artifacts: 'summary_report.html', fingerprint: true
+                       archiveArtifacts artifacts: 'target/cucumber-html-reports/**/*.html', fingerprint: true
 
-                          ${table}
-                          ${failureLink}
-                          <p><a href='target/cucumber-html-reports/overview-features.html' target='_blank'>Full Report</a></p>
-                          <p>Thank you,<br/>Automation Team</p>
-                        </body></html>
-                    """
-                }
+                       // Publish main HTML report
+                       publishHTML(target: [
+                           reportName : 'Cucumber Report',
+                           reportDir  : 'target/cucumber-html-reports',
+                           reportFiles: 'overview-features.html',
+                           keepAll    : true,
+                           alwaysLinkToLastBuild: true
+                       ])
 
-                // Archive reports
-                archiveArtifacts artifacts: 'summary_report.html', fingerprint: true
-                archiveArtifacts artifacts: 'target/cucumber-html-reports/**/*.html', fingerprint: true
-
-                // Publish main HTML report
-                publishHTML(target: [
-                    reportName : 'Cucumber Report',
-                    reportDir  : 'target/cucumber-html-reports',
-                    reportFiles: 'overview-features.html',
-                    keepAll    : true,
-                    alwaysLinkToLastBuild: true
-                ])
-
-            } catch (err) {
-                echo "Report generation failed: ${err.getMessage()}"
-                writeFile file: 'summary_report.html', text: """
-                    <html><body>
-                      <h2>Report Generation Failed</h2>
-                      <p>Error: ${err.getMessage()}</p>
-                      <p>Tag: <b>${params.TagName}</b></p>
-
-                    </body></html>
-                """
-                archiveArtifacts artifacts: 'summary_report.html', fingerprint: true
-                currentBuild.result = 'FAILURE'
-            }
+                   } catch (err) {
+                       echo "Report generation failed: ${err.getMessage()}"
+                       writeFile file: 'summary_report.html', text: """
+                           <html><body>
+                             <h2>Report Generation Failed</h2>
+                             <p>Error: ${err.getMessage()}</p>
+                             <p>Tag: <b>${params.TagName}</b></p>
+                             <p>Environment: <b>${params.ENVIRONMENT}</b></p>
+                           </body></html>
+                       """
+                       archiveArtifacts artifacts: 'summary_report.html', fingerprint: true
+                       currentBuild.result = 'FAILURE'
+                   }
+               }
+           }
         }
-    }
- }
-}
+       }
 
 
-    post {
-        always {
-            script {
-                def status = currentBuild.result ?: 'SUCCESS'
-                def reportLink = "${env.BUILD_URL}artifact/summary_report.html"
-                echo "Build completed with status: ${status}"
+   post {
+           always {
+               script {
+                   def status = currentBuild.result ?: 'SUCCESS'
+                   def reportLink = "${env.BUILD_URL}artifact/summary_report.html"
+                   echo "Build completed with status: ${status}"
 
-                try {
-                    emailext(
-                        to: 'shaikmahaboobsubhani00@gmail.com',
-                        subject: "Visa Slot Monitor - Execution Summary | Build #${env.BUILD_NUMBER} | ${status}",
-                        body: """
-                            <html>
-                              <body>
-                                <h2>Visa Slot Monitoring - Execution Summary</h2>
-                                <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%;">
-                                  <tr><th>Execution Tag</th><td>${params.TagName}</td></tr>
-                                  <tr><th>Environment</th><td>${params.ENVIRONMENT}</td></tr>
-                                  <tr><th>Branch</th><td>${params.branch}</td></tr>
-                                  <tr><th>MRS Value</th><td>${params.MRS_VALUE}</td></tr>
-                                  <tr><th>MRT Value</th><td>${params.MRT_VALUE}</td></tr>
-                                  <tr><th>Host</th><td>${params.host}</td></tr>
-                                  <tr><th>Headless Mode</th><td>${params.HEADLESS_MODE}</td></tr>
-                                  <tr><th>Status</th><td><b style="color:${status == 'SUCCESS' ? 'green' : 'red'};">${status}</b></td></tr>
-                                </table>
-                                <br/>
-                                <p>Full Report: <a href="${reportLink}">Click here to view the complete HTML report</a></p>
-                                <br/>
-                                <p>Kindly contact <b>hshaik</b> for any queries.</p>
-                                <p>Thanks,<br/>Jenkins</p>
-                              </body>
-                            </html>
-                        """,
-                        mimeType: 'text/html',
-                        attachLog: true
-                    )
-                } catch (emailErr) {
-                    echo "Email sending failed: ${emailErr.getMessage()}"
-                }
+                   try {
+                       emailext(
+                           to: 'shaikmahaboobsubhani00@gmail.com',
+                           subject: "NAUKRI AI - Execution Summary | Build #${env.BUILD_NUMBER} | ${status}",
+                           body: """
+                               <html>
+                                 <body>
+                                   <h2>NAUKRI AI - Execution Summary</h2>
+                                   <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+                                     <tr><th>Execution Tag</th><td>${params.TagName}</td></tr>
+                                     <tr><th>Environment</th><td>${params.ENVIRONMENT}</td></tr>
+                                     <tr><th>Branch</th><td>${params.branch}</td></tr>
+                                     <tr><th>MRS Value</th><td>${params.MRS_VALUE}</td></tr>
+                                     <tr><th>MRT Value</th><td>${params.MRT_VALUE}</td></tr>
+                                     <tr><th>Host</th><td>${params.host}</td></tr>
+                                     <tr><th>Headless Mode</th><td>${params.HEADLESS_MODE}</td></tr>
+                                     <tr><th>Status</th><td><b style="color:${status == 'SUCCESS' ? 'green' : 'red'};">${status}</b></td></tr>
+                                   </table>
+                                   <br/>
+                                   <p>Full Report: <a href="${reportLink}">Click here to view the complete HTML report</a></p>
+                                   <br/>
+                                   <p>Kindly contact <b>shaik</b> for any queries.</p>
+                                   <p>Thanks,<br/>Jenkins</p>
+                                 </body>
+                               </html>
+                           """,
+                           mimeType: 'text/html',
+                           attachLog: true
+                       )
+                   } catch (emailErr) {
+                       echo "Email sending failed: ${emailErr.getMessage()}"
+                   }
             }
         }
     }
