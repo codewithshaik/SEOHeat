@@ -85,8 +85,8 @@ public class LoginPage {
     }
     public String gmailOtpReader() throws Exception {
         String host = "imap.gmail.com";
-        String username = "shaikmahaboobsubhani0777@gmail.com";
-        String password = "lftp tyqq uhzn djvj"; // NOT your Gmail password!
+        String username = Util.getProperty("naukriGmail"); // Your Gmail address
+        String password = Util.getProperty("gmailAppPassword"); // NOT your Gmail password!
 
 
         Properties props = new Properties();
