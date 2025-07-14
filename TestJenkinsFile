@@ -342,6 +342,7 @@ pipeline {
                 } catch (Exception fallbackErr) {
                     echo " CRITICAL: Fallback notification also failed: ${fallbackErr.toString()}"
                 }
+              }
             }
         }
     }
