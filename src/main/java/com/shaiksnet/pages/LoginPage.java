@@ -136,7 +136,7 @@ public class LoginPage {
     public void userLoginIntonaukri( ) {
         try{
             logger.info("userLoginIntonaukri started");
-            String loginType = Util.getProperty("loginType");
+            String loginType = System.getProperty("loginType");
             openUrl();
             Util.implicitWait(driver);
             if(!driver.getCurrentUrl().contains("homepage")){
