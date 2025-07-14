@@ -8,7 +8,7 @@ pipeline {
 
     parameters {
         choice(name: 'HOST', choices: ['local', 'grid'], description: 'Please choose the host for your test run')
-        choice(name: 'NAUKRI_LOGIN_TYPE', choices: ['otp', 'gmail'], description: 'Naukri login type (otp or gmail)')
+        choice(name: 'NAUKRI_LOGIN_TYPE', choices: ['gmail', 'otp'], description: 'Naukri login type (otp or gmail)')
         string(name: 'NAUKRI_GMAIL', defaultValue: '', description: 'Please provide Naukri Gmail')
         string(name: 'GMAIL_APP_PASSWORD', defaultValue: '', description: 'Please provide Naukri Gmail App password')
         string(name: 'NAUKRI_PHONE_NUMBER', defaultValue: '', description: 'Please provide Naukri Registered Number')

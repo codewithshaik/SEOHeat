@@ -3,6 +3,10 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### Custom Local Exclusions ###
+# Prevent pushing hardcoded test credentials class
+src/test/java/com/shaiksnet/stepdefintions/Test.java
+
 ### IntelliJ IDEA ###
 .idea/modules.xml
 .idea/jarRepositories.xml
