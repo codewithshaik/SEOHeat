@@ -224,9 +224,9 @@ pipeline {
             
             // Verify all parameters exist
             echo "=== PARAMETERS ==="
-            echo "TagName: ${params.getOrDefault('TagName', 'NOT PROVIDED')}"
-            echo "Environment: ${params.getOrDefault('ENVIRONMENT', 'NOT PROVIDED')}"
-            echo "Branch: ${params.getOrDefault('branch', 'NOT PROVIDED')}"
+            echo "TagName: ${params.getOrDefault('TAGNAME')}"
+            echo "GMAIL: ${params.getOrDefault('NAUKRI_GMAIL')}"
+            echo "Branch: ${params.getOrDefault('GIT_BRANCH')}"
             
             try {
                 echo "=== ATTEMPTING TO SEND EMAIL ==="
@@ -245,7 +245,7 @@ pipeline {
                 
                 // Then try HTML email without attachments
                 emailext(
-                    to: 'imoxygod00@gmail.com',
+                    to: 'shaikmahaboobsubhani00@gmail.com',
                     subject: "NAUKRI AI - Execution Summary | Build #${env.BUILD_NUMBER} | ${status}",
                     body: """
                         <html>
@@ -263,7 +263,7 @@ pipeline {
                 
                 // Finally try the full email with attachments
                 emailext(
-                    to: 'imoxygod@gmail.com',
+                    to: 'shaikmahaboobsubhani@gmail.com',
                     subject: "NAUKRI AI - Execution Summary | Build #${env.BUILD_NUMBER} | ${status}",
                     body: """
                         <html>
@@ -288,14 +288,7 @@ pipeline {
                     """,
                     mimeType: 'text/html',
                     attachLog: true,
-                    compressLog: true,
-                    // Advanced SMTP settings (uncomment if needed)
-                    // smtpServer: 'your.smtp.server.com',
-                    // smtpPort: '587',
-                    // smtpAuth: true,
-                    // smtpUser: 'your_username',
-                    // smtpPassword: 'your_password',
-                    // smtpStarttls: true
+                    compressLog: true
                 )
                 echo " Full HTML email with attachments sent successfully"
                 
