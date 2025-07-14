@@ -85,8 +85,8 @@ public class LoginPage {
     }
     public String gmailOtpReader() throws Exception {
         String host = "imap.gmail.com";
-        String username = Util.getProperty("naukriGmail"); // Your Gmail address
-        String password = Util.getProperty("gmailAppPassword"); // NOT your Gmail password!
+        String username = System.getProperty("naukriGmail"); // Your Gmail address
+        String password = System.getProperty("gmailAppPassword"); // NOT your Gmail password!
 
 
         Properties props = new Properties();
@@ -145,7 +145,7 @@ public class LoginPage {
                 Thread.sleep(1000);
 
                 if(loginType.equalsIgnoreCase("mail")|| loginType.equalsIgnoreCase("gmail")){
-                    String encodedPassword = Util.getProperty("NaukriPasswordBase64");
+                    String encodedPassword = System.getProperty("NaukriPasswordBase64");
                     System.out.println("Encoded password: " + encodedPassword);
                     byte[] decodedBytes = Base64.getDecoder().decode(encodedPassword);
                     String decodedString = new String(decodedBytes);
@@ -154,7 +154,7 @@ public class LoginPage {
 
                     WebElement userName = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"username")));
                     WebElement password = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"password")));
-                    userName.sendKeys(Util.getProperty("naukriGmail"));
+                    userName.sendKeys(System.getProperty("naukriGmail"));
                     password.sendKeys(decodedString);
 
                     WebElement submitBtn = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"logonBtn")));
@@ -164,7 +164,7 @@ public class LoginPage {
                     otpLogin.click();
                     Util.implicitWait(driver);
                     WebElement otpPhoneNumber = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"mobNumberInput")));
-                    otpPhoneNumber.sendKeys(Util.getProperty("otpNumber"));
+                    otpPhoneNumber.sendKeys(System.getProperty("otpNumber"));
                     Util.implicitWait(driver);
                     WebElement getOtpBtn = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"getOtpBtn")));
                     getOtpBtn.click();
