@@ -131,7 +131,7 @@ pipeline {
     ])
   }
 }
-         stage('Generate and Publish Reports') {
+        stage('Generate and Publish Reports') {
     steps {
         script {
             try {
@@ -140,7 +140,7 @@ pipeline {
 
                 // Create fallback report if main report doesn't exist
                 if (!fileExists(mainReport)) {
-                    echo "Report file not found: ${mainReport}"
+                    echo " Report file not found: ${mainReport}"
                     writeFile file: 'summary_report.html', text: """
                         <html><body>
                           <h2>Test Execution Completed</h2>
@@ -163,7 +163,7 @@ pipeline {
                                 .replaceAll('<td\\b[^>]*>', '<td style="padding:5px;border:1px solid #ddd">')
                         }
                     } catch (e) {
-                        echo "Table formatting failed: ${e.getMessage()}"
+                        echo " Table formatting failed: ${e.getMessage()}"
                     }
 
                     // Failure link handling
@@ -203,12 +203,13 @@ pipeline {
                 }
 
             } catch (err) {
-                echo "Report generation error: ${err.getMessage()}"
+                echo " Report generation error: ${err.getMessage()}"
                 // Don't fail the build for reporting issues
                 currentBuild.result = currentBuild.result ?: 'SUCCESS'  // Only preserve existing failure status
             }
         }
     }
+}
 }
 
 
