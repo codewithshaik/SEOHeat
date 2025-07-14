@@ -245,7 +245,7 @@ pipeline {
                 
                 // Then try HTML email without attachments
                 emailext(
-                    to: 'shaikmahaboobsubhani00@gmail.com',
+                    to: 'imoxygod00@gmail.com',
                     subject: "NAUKRI AI - Execution Summary | Build #${env.BUILD_NUMBER} | ${status}",
                     body: """
                         <html>
@@ -263,7 +263,7 @@ pipeline {
                 
                 // Finally try the full email with attachments
                 emailext(
-                    to: 'shaikmahaboobsubhani00@gmail.com',
+                    to: 'imoxygod@gmail.com',
                     subject: "NAUKRI AI - Execution Summary | Build #${env.BUILD_NUMBER} | ${status}",
                     body: """
                         <html>
