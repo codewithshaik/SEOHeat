@@ -240,7 +240,7 @@ pipeline {
             
             // Single email with all details
             emailext(
-                to: 'shaikmahaboobsubhani00@gmail.com',
+                to: 'shaikmahaboobsubhani0777@gmail.com',
                 subject: "NAUKRI AI - Build #${env.BUILD_NUMBER} | ${status}",
                 body: """
                     <html>
