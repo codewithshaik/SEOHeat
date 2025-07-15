@@ -131,217 +131,179 @@ pipeline {
     ])
   }
 }
-         stage('Generate and Publish Reports') {
-           steps {
-               script {
-                   try {
-                       def mainReport = 'target/cucumber-html-reports/overview-features.html'
-                       def failedReport = 'target/cucumber-html-reports/overview-failures.html'
+        stage('Generate and Publish Reports') {
+    steps {
+        script {
+            try {
+                def mainReport = 'target/cucumber-html-reports/overview-features.html'
+                def failedReport = 'target/cucumber-html-reports/overview-failures.html'
 
-                       if (!fileExists(mainReport)) {
-                           echo("Report file not found: ${mainReport}")
-                           writeFile file: 'summary_report.html', text: """
-                               <html><body>
-                                 <h2>No Report Found</h2>
-                                 <p>The expected report <b>${mainReport}</b> was not generated.</p>
-                                 <p>Tag: <b>${params.TAGNAME}</b></p>
-                                 <p>Environment: <b>${params.NAUKRI_GMAIL}</b></p>
-                               </body></html>
-                           """
-                       } else {
-                           def reportHtml = readFile(mainReport)
-                           def matcher = reportHtml =~ /<table[\\s\\S]*?<\\/table>/
-                           def table = matcher.find() ? matcher.group(0) : '<p>No test summary table found in report.</p>'
+                // Create fallback report if main report doesn't exist
+                if (!fileExists(mainReport)) {
+                    echo " Report file not found: ${mainReport}"
+                    writeFile file: 'summary_report.html', text: """
+                        <html><body>
+                          <h2>Test Execution Completed</h2>
+                          <p>The detailed report was not generated, but tests may have passed.</p>
+                          <p>Tag: <b>${params.TAGNAME ?: 'N/A'}</b></p>
+                          <p>Environment: <b>${params.NAUKRI_GMAIL ?: 'N/A'}</b></p>
+                        </body></html>
+                    """
+                } else {
+                    echo "Found main report at ${mainReport}"
+                    def reportHtml = readFile(mainReport)
+                    
+                    // Safer table extraction with fallback
+                    String table = '<p>No test summary table found in report.</p>'
+                    try {
+                        def matcher = (reportHtml =~ /<table[\s\S]*?<\/table>/)
+                        if (matcher.find()) {
+                            table = matcher.group(0)
+                                .replaceAll('<table\\b[^>]*>', '<table border="1" style="border-collapse:collapse;width:100%">')
+                                .replaceAll('<td\\b[^>]*>', '<td style="padding:5px;border:1px solid #ddd">')
+                        }
+                    } catch (e) {
+                        echo " Table formatting failed: ${e.getMessage()}"
+                    }
 
-                           // Beautify table
-                           table = table
-                               .replaceAll(/<table\\b[^>]*>/, '<table border="1" style="border-collapse: collapse; width: 100%;">')
-                               .replaceAll(/<td\\b[^>]*>/, '<td border="1">')
-                               .replaceAll(/<a\\b[^>]*>/, '')
-                               .replaceAll(/<\\/a>/, '')
+                    // Failure link handling
+                    String failureLink = ''
+                    if (fileExists(failedReport)) {
+                        failureLink = "<p><a href='${env.BUILD_URL}artifact/target/cucumber-html-reports/overview-failures.html'>View Failures</a></p>"
+                    }
 
-                           // Optional link to failed report
-                           def failureLink = fileExists(failedReport)
-                               ? "<p><a href='target/cucumber-html-reports/overview-failures.html' target='_blank'>View Failures</a></p>"
-                               : "<p>No test failures found.</p>"
+                    writeFile file: 'summary_report.html', text: """
+                        <html><body>
+                          <h2>Test Execution Summary</h2>
+                          ${params.TAGNAME ? "<p>Tag: <b>${params.TAGNAME}</b></p>" : ""}
+                          ${params.NAUKRI_GMAIL ? "<p>Environment: <b>${params.NAUKRI_GMAIL}</b></p>" : ""}
+                          ${table}
+                          ${failureLink}
+                          <p><a href='${env.BUILD_URL}artifact/target/cucumber-html-reports/overview-features.html'>Full Report</a></p>
+                        </body></html>
+                    """
+                }
 
-                           writeFile file: 'summary_report.html', text: """
-                               <html><body>
-                                 <h2>Cucumber Test Execution Summary</h2>
-                                 <p>Tag: <b>${params.TAGNAME}</b></p>
-                                 <p>Environment: <b>${params.NAUKRI_GMAIL}</b></p>
-                                 ${table}
-                                 ${failureLink}
-                                 <p><a href='target/cucumber-html-reports/overview-features.html' target='_blank'>Full Report</a></p>
-                                 <p>Thank you,<br/>Automation Team</p>
-                               </body></html>
-                           """
-                       }
+                // Archive artifacts (won't fail if files are missing)
+                archiveArtifacts artifacts: 'summary_report.html', allowMissingArchive: true
+                archiveArtifacts artifacts: 'target/cucumber-html-reports/**/*.html', allowMissingArchive: true
 
-                       // Archive reports
-                       archiveArtifacts artifacts: 'summary_report.html', fingerprint: true
-                       archiveArtifacts artifacts: 'target/cucumber-html-reports/**/*.html', fingerprint: true
+                // Publish HTML report with error handling
+                try {
+                    publishHTML(target: [
+                        reportName: 'Cucumber Report',
+                        reportDir: 'target/cucumber-html-reports',
+                        reportFiles: 'overview-features.html',
+                        keepAll: true,
+                        allowMissing: true,  // Continue if report is missing
+                        alwaysLinkToLastBuild: true
+                    ])
+                } catch (e) {
+                    echo "HTML publishing failed (non-critical): ${e.getMessage()}"
+                }
 
-                       // Publish main HTML report
-                       publishHTML(target: [
-                           reportName : 'Cucumber Report',
-                           reportDir  : 'target/cucumber-html-reports',
-                           reportFiles: 'overview-features.html',
-                           keepAll    : true,
-                           alwaysLinkToLastBuild: true
-                       ])
-
-                   } catch (err) {
-                       echo "Report generation failed: ${err.getMessage()}"
-                       writeFile file: 'summary_report.html', text: """
-                           <html><body>
-                             <h2>Report Generation Failed</h2>
-                             <p>Error: ${err.getMessage()}</p>
-                             <p>Tag: <b>${params.TagName}</b></p>
-                             <p>Environment: <b>${params.ENVIRONMENT}</b></p>
-                           </body></html>
-                       """
-                       archiveArtifacts artifacts: 'summary_report.html', fingerprint: true
-                       currentBuild.result = 'FAILURE'
-                   }
-               }
-           }
+            } catch (err) {
+                echo " Report generation error: ${err.getMessage()}"
+                // Don't fail the build for reporting issues
+                currentBuild.result = currentBuild.result ?: 'SUCCESS'  // Only preserve existing failure status
+            }
         }
-       }
+    }
+}
+}
 
 
    post {
     always {
         script {
-            // Set build status
             def status = currentBuild.result ?: 'SUCCESS'
             def reportLink = "${env.BUILD_URL}artifact/summary_report.html"
             
-            echo "=== BUILD STATUS ==="
-            echo "Status: ${status}"
-            echo "Report URL: ${reportLink}"
-            echo "Build URL: ${env.BUILD_URL}"
+            // Build the parameter rows dynamically
+            def parameterRows = ""
+            def availableParams = [
+                'Execution Tag' : params.TAGNAME,
+                'Gmail'         : params.NAUKRI_GMAIL,
+                'Branch'       : params.GIT_BRANCH,
+            ]
             
-            // Verify all parameters exist
-            echo "=== PARAMETERS ==="
-            echo "TagName: ${params.getOrDefault('TagName', 'NOT PROVIDED')}"
-            echo "Environment: ${params.getOrDefault('ENVIRONMENT', 'NOT PROVIDED')}"
-            echo "Branch: ${params.getOrDefault('branch', 'NOT PROVIDED')}"
-            
-            try {
-                echo "=== ATTEMPTING TO SEND EMAIL ==="
-                
-                // First try simple text email (basic connectivity test)
-                mail(
-                    to: 'shaikmahaboobsubhani00@gmail.com',
-                    subject: "TEST: NAUKRI AI Build #${env.BUILD_NUMBER}",
-                    body: """
-                        Simple test email from pipeline
-                        Status: ${status}
-                        Build: ${env.BUILD_URL}
+            availableParams.each { name, value ->
+                if (value != null) {
+                    parameterRows += """
+                        <tr>
+                            <th style="text-align:left; padding:8px; background:#f2f2f2; border:1px solid #ddd;">${name}</th>
+                            <td style="padding:8px; border:1px solid #ddd;">${value}</td>
+                        </tr>
                     """
-                )
-                echo " Simple text email sent successfully"
-                
-                // Then try HTML email without attachments
-                emailext(
-                    to: 'shaikmahaboobsubhani00@gmail.com',
-                    subject: "NAUKRI AI - Execution Summary | Build #${env.BUILD_NUMBER} | ${status}",
-                    body: """
-                        <html>
-                        <body>
-                            <h2>Simplified Test Version</h2>
-                            <p>Status: <b style="color:${status == 'SUCCESS' ? 'green' : 'red'};">${status}</b></p>
-                            <p>Build: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
-                        </body>
-                        </html>
-                    """,
-                    mimeType: 'text/html',
-                    attachLog: false
-                )
-                echo " Basic HTML email sent successfully"
-                
-                // Finally try the full email with attachments
-                emailext(
-                    to: 'shaikmahaboobsubhani00@gmail.com',
-                    subject: "NAUKRI AI - Execution Summary | Build #${env.BUILD_NUMBER} | ${status}",
-                    body: """
-                        <html>
-                        <body>
-                            <h2>NAUKRI AI - Execution Summary</h2>
-                            <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%;">
-                                ${params.TagName ? '<tr><th>Execution Tag</th><td>' + params.TagName + '</td></tr>' : ''}
-                                ${params.ENVIRONMENT ? '<tr><th>Environment</th><td>' + params.ENVIRONMENT + '</td></tr>' : ''}
-                                ${params.branch ? '<tr><th>Branch</th><td>' + params.branch + '</td></tr>' : ''}
-                                ${params.MRS_VALUE ? '<tr><th>MRS Value</th><td>' + params.MRS_VALUE + '</td></tr>' : ''}
-                                ${params.MRT_VALUE ? '<tr><th>MRT Value</th><td>' + params.MRT_VALUE + '</td></tr>' : ''}
-                                ${params.host ? '<tr><th>Host</th><td>' + params.host + '</td></tr>' : ''}
-                                ${params.HEADLESS_MODE ? '<tr><th>Headless Mode</th><td>' + params.HEADLESS_MODE + '</td></tr>' : ''}
-                                <tr><th>Status</th><td><b style="color:${status == 'SUCCESS' ? 'green' : 'red'};">${status}</b></td></tr>
-                            </table>
-                            <br/>
-                            <p>Full Report: <a href="${reportLink}">Click here to view the complete HTML report</a></p>
-                            <br/>
-                            <p>Kindly contact <b>shaik</b> for any queries.</p>
-                        </body>
-                        </html>
-                    """,
-                    mimeType: 'text/html',
-                    attachLog: true,
-                    compressLog: true,
-                    // Advanced SMTP settings (uncomment if needed)
-                    // smtpServer: 'your.smtp.server.com',
-                    // smtpPort: '587',
-                    // smtpAuth: true,
-                    // smtpUser: 'your_username',
-                    // smtpPassword: 'your_password',
-                    // smtpStarttls: true
-                )
-                echo " Full HTML email with attachments sent successfully"
-                
-            } catch (Exception e) {
-                echo " Email sending failed: ${e.toString()}"
-                
-                // Network diagnostics
-                echo "=== NETWORK DIAGNOSTICS ==="
-                try {
-                    def smtpServer = Jenkins.instance.getDescriptor('hudson.plugins.emailext.ExtendedEmailPublisher').smtpServer
-                    echo "Attempting to connect to SMTP server: ${smtpServer}"
-                    
-                    // Test basic connectivity
-                    def pingResult = sh(script: "ping -c 4 ${smtpServer} || true", returnStdout: true)
-                    echo "Ping results:\n${pingResult}"
-                    
-                    // Test port connectivity
-                    def ncResult = sh(script: "nc -zv ${smtpServer} 587 || true", returnStdout: true)
-                    echo "Netcat results:\n${ncResult}"
-                    
-                } catch (Exception diagErr) {
-                    echo " Diagnostics failed: ${diagErr.toString()}"
                 }
-                
-                // Fallback notification
-                echo "=== ATTEMPTING FALLBACK NOTIFICATION ==="
-                try {
-                    mail(
-                        to: 'shaikmahaboobsubhani00@gmail.com',
-                        subject: "URGENT: Email System Failure for Build #${env.BUILD_NUMBER}",
-                        body: """
-                            The automated build email failed to send properly.
-                            
-                            Build Status: ${status}
-                            Build URL: ${env.BUILD_URL}
-                            
-                            Error Details:
-                            ${e.toString()}
-                            
-                            Please check Jenkins logs for full details.
-                        """
-                    )
-                    echo " Fallback notification sent"
-                } catch (Exception fallbackErr) {
-                    echo " CRITICAL: Fallback notification also failed: ${fallbackErr.toString()}"
-                }
+            }
+            
+            // Single email with all details
+            emailext(
+                to: 'shaikmahaboobsubhani0777@gmail.com',
+                subject: "NAUKRI AI - Build #${env.BUILD_NUMBER} | ${status}",
+                body: """
+                    <html>
+                    <head>
+                        <style>
+                            body { font-family: Arial, sans-serif; line-height: 1.6; }
+                            .status-${status.toLowerCase()} { 
+                                color: ${status == 'SUCCESS' ? '#4CAF50' : '#F44336'};
+                                font-weight: bold;
+                            }
+                            table { 
+                                border-collapse: collapse; 
+                                width: 100%; 
+                                margin: 15px 0;
+                            }
+                            th, td { 
+                                padding: 8px; 
+                                text-align: left; 
+                                border: 1px solid #ddd;
+                            }
+                            th { 
+                                background-color: #f2f2f2; 
+                            }
+                            .footer { 
+                                margin-top: 20px; 
+                                color: #666; 
+                                font-size: 0.9em;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <h2 style="color:#333;">NAUKRI AI - Execution Summary</h2>
+                        
+                        <table>
+                            <tr>
+                                <th style="width:30%;">Build Information</th>
+                                <td>#${env.BUILD_NUMBER}</td>
+                            </tr>
+                            ${parameterRows}
+                            <tr>
+                                <th>Status</th>
+                                <td class="status-${status.toLowerCase()}">${status}</td>
+                            </tr>
+                        </table>
+                        
+                        <p><strong>Build URL:</strong> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                        <p><strong>Detailed Report:</strong> <a href="${reportLink}">Download Report</a></p>
+                        
+                        <div class="footer">
+                            <p>This is an automated notification. Please contact <b>shaik</b> for any queries.</p>
+                            <p>Jenkins Automation</p>
+                        </div>
+                    </body>
+                    </html>
+                """,
+                mimeType: 'text/html',
+                attachLog: true,
+                compressLog: true
+            )
+            
+            echo "detailed email sent for build #${env.BUILD_NUMBER}"
+        
+              
             }
         }
     }
