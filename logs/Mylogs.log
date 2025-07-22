@@ -4381,3 +4381,26 @@ Caused by: java.util.concurrent.TimeoutException
 2025-07-23 00:12:21 INFO  AccountDetailsPage:104 - In userUploadsTheResumeToNaukriProfile Started
 2025-07-23 00:12:21 INFO  AccountDetailsPage:118 - Selected Resume: C:\Users\Kisha\IdeaProjects\ApplyMate\src\test\resources\resumeAI\Mahaboob-Subhani-Shaik-SDET Automation Test Engineer-3.8 Years.pdf (2).pdf
 2025-07-23 00:12:25 INFO  Hooks:108 - Browser session terminated
+2025-07-23 00:13:47 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-23 00:13:48 INFO  Hooks:100 - Browser setup completed
+2025-07-23 00:13:48 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-23 00:13:48 INFO  LoginPage:29 - In OpenUrl
+2025-07-23 00:13:50 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-23 00:13:52 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-23 00:13:52 INFO  AccountDetailsPage:60 - In theUserUpdateNaukriKeywords started
+2025-07-23 00:14:13 INFO  AccountDetailsPage:95 - In theUserUpdateNaukriKeywords completed
+2025-07-23 00:14:13 INFO  AccountDetailsPage:104 - In userUploadsTheResumeToNaukriProfile Started
+2025-07-23 00:14:13 INFO  AccountDetailsPage:118 - Selected Resume: C:\Users\Kisha\IdeaProjects\ApplyMate\src\test\resources\resumeAI\Mahaboob-Subhani-Shaik-SDET Automation Test Engineer-3.8 Years.pdf (2).pdf
+2025-07-23 00:14:17 INFO  Hooks:108 - Browser session terminated
+2025-07-23 00:16:09 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-23 00:16:10 INFO  Hooks:100 - Browser setup completed
+2025-07-23 00:16:10 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-23 00:16:10 INFO  LoginPage:29 - In OpenUrl
+2025-07-23 00:16:13 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-23 00:16:14 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-23 00:16:14 INFO  AccountDetailsPage:60 - In theUserUpdateNaukriKeywords started
+2025-07-23 00:16:37 INFO  AccountDetailsPage:95 - In theUserUpdateNaukriKeywords completed
+2025-07-23 00:16:37 INFO  AccountDetailsPage:104 - In userUploadsTheResumeToNaukriProfile Started
+2025-07-23 00:16:37 INFO  AccountDetailsPage:118 - Selected Resume: C:\Users\Kisha\IdeaProjects\ApplyMate\src\test\resources\resumeAI\Mahaboob-Subhani-Shaik-SDET Automation Test Engineer-3.8 Years.pdf (2).pdf
+2025-07-23 00:16:40 INFO  AccountDetailsPage:162 - Resume uploaded successfully: 2
+2025-07-23 00:16:41 INFO  Hooks:108 - Browser session terminated

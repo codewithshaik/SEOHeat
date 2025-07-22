@@ -149,12 +149,12 @@ public class AccountDetailsPage {
         try{
 
             String resumeNameUploaded = DataManager.getString("randomResume");
-            resumeNameUploaded.replaceAll(".*\\((\\d+)\\)\\.pdf$", "$1");
+            resumeNameUploaded= resumeNameUploaded.replaceAll(".*\\((\\d+)\\)\\.pdf$", "$1");
 
             WebElement resumeTitle = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"resumeTitle")));
 
             String resumeNameInNaukri =resumeTitle.getText().trim();
-            resumeNameInNaukri.replaceAll(".*\\((\\d+)\\)\\.pdf$", "$1");
+            resumeNameInNaukri= resumeNameInNaukri.replaceAll(".*?(\\d+)\\.pdf$", "$1");
 
             System.out.println(resumeNameInNaukri+resumeNameUploaded);
 
