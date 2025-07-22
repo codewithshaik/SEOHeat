@@ -149,7 +149,7 @@ public class LoginPage {
                     System.out.println("Encoded password: " + encodedPassword);
                     byte[] decodedBytes = Base64.getDecoder().decode(encodedPassword);
                     String decodedString = new String(decodedBytes);
-                    System.out.println("Decoded string: " + decodedString);
+                    System.out.println("Decoded string: ");
                     Util.implicitWait(driver);
 
                     WebElement userName = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"username")));

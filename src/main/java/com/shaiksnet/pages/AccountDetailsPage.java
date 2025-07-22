@@ -1,16 +1,24 @@
 package com.shaiksnet.pages;
 
+import com.shaiksnet.utility.DataManager;
 import com.shaiksnet.utility.Util;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import io.cucumber.datatable.DataTable;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class AccountDetailsPage {
     private final WebDriver driver;
@@ -88,6 +96,79 @@ public class AccountDetailsPage {
 
         } catch (Exception e) {
             logger.error("Failed to update Naukri keywords", e);
+        }
+    }
+
+    public void userUploadsTheResumeToNaukriProfile() {
+        try{
+            logger.info("In userUploadsTheResumeToNaukriProfile Started");
+            String path = Util.getProperty("resumePath");
+
+            // Get all files in the folder
+            File folder = new File(System.getProperty("user.dir")+path);
+            File[] files = folder.listFiles((dir, name) -> name.toLowerCase().endsWith(".pdf") || name.toLowerCase().endsWith(".doc") || name.toLowerCase().endsWith(".docx"));
+
+            if (files == null || files.length == 0) {
+                logger.error("No resume files found in folder: " + path);
+                return;
+            }
+
+            // Pick a random resume
+            File randomResume = files[new Random().nextInt(files.length)];
+            logger.info("Selected Resume: " + randomResume.getAbsolutePath());
+            DataManager.setString("randomResume", randomResume.getAbsolutePath().toString());
+
+
+
+            WebElement uploadResumeButton = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"updateResumeBTn")));
+
+            // 🔓 Make it visible
+            ((JavascriptExecutor) driver).executeScript(
+                    "arguments[0].setAttribute('style', 'display:block !important; visibility:visible !important; opacity:1 !important; position:relative; z-index:9999;');",
+                    uploadResumeButton
+            );
+
+            // Wait for the element to be visible
+
+            System.out.println("Is file input displayed? " + uploadResumeButton.isDisplayed());
+            System.out.println("Is file input enabled? " + uploadResumeButton.isEnabled());
+
+
+            uploadResumeButton.sendKeys(randomResume.getAbsolutePath());
+            Thread.sleep(3000);
+
+
+
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void theUserShouldSeeTheUpdatedNaukriProfile() {
+        try{
+
+            String resumeNameUploaded = DataManager.getString("randomResume");
+            resumeNameUploaded= resumeNameUploaded.replaceAll(".*\\((\\d+)\\)\\.pdf$", "$1");
+
+            WebElement resumeTitle = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"resumeTitle")));
+
+            String resumeNameInNaukri =resumeTitle.getText().trim();
+            resumeNameInNaukri= resumeNameInNaukri.replaceAll(".*?(\\d+)\\.pdf$", "$1");
+
+            System.out.println(resumeNameInNaukri+resumeNameUploaded);
+
+            if (resumeNameUploaded.equals(resumeNameInNaukri)) {
+                logger.info("Resume uploaded successfully: " + resumeNameInNaukri);
+            } else {
+                Assert.assertTrue(" Resume name last character mismatch! Expected: "
+                        + resumeNameInNaukri + ", but got: "
+                        + resumeNameUploaded, false);
+            }
+
+        }catch (Exception e){
+            logger.error("Failed to verify updated Naukri profile", e);
+
         }
     }
 }

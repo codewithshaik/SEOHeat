@@ -16,7 +16,7 @@ public class DataManager {
     private static DataManager instance;
 
     // Context map to store objects
-    private final Map<String, Object> context = new HashMap<>();
+    private static final Map<String, Object> context = new HashMap<>();
 
     // Private constructor to prevent instantiation
     private DataManager() {
@@ -41,12 +41,12 @@ public class DataManager {
     }
 
     //Stores a String in the context map.
-    public void setString(String key, String value) {
+    public static void setString(String key, String value) {
         context.put(key, value);
     }
 
     //Retrieves a String from the context map.
-    public String getString(String key) {
+    public static String getString(String key) {
         return (String) context.get(key);
     }
 
