@@ -134,7 +134,9 @@ public class AccountDetailsPage {
             System.out.println("Is file input displayed? " + uploadResumeButton.isDisplayed());
             System.out.println("Is file input enabled? " + uploadResumeButton.isEnabled());
 
+
             uploadResumeButton.sendKeys(randomResume.getAbsolutePath());
+            Thread.sleep(3000);
 
             WebElement resumeTitle = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"resumeTitle")));
             System.out.println(resumeTitle.getText());
