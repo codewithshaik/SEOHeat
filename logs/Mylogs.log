@@ -4262,3 +4262,122 @@ Session ID: 60b237be8013cebd07744dbbfa65d0f6
 2025-07-22 23:49:29 INFO  AccountDetailsPage:103 - In userUploadsTheResumeToNaukriProfile Started
 2025-07-22 23:49:29 INFO  AccountDetailsPage:117 - Selected Resume: C:\Users\Kisha\IdeaProjects\ApplyMate\src\test\resources\resumeAI\Mahaboob-Subhani-Shaik-SDET Automation Test Engineer-3.8 Years.pdf (3).pdf
 2025-07-22 23:49:32 INFO  Hooks:108 - Browser session terminated
+2025-07-22 23:55:37 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-22 23:55:38 INFO  Hooks:100 - Browser setup completed
+2025-07-22 23:55:38 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-22 23:55:38 INFO  LoginPage:29 - In OpenUrl
+2025-07-22 23:55:40 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-22 23:55:42 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-22 23:55:42 INFO  AccountDetailsPage:60 - In theUserUpdateNaukriKeywords started
+2025-07-22 23:56:05 INFO  AccountDetailsPage:95 - In theUserUpdateNaukriKeywords completed
+2025-07-22 23:56:05 INFO  AccountDetailsPage:104 - In userUploadsTheResumeToNaukriProfile Started
+2025-07-22 23:56:05 INFO  AccountDetailsPage:118 - Selected Resume: C:\Users\Kisha\IdeaProjects\ApplyMate\src\test\resources\resumeAI\Mahaboob-Subhani-Shaik-SDET Automation Test Engineer-3.8 Years.pdf (2).pdf
+2025-07-22 23:56:08 INFO  Hooks:108 - Browser session terminated
+2025-07-22 23:57:47 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-22 23:57:49 INFO  Hooks:100 - Browser setup completed
+2025-07-22 23:57:49 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-22 23:57:49 INFO  LoginPage:29 - In OpenUrl
+2025-07-22 23:57:51 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-22 23:57:52 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-22 23:57:52 INFO  AccountDetailsPage:60 - In theUserUpdateNaukriKeywords started
+2025-07-22 23:58:15 INFO  AccountDetailsPage:95 - In theUserUpdateNaukriKeywords completed
+2025-07-22 23:58:15 INFO  AccountDetailsPage:104 - In userUploadsTheResumeToNaukriProfile Started
+2025-07-22 23:58:15 INFO  AccountDetailsPage:118 - Selected Resume: C:\Users\Kisha\IdeaProjects\ApplyMate\src\test\resources\resumeAI\Mahaboob-Subhani-Shaik-SDET Automation Test Engineer-3.8 Years.pdf (3).pdf
+2025-07-22 23:58:20 INFO  Hooks:108 - Browser session terminated
+2025-07-23 00:03:16 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-23 00:03:17 INFO  Hooks:100 - Browser setup completed
+2025-07-23 00:03:17 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-23 00:03:17 INFO  LoginPage:29 - In OpenUrl
+2025-07-23 00:03:18 ERROR LoginPage:196 - Step: userLoginIntonaukri failed
+2025-07-23 00:03:18 INFO  AccountDetailsPage:60 - In theUserUpdateNaukriKeywords started
+2025-07-23 00:06:18 ERROR AccountDetailsPage:98 - Failed to update Naukri keywords
+org.openqa.selenium.TimeoutException: java.util.concurrent.TimeoutException
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d73b22d6bc79dc25f59c995828126b07, findElement {value=//a[@href = '/mnjuser/profile'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.158, chrome: {chromedriverVersion: 138.0.7204.92 (f079b9bc781e..., userDataDir: C:\Users\Kisha\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53853}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53853/devtoo..., se:cdpVersion: 138.0.7204.158, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: d73b22d6bc79dc25f59c995828126b07
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute(JdkHttpClient.java:422) ~[selenium-http-4.26.0.jar:?]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:187) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362) ~[selenium-remote-driver-4.26.0.jar:?]
+	at com.shaiksnet.pages.AccountDetailsPage.theUserUpdateNaukriKeywords(AccountDetailsPage.java:61) ~[classes/:?]
+	at com.shaiksnet.stepdefintions.AccountDetailsPageStep.theUserUpdateNaukriKeywords(AccountDetailsPageStep.java:17) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:53) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:84) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:147) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:162) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:145) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226) [cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) [junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) [junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]
+Caused by: java.util.concurrent.TimeoutException
+	at java.util.concurrent.CompletableFuture$Timeout.run(CompletableFuture.java:2920) ~[?:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.lang.Thread.run(Thread.java:1570) ~[?:?]
+2025-07-23 00:06:18 INFO  AccountDetailsPage:104 - In userUploadsTheResumeToNaukriProfile Started
+2025-07-23 00:06:18 INFO  AccountDetailsPage:118 - Selected Resume: C:\Users\Kisha\IdeaProjects\ApplyMate\src\test\resources\resumeAI\Mahaboob-Subhani-Shaik-SDET Automation Test Engineer-3.8 Years.pdf (7).pdf
+2025-07-23 00:11:55 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-23 00:11:56 INFO  Hooks:100 - Browser setup completed
+2025-07-23 00:11:56 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-23 00:11:56 INFO  LoginPage:29 - In OpenUrl
+2025-07-23 00:11:58 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-23 00:12:00 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-23 00:12:00 INFO  AccountDetailsPage:60 - In theUserUpdateNaukriKeywords started
+2025-07-23 00:12:21 INFO  AccountDetailsPage:95 - In theUserUpdateNaukriKeywords completed
+2025-07-23 00:12:21 INFO  AccountDetailsPage:104 - In userUploadsTheResumeToNaukriProfile Started
+2025-07-23 00:12:21 INFO  AccountDetailsPage:118 - Selected Resume: C:\Users\Kisha\IdeaProjects\ApplyMate\src\test\resources\resumeAI\Mahaboob-Subhani-Shaik-SDET Automation Test Engineer-3.8 Years.pdf (2).pdf
+2025-07-23 00:12:25 INFO  Hooks:108 - Browser session terminated

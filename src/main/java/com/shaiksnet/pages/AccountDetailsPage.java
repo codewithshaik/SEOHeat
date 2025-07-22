@@ -149,20 +149,21 @@ public class AccountDetailsPage {
         try{
 
             String resumeNameUploaded = DataManager.getString("randomResume");
+            resumeNameUploaded.replaceAll(".*\\((\\d+)\\)\\.pdf$", "$1");
 
             WebElement resumeTitle = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"resumeTitle")));
 
             String resumeNameInNaukri =resumeTitle.getText().trim();
-            char resumeNameLastChar = resumeNameInNaukri.charAt(resumeNameInNaukri.length() - 1);
-            char resumeNameUploadedLastChar = resumeNameUploaded.charAt(resumeNameUploaded.length() - 2);
-            System.out.println(resumeNameLastChar+resumeNameUploadedLastChar);
+            resumeNameInNaukri.replaceAll(".*\\((\\d+)\\)\\.pdf$", "$1");
 
-            if (resumeNameLastChar == resumeNameUploadedLastChar) {
+            System.out.println(resumeNameInNaukri+resumeNameUploaded);
+
+            if (resumeNameUploaded.equals(resumeNameInNaukri)) {
                 logger.info("Resume uploaded successfully: " + resumeNameInNaukri);
             } else {
                 Assert.assertTrue(" Resume name last character mismatch! Expected: "
-                        + resumeNameLastChar + ", but got: "
-                        + resumeNameUploadedLastChar, false);
+                        + resumeNameInNaukri + ", but got: "
+                        + resumeNameUploaded, false);
             }
 
         }catch (Exception e){
