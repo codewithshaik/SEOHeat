@@ -58,5 +58,6 @@ public class AccountDetailsPageStep {
 
     @Then("user uploads the resume to naukri profile")
     public void userUploadsTheResumeToNaukriProfile() {
+        accountDetailsPage.userUploadsTheResumeToNaukriProfile();
     }
 }
