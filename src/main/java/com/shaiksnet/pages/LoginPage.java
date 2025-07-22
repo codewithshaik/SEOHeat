@@ -136,7 +136,7 @@ public class LoginPage {
     public void userLoginIntonaukri( ) {
         try{
             logger.info("userLoginIntonaukri started");
-            String loginType = System.getProperty("loginType");
+            String loginType = Util.getProperty("loginType");
             openUrl();
             Util.implicitWait(driver);
             if(!driver.getCurrentUrl().contains("homepage")){
@@ -149,7 +149,7 @@ public class LoginPage {
                     System.out.println("Encoded password: " + encodedPassword);
                     byte[] decodedBytes = Base64.getDecoder().decode(encodedPassword);
                     String decodedString = new String(decodedBytes);
-                    System.out.println("Decoded string: " + decodedString);
+                    System.out.println("Decoded string: ");
                     Util.implicitWait(driver);
 
                     WebElement userName = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"username")));
