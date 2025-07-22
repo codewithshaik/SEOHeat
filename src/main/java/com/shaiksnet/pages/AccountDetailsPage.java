@@ -8,8 +8,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import io.cucumber.datatable.DataTable;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -121,7 +124,12 @@ public class AccountDetailsPage {
                     uploadResumeButton
             );
 
+            // Wait for the element to be visible
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
+            WebElement fileInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath((Util.getXpath(getClass().getSimpleName(),"updateResumeBTn")))
+            ));
 
             System.out.println("Is file input displayed? " + uploadResumeButton.isDisplayed());
             System.out.println("Is file input enabled? " + uploadResumeButton.isEnabled());
