@@ -1,8 +1,10 @@
 package com.shaiksnet.pages;
 
+import com.shaiksnet.utility.DataManager;
 import com.shaiksnet.utility.Util;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -114,6 +116,8 @@ public class AccountDetailsPage {
             // Pick a random resume
             File randomResume = files[new Random().nextInt(files.length)];
             logger.info("Selected Resume: " + randomResume.getAbsolutePath());
+            DataManager.setString("randomResume", randomResume.getAbsolutePath().toString());
+
 
 
             WebElement uploadResumeButton = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"updateResumeBTn")));
@@ -125,11 +129,6 @@ public class AccountDetailsPage {
             );
 
             // Wait for the element to be visible
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-            WebElement fileInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                    By.xpath((Util.getXpath(getClass().getSimpleName(),"updateResumeBTn")))
-            ));
 
             System.out.println("Is file input displayed? " + uploadResumeButton.isDisplayed());
             System.out.println("Is file input enabled? " + uploadResumeButton.isEnabled());
@@ -138,12 +137,37 @@ public class AccountDetailsPage {
             uploadResumeButton.sendKeys(randomResume.getAbsolutePath());
             Thread.sleep(3000);
 
-            WebElement resumeTitle = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"resumeTitle")));
-            System.out.println(resumeTitle.getText());
+
 
 
         }catch(Exception e){
             e.printStackTrace();
+        }
+    }
+
+    public void theUserShouldSeeTheUpdatedNaukriProfile() {
+        try{
+
+            String resumeNameUploaded = DataManager.getString("randomResume");
+
+            WebElement resumeTitle = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"resumeTitle")));
+
+            String resumeNameInNaukri =resumeTitle.getText().trim();
+            char resumeNameLastChar = resumeNameInNaukri.charAt(resumeNameInNaukri.length() - 1);
+            char resumeNameUploadedLastChar = resumeNameUploaded.charAt(resumeNameUploaded.length() - 2);
+            System.out.println(resumeNameLastChar+resumeNameUploadedLastChar);
+
+            if (resumeNameLastChar == resumeNameUploadedLastChar) {
+                logger.info("Resume uploaded successfully: " + resumeNameInNaukri);
+            } else {
+                Assert.assertTrue(" Resume name last character mismatch! Expected: "
+                        + resumeNameLastChar + ", but got: "
+                        + resumeNameUploadedLastChar, false);
+            }
+
+        }catch (Exception e){
+            logger.error("Failed to verify updated Naukri profile", e);
+
         }
     }
 }

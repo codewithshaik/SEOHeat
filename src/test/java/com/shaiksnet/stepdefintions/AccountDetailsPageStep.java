@@ -49,6 +49,7 @@ public class AccountDetailsPageStep {
 
     @Then("the user should see the updated naukri profile")
     public void theUserShouldSeeTheUpdatedNaukriProfile() {
+        accountDetailsPage.theUserShouldSeeTheUpdatedNaukriProfile();
     }
 
     @And("user update the resume and download")
