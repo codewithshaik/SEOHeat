@@ -119,14 +119,8 @@ pipeline {
             }
         }
 
-    stage('Publish Cucumber HTML Report') {
-  when {
-    expression { currentBuild.result == null || currentBuild.result == 'SUCCESS' }
-  }
+     stage('Publish Cucumber HTML Report') {
   steps {
-    script {
-      bat 'dir target\\cucumber-html-reports'
-    }
     publishHTML(target: [
       reportName: 'Cucumber Report',
       reportDir: 'target/cucumber-html-reports',
