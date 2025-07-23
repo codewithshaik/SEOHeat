@@ -113,14 +113,20 @@ pipeline {
                         echo 'ApplyMate Completed'
                     } catch (e) {
                         echo "ApplyMate Failed: ${e.getMessage()}"
-                        
+                        currentBuild.result = 'FAILURE'
                     }
                 }
             }
         }
 
     stage('Publish Cucumber HTML Report') {
+  when {
+    expression { currentBuild.result == null || currentBuild.result == 'SUCCESS' }
+  }
   steps {
+    script {
+      bat 'dir target\\cucumber-html-reports'
+    }
     publishHTML(target: [
       reportName: 'Cucumber Report',
       reportDir: 'target/cucumber-html-reports',
