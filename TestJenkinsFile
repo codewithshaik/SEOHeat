@@ -111,10 +111,7 @@ pipeline {
                             """
                         }
                         echo 'ApplyMate Completed'
-                    } catch (e) {
-                        echo "ApplyMate Failed: ${e.getMessage()}"
-                        currentBuild.result = 'FAILURE'
-                    }
+                    } 
                 }
             }
         }
