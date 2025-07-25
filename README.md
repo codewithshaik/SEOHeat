@@ -57,47 +57,6 @@ ApplyMate/
 └── README.md
 
 
-🔁 Jenkins Pipeline Breakdown
-
-🔧 Tool Configuration
-
-groovy
-tools {
-  maven 'maven'
-  jdk 'jdk22'
-}
-🧠 Dynamic Setup Example
-
-groovy
-stage('Setup Domain') {
-  steps {
-    script {
-      if (env.GIT_URL.contains('Mate')) {
-        env.DOMAIN = "IS-${params.TAGNAME ?: ''}"
-      }
-    }
-  }
-}
-🚀 Pipeline Stages
-Stage	Purpose
-🛠 Setup Domain	Configure environment dynamically
-📥 Checkout Code	Clean clone GitHub repo with credentials
-🧪 Start Tests	Executes test locally or Grid based on HOST
-📊 Generate Reports	Publishes overview-features.html + fallback
-📩 Email Notification	Sends execution summary + build logs via email
-
-📬 Email Alert Format
-🧾 Sample Email Body
-
-html
-<h2>ApplyMate Execution Summary</h2>
-<table>
-  <tr><td><b>Status:</b></td><td>SUCCESS</td></tr>
-  <tr><td><b>Tag Run:</b></td><td>@regression</td></tr>
-  <tr><td><b>Executed By:</b></td><td>youremail@gmail.com</td></tr>
-</table>
-<a href="${BUILD_URL}artifact/summary_report.html">📄 View HTML Report</a>
-
 
 📎 Email includes:
 
