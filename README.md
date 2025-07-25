@@ -58,28 +58,10 @@ ApplyMate/
 
 
 🔁 Jenkins Pipeline Breakdown
-🧾 Pipeline Parameters
 
-groovy
-Copy
-Edit
-parameters {
-  choice(name: 'HOST', choices: ['local', 'grid'], description: 'Run locally or on Grid')
-  choice(name: 'NAUKRI_LOGIN_TYPE', choices: ['gmail', 'otp'], description: 'Login method')
-  string(name: 'NAUKRI_GMAIL', defaultValue: '', description: 'Your Gmail ID')
-  string(name: 'GMAIL_APP_PASSWORD', defaultValue: '', description: 'Gmail App Password')
-  string(name: 'NAUKRI_PHONE_NUMBER', defaultValue: '', description: 'Mobile number for OTP')
-  string(name: 'NAUKRI_PASSWORD', defaultValue: '', description: 'Base64-encoded password')
-  choice(name: 'HEADLESS_MODE', choices: ['true','false'], description: 'Headless browser?')
-  string(name: 'TAGNAME', defaultValue: '', description: 'Cucumber tags to run')
-  string(name: 'GIT_URL', defaultValue: 'https://github.com/Mrshaik-hub/ApplyMate.git', description: 'Repo URL')
-  string(name: 'GIT_BRANCH', defaultValue: 'main', description: 'Branch to checkout')
-}
 🔧 Tool Configuration
 
 groovy
-Copy
-Edit
 tools {
   maven 'maven'
   jdk 'jdk22'
@@ -87,8 +69,6 @@ tools {
 🧠 Dynamic Setup Example
 
 groovy
-Copy
-Edit
 stage('Setup Domain') {
   steps {
     script {
@@ -110,8 +90,6 @@ Stage	Purpose
 🧾 Sample Email Body
 
 html
-Copy
-Edit
 <h2>ApplyMate Execution Summary</h2>
 <table>
   <tr><td><b>Status:</b></td><td>SUCCESS</td></tr>
@@ -119,6 +97,8 @@ Edit
   <tr><td><b>Executed By:</b></td><td>youremail@gmail.com</td></tr>
 </table>
 <a href="${BUILD_URL}artifact/summary_report.html">📄 View HTML Report</a>
+
+
 📎 Email includes:
 
 ✅ Build logs (attached + zipped)
@@ -131,8 +111,6 @@ Edit
 📷 Add your screenshots here like:
 
 scss
-Copy
-Edit
 ![Dashboard](assets/dashboard.png)
 ![HTML Report](assets/cucumber-report.png)
 🤖 Example Use Cases
