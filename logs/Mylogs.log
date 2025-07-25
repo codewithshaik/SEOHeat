@@ -3752,3 +3752,25 @@ Session ID: 626597d9111839a73765eb4e2974d6d8
 2025-07-14 22:09:50 INFO  AccountDetailsPage:52 - In theUserUpdateNaukriKeywords started
 2025-07-14 22:10:10 INFO  AccountDetailsPage:87 - In theUserUpdateNaukriKeywords completed
 2025-07-14 22:10:11 INFO  Hooks:108 - Browser session terminated
+2025-07-26 03:29:00 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-26 03:29:01 INFO  Hooks:100 - Browser setup completed
+2025-07-26 03:29:01 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-26 03:29:01 INFO  LoginPage:29 - In OpenUrl
+2025-07-26 03:29:04 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-26 03:29:05 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-26 03:29:05 INFO  AccountDetailsPage:66 - In theUserUpdateNaukriKeywords started
+2025-07-26 03:29:27 INFO  AccountDetailsPage:101 - In theUserUpdateNaukriKeywords completed
+2025-07-26 03:29:27 INFO  AccountDetailsPage:110 - In userUploadsTheResumeToNaukriProfile Started
+2025-07-26 03:29:27 INFO  AccountDetailsPage:124 - Selected Resume: E:\IdeaProjects\ApplyMate\src\test\resources\resumeAI\Mahaboob-Subhani-Shaik-SDET Automation Test Engineer-3.8 Years.pdf (8).pdf
+2025-07-26 03:29:30 INFO  Hooks:108 - Browser session terminated
+2025-07-26 03:33:47 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-26 03:33:48 INFO  Hooks:100 - Browser setup completed
+2025-07-26 03:33:48 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-26 03:33:48 INFO  LoginPage:29 - In OpenUrl
+2025-07-26 03:33:53 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-26 03:33:54 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-26 03:33:54 INFO  AccountDetailsPage:66 - In theUserUpdateNaukriKeywords started
+2025-07-26 03:34:16 INFO  AccountDetailsPage:101 - In theUserUpdateNaukriKeywords completed
+2025-07-26 03:34:16 INFO  AccountDetailsPage:110 - In userUploadsTheResumeToNaukriProfile Started
+2025-07-26 03:34:16 INFO  AccountDetailsPage:124 - Selected Resume: E:\IdeaProjects\ApplyMate\src\test\resources\resumeAI\Mahaboob-Subhani-Shaik-SDET Automation Test Engineer-3.8 Years.pdf (5).pdf
+2025-07-26 03:34:19 INFO  Hooks:108 - Browser session terminated
