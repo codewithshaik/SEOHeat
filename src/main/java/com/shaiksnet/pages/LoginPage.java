@@ -201,7 +201,4 @@ public class LoginPage {
 
 
     }
-    public class employee {
-
-    }
 }
