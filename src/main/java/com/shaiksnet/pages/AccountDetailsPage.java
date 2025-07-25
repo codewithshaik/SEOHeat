@@ -35,7 +35,13 @@ public class AccountDetailsPage {
                 "Kubernetes", "Linux", "MySQL", "MongoDB", "Oracle", "Swagger", "JSON", "XML", "YAML", "STLC", "SDLC",
                 "JIRA", "Confluence", "XPath", "Playwright", "Cypress", "Appium", "BrowserStack", "Sauce Labs",
                 "Bug Tracking", "Test Strategy", "Test Planning", "Smoke Testing", "Regression Testing",
-                "Functional Testing", "Cross Browser Testing", "Test Reporting", "Version Control"
+                "Functional Testing", "Cross Browser Testing", "Test Reporting", "Version Control",
+                //-- DSA & Problem Solving Keywords --//
+                "Data Structures", "Algorithms", "Problem Solving", "Time Complexity", "Space Complexity",
+                "Arrays", "Strings", "Linked Lists", "Trees", "Graphs", "Recursion", "Backtracking",
+                "Dynamic Programming", "Greedy Algorithms", "HashMap", "Stack", "Queue", "Heap", "Binary Search",
+                "BFS", "DFS", "Two Pointers", "Sliding Window", "Bit Manipulation", "Sorting", "Searching",
+                "LeetCode", "HackerRank", "Codeforces", "Algorithm Optimization", "Coding Challenges"
         );
 
         Collections.shuffle(allSkills);
