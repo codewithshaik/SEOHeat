@@ -68,3 +68,91 @@ mvn clean install \
   -DNaukriPasswordBase64=encodedPwd \
   -DHeadlessMode=true \
   -Dcucumber.filter.tags="@smoke"
+
+
+🔁 Jenkins Pipeline Breakdown
+🧾 Pipeline Parameters
+
+groovy
+Copy
+Edit
+parameters {
+  choice(name: 'HOST', choices: ['local', 'grid'], description: 'Run locally or on Grid')
+  choice(name: 'NAUKRI_LOGIN_TYPE', choices: ['gmail', 'otp'], description: 'Login method')
+  string(name: 'NAUKRI_GMAIL', defaultValue: '', description: 'Your Gmail ID')
+  string(name: 'GMAIL_APP_PASSWORD', defaultValue: '', description: 'Gmail App Password')
+  string(name: 'NAUKRI_PHONE_NUMBER', defaultValue: '', description: 'Mobile number for OTP')
+  string(name: 'NAUKRI_PASSWORD', defaultValue: '', description: 'Base64-encoded password')
+  choice(name: 'HEADLESS_MODE', choices: ['true','false'], description: 'Headless browser?')
+  string(name: 'TAGNAME', defaultValue: '', description: 'Cucumber tags to run')
+  string(name: 'GIT_URL', defaultValue: 'https://github.com/Mrshaik-hub/ApplyMate.git', description: 'Repo URL')
+  string(name: 'GIT_BRANCH', defaultValue: 'main', description: 'Branch to checkout')
+}
+🔧 Tool Configuration
+
+groovy
+Copy
+Edit
+tools {
+  maven 'maven'
+  jdk 'jdk22'
+}
+🧠 Dynamic Setup Example
+
+groovy
+Copy
+Edit
+stage('Setup Domain') {
+  steps {
+    script {
+      if (env.GIT_URL.contains('Mate')) {
+        env.DOMAIN = "IS-${params.TAGNAME ?: ''}"
+      }
+    }
+  }
+}
+🚀 Pipeline Stages
+Stage	Purpose
+🛠 Setup Domain	Configure environment dynamically
+📥 Checkout Code	Clean clone GitHub repo with credentials
+🧪 Start Tests	Executes test locally or Grid based on HOST
+📊 Generate Reports	Publishes overview-features.html + fallback
+📩 Email Notification	Sends execution summary + build logs via email
+
+📬 Email Alert Format
+🧾 Sample Email Body
+
+html
+Copy
+Edit
+<h2>ApplyMate Execution Summary</h2>
+<table>
+  <tr><td><b>Status:</b></td><td>SUCCESS</td></tr>
+  <tr><td><b>Tag Run:</b></td><td>@regression</td></tr>
+  <tr><td><b>Executed By:</b></td><td>youremail@gmail.com</td></tr>
+</table>
+<a href="${BUILD_URL}artifact/summary_report.html">📄 View HTML Report</a>
+📎 Email includes:
+
+✅ Build logs (attached + zipped)
+
+✅ HTML report link
+
+✅ Summary Table of key params
+
+📸 Screenshots & Report Output
+📷 Add your screenshots here like:
+
+scss
+Copy
+Edit
+![Dashboard](assets/dashboard.png)
+![HTML Report](assets/cucumber-report.png)
+🤖 Example Use Cases
+Automating job submissions on Naukri
+
+Daily scheduled resume updates
+
+Recruiter workflow automation
+
+Resume A/B testing via AI
