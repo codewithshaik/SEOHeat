@@ -56,19 +56,6 @@ ApplyMate/
 ├── target/ (generated reports)
 └── README.md
 
-## 🧪 Sample Maven Command (Local)
-
-```bash
-mvn clean install \
-  -Denvironment=local \
-  -DloginType=gmail \
-  -DnaukriGmail=youremail@gmail.com \
-  -DgmailAppPassword=yourAppPassword \
-  -DotpNumber=9876543210 \
-  -DNaukriPasswordBase64=encodedPwd \
-  -DHeadlessMode=true \
-  -Dcucumber.filter.tags="@smoke"
-
 
 🔁 Jenkins Pipeline Breakdown
 🧾 Pipeline Parameters
@@ -156,3 +143,20 @@ Daily scheduled resume updates
 Recruiter workflow automation
 
 Resume A/B testing via AI
+
+## 🧪 Sample Maven Command (Local)
+
+
+```bash
+mvn clean install \
+  -Denvironment=local \
+  -DloginType=gmail \
+  -DnaukriGmail=youremail@gmail.com \
+  -DgmailAppPassword=yourAppPassword \
+  -DotpNumber=9876543210 \
+  -DNaukriPasswordBase64=encodedPwd \
+  -DHeadlessMode=true \
+  -Dcucumber.filter.tags="@smoke"
+
+
+
