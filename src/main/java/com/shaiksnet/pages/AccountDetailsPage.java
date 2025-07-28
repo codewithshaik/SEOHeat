@@ -188,15 +188,14 @@ public class AccountDetailsPage {
             Thread.sleep(2000); // Wait for the jobs page to load
 
             List<WebElement> jobSelectBoxList = driver.findElements(By.xpath(Util.getXpath(getClass().getSimpleName(),"jobCheckboxList")));
-            int i=0;
+            int count=0;
             for (WebElement job : jobSelectBoxList) {
-                System.out.println("Job Element: " +job);
-                i++;
-                if (i >= 5) {
-                    // Limit to applying for 5 jobs
-                    WebElement jobSelectBox = job.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"job")));
-                    jobSelectBox.click();
-                    break;
+                if (count == 5) break;
+
+                // Click only if it's not already selected (optional check depending on UI)
+                if (job.isDisplayed() && job.isEnabled()) {
+                    job.click();
+                    count++;
                 }
 
 
