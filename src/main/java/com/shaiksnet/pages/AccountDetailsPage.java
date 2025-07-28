@@ -59,6 +59,7 @@ public class AccountDetailsPage {
         try {
               logger.info("In theUserUpdateNaukriKeywords started");
               WebElement viewProfile = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"viewProfile")));
+              Thread.sleep(2000); // Wait for the element to be visible
               viewProfile.click();
            WebElement naukriSkill =  driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"updateHeadLine")));
            naukriSkill.click();
@@ -177,7 +178,10 @@ public class AccountDetailsPage {
             logger.info("In theuserapplyforjobsinnaukri started");
             Util.waitForPageToLoad(driver);
 
+            Thread.sleep(2000); // Wait for the page to load
+
             WebElement jobsTab = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"jobs")));
+            Util.waitUntilElementIsClickable(driver, jobsTab);
             jobsTab.click();
 
             Thread.sleep(2000); // Wait for the jobs page to load
@@ -219,9 +223,14 @@ public class AccountDetailsPage {
                 chatExitButton.click();
             }
 
-            WebElement homeButton = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"homeBtn")));
-            homeButton.click();
-            Util.waitForPageToLoad(driver);
+//            WebElement homeButton = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"homeBtn")));
+            Thread.sleep(1000);
+//            homeButton.click();
+            driver.navigate().back();
+            Thread.sleep(1000); // Wait for the home page to load
+            driver.navigate().back();
+             // Wait for the home page to load
+
 
             logger.info("In theuserapplyforjobsinnaukri completed");
 
