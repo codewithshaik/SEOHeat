@@ -44,6 +44,7 @@ public class AccountDetailsPageStep {
 
     @When("the user updates naukri job search")
     public void theUserUpdatesNaukriJobSearch() {
+        accountDetailsPage.theUserUpdatesNaukriJobSearch();
 
     }
 

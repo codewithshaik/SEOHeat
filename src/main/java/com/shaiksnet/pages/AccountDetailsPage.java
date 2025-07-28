@@ -177,4 +177,16 @@ public class AccountDetailsPage {
 
         }
     }
+
+    public void theUserUpdatesNaukriJobSearch() {
+        try{
+            logger.info("In theUserUpdatesNaukriJobSearch started");
+
+
+
+
+        }catch (Exception e) {
+            logger.error("Failed to update Naukri job search", e);
+        }
+    }
 }
