@@ -178,15 +178,46 @@ public class AccountDetailsPage {
         }
     }
 
-    public void theUserUpdatesNaukriJobSearch() {
+    public void theuserapplyforjobsinnaukri() {
         try{
-            logger.info("In theUserUpdatesNaukriJobSearch started");
+            logger.info("In theuserapplyforjobsinnaukri started");
+
+            WebElement jobsTab = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"jobs")));
+            jobsTab.click();
+
+            Thread.sleep(2000); // Wait for the jobs page to load
+
+            List<WebElement> jobSelectBoxList = driver.findElements(By.xpath(Util.getXpath(getClass().getSimpleName(),"jobCheckboxList")));
+            int i=0;
+            for (WebElement job : jobSelectBoxList) {
+                System.out.println("Job Element: " +job);
+                i++;
+                if (i >= 5) {
+                    // Limit to applying for 5 jobs
+                    WebElement jobSelectBox = job.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"job")));
+                    jobSelectBox.click();
+                    break;
+                }
 
 
+            }
+
+            WebElement ApplyButton = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"applyBtn")));
+            ApplyButton.click();
+
+            Thread.sleep(2000); // Wait for the apply modal to appear
+
+            WebElement chatExitButton = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"exitBtn")));
+            if (chatExitButton.isDisplayed()) {
+                chatExitButton.click();
+            }
+
+            logger.info("In theuserapplyforjobsinnaukri completed");
 
 
-        }catch (Exception e) {
-            logger.error("Failed to update Naukri job search", e);
+        }catch(Exception e){
+            logger.error("Failed to apply for jobs in Naukri", e);
+            Assert.fail("Failed to apply for jobs in Naukri: " + e.getMessage());
         }
     }
 }

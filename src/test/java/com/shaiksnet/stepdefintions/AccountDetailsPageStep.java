@@ -42,9 +42,9 @@ public class AccountDetailsPageStep {
 
     }
 
-    @When("the user updates naukri job search")
-    public void theUserUpdatesNaukriJobSearch() {
-        accountDetailsPage.theUserUpdatesNaukriJobSearch();
+    @When("the user apply for jobs in naukri")
+    public void theuserapplyforjobsinnaukri() {
+        accountDetailsPage.theuserapplyforjobsinnaukri();
 
     }
 
