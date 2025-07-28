@@ -3774,3 +3774,10 @@ Session ID: 626597d9111839a73765eb4e2974d6d8
 2025-07-26 03:34:16 INFO  AccountDetailsPage:110 - In userUploadsTheResumeToNaukriProfile Started
 2025-07-26 03:34:16 INFO  AccountDetailsPage:124 - Selected Resume: E:\IdeaProjects\ApplyMate\src\test\resources\resumeAI\Mahaboob-Subhani-Shaik-SDET Automation Test Engineer-3.8 Years.pdf (5).pdf
 2025-07-26 03:34:19 INFO  Hooks:108 - Browser session terminated
+2025-07-29 02:25:34 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-29 02:25:35 INFO  Hooks:100 - Browser setup completed
+2025-07-29 02:25:35 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-29 02:25:35 INFO  LoginPage:29 - In OpenUrl
+2025-07-29 02:25:37 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-29 02:25:39 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-29 02:25:39 INFO  AccountDetailsPage:66 - In theUserUpdateNaukriKeywords started
