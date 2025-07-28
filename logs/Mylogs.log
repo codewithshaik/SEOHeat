@@ -4346,3 +4346,771 @@ Session ID: 7325745ffd34dc5c6b3f9563695001b0
 2025-07-29 03:14:42 INFO  LoginPage:33 - OpenUrl Completed
 2025-07-29 03:14:44 INFO  LoginPage:194 - userLoginIntonaukri comple
 2025-07-29 03:14:44 INFO  AccountDetailsPage:66 - In theUserUpdateNaukriKeywords started
+2025-07-29 03:16:14 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-29 03:16:16 INFO  Hooks:100 - Browser setup completed
+2025-07-29 03:16:16 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-29 03:16:16 INFO  LoginPage:29 - In OpenUrl
+2025-07-29 03:16:18 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-29 03:16:20 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-29 03:16:20 INFO  AccountDetailsPage:66 - In theUserUpdateNaukriKeywords started
+2025-07-29 03:16:41 INFO  AccountDetailsPage:101 - In theUserUpdateNaukriKeywords completed
+2025-07-29 03:16:41 INFO  AccountDetailsPage:183 - In theuserapplyforjobsinnaukri started
+2025-07-29 03:16:49 INFO  AccountDetailsPage:214 - In theuserapplyforjobsinnaukri completed
+2025-07-29 03:16:49 INFO  AccountDetailsPage:110 - In userUploadsTheResumeToNaukriProfile Started
+2025-07-29 03:16:49 INFO  AccountDetailsPage:124 - Selected Resume: C:\Users\Kisha\IdeaProjects\ApplyMate\src\test\resources\resumeAI\Mahaboob-Subhani-Shaik-SDET Automation Test Engineer-3.8 Years.pdf (6).pdf
+2025-07-29 03:21:44 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-29 03:21:46 INFO  Hooks:100 - Browser setup completed
+2025-07-29 03:21:46 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-29 03:21:46 INFO  LoginPage:29 - In OpenUrl
+2025-07-29 03:21:49 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-29 03:21:51 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-29 03:21:51 INFO  AccountDetailsPage:63 - In theUserUpdateNaukriKeywords started
+2025-07-29 03:22:15 INFO  AccountDetailsPage:98 - In theUserUpdateNaukriKeywords completed
+2025-07-29 03:22:15 INFO  AccountDetailsPage:180 - In theuserapplyforjobsinnaukri started
+2025-07-29 03:22:21 ERROR AccountDetailsPage:219 - Failed to apply for jobs in Naukri
+org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <i class="dspIB naukicon naukicon-ot-checkbox"></i> is not clickable at point (430, 9). Other element would receive the click: <section id="reco-header" class="reco-header" style="z-index: 99; opacity: 1; pointer-events: all;">...</section>
+  (Session info: chrome=138.0.7204.169)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [152670ed83085bcfb7305b6c03741047, clickElement {id=f.6A4BDDAB558BC00D843FBDA759051648.d.76E18ECCC2CAB5F7ED80658093BE7B75.e.421}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.169, chrome: {chromedriverVersion: 138.0.7204.92 (f079b9bc781e..., userDataDir: C:\Users\Kisha\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56454}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56454/devtoo..., se:cdpVersion: 138.0.7204.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (152670ed83085bcfb7305b6c03741047)] -> xpath: //i[@class='dspIB naukicon naukicon-ot-checkbox']]
+Session ID: 152670ed83085bcfb7305b6c03741047
+	at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76) ~[selenium-remote-driver-4.26.0.jar:?]
+	at com.shaiksnet.pages.AccountDetailsPage.theuserapplyforjobsinnaukri(AccountDetailsPage.java:198) ~[classes/:?]
+	at com.shaiksnet.stepdefintions.AccountDetailsPageStep.theuserapplyforjobsinnaukri(AccountDetailsPageStep.java:47) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:53) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:84) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:147) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:162) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:145) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226) [cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) [junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) [junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]
+2025-07-29 03:22:21 INFO  Hooks:108 - Browser session terminated
+2025-07-29 03:26:35 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-29 03:26:36 INFO  Hooks:100 - Browser setup completed
+2025-07-29 03:26:36 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-29 03:26:36 INFO  LoginPage:29 - In OpenUrl
+2025-07-29 03:26:39 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-29 03:26:40 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-29 03:26:40 INFO  AccountDetailsPage:63 - In theUserUpdateNaukriKeywords started
+2025-07-29 03:27:03 INFO  AccountDetailsPage:98 - In theUserUpdateNaukriKeywords completed
+2025-07-29 03:27:03 INFO  AccountDetailsPage:180 - In theuserapplyforjobsinnaukri started
+2025-07-29 03:27:07 ERROR AccountDetailsPage:220 - Failed to apply for jobs in Naukri
+org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <i class="dspIB naukicon naukicon-ot-checkbox"></i> is not clickable at point (430, 8). Other element would receive the click: <section id="reco-header" class="reco-header" style="z-index: 99; opacity: 1; pointer-events: all;">...</section>
+  (Session info: chrome=138.0.7204.169)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d6e8ff1b9d823bd5459d955ad669d734, clickElement {id=f.85C5EA8612AB31B6D79A9A2B1BB8766B.d.CCFD3DF52FFBE73891F70C722BADF5E6.e.404}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.169, chrome: {chromedriverVersion: 138.0.7204.92 (f079b9bc781e..., userDataDir: C:\Users\Kisha\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56530}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56530/devtoo..., se:cdpVersion: 138.0.7204.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (d6e8ff1b9d823bd5459d955ad669d734)] -> xpath: //i[@class='dspIB naukicon naukicon-ot-checkbox']]
+Session ID: d6e8ff1b9d823bd5459d955ad669d734
+	at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76) ~[selenium-remote-driver-4.26.0.jar:?]
+	at com.shaiksnet.pages.AccountDetailsPage.theuserapplyforjobsinnaukri(AccountDetailsPage.java:199) ~[classes/:?]
+	at com.shaiksnet.stepdefintions.AccountDetailsPageStep.theuserapplyforjobsinnaukri(AccountDetailsPageStep.java:47) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:53) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:84) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:147) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:162) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:145) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226) [cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) [junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) [junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]
+2025-07-29 03:27:08 INFO  Hooks:108 - Browser session terminated
+2025-07-29 03:27:31 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-29 03:27:32 INFO  Hooks:100 - Browser setup completed
+2025-07-29 03:27:32 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-29 03:27:32 INFO  LoginPage:29 - In OpenUrl
+2025-07-29 03:27:35 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-29 03:27:37 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-29 03:27:37 INFO  AccountDetailsPage:63 - In theUserUpdateNaukriKeywords started
+2025-07-29 03:27:40 ERROR AccountDetailsPage:101 - Failed to update Naukri keywords
+org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <span class="edit icon">...</span> is not clickable at point (825, 885). Other element would receive the click: <span class="chip typ-14Medium" title="...">Sliding Window</span>
+  (Session info: chrome=138.0.7204.169)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [3bfa0d3bc8684b22c62a13ee50228132, clickElement {id=f.83CF2882B38F3E7B1DDE8CCF18850A19.d.6EE01515A33251AF57CDC7F028F0835D.e.293}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.169, chrome: {chromedriverVersion: 138.0.7204.92 (f079b9bc781e..., userDataDir: C:\Users\Kisha\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56591}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56591/devtoo..., se:cdpVersion: 138.0.7204.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (3bfa0d3bc8684b22c62a13ee50228132)] -> xpath: //span[@class='edit icon'][1]]
+Session ID: 3bfa0d3bc8684b22c62a13ee50228132
+	at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76) ~[selenium-remote-driver-4.26.0.jar:?]
+	at com.shaiksnet.pages.AccountDetailsPage.theUserUpdateNaukriKeywords(AccountDetailsPage.java:67) ~[classes/:?]
+	at com.shaiksnet.stepdefintions.AccountDetailsPageStep.theUserUpdateNaukriKeywords(AccountDetailsPageStep.java:17) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:53) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:84) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:147) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:162) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:145) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226) [cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) [junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) [junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]
+2025-07-29 03:27:40 INFO  AccountDetailsPage:180 - In theuserapplyforjobsinnaukri started
+2025-07-29 03:27:44 ERROR AccountDetailsPage:221 - Failed to apply for jobs in Naukri
+org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <i class="dspIB naukicon naukicon-ot-checkbox"></i> is not clickable at point (430, 9). Other element would receive the click: <section id="reco-header" class="reco-header" style="z-index: 99; opacity: 1; pointer-events: all;">...</section>
+  (Session info: chrome=138.0.7204.169)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [3bfa0d3bc8684b22c62a13ee50228132, clickElement {id=f.83CF2882B38F3E7B1DDE8CCF18850A19.d.4C3D57331CCD88505B7CE5C2E2064FAC.e.363}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.169, chrome: {chromedriverVersion: 138.0.7204.92 (f079b9bc781e..., userDataDir: C:\Users\Kisha\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56591}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56591/devtoo..., se:cdpVersion: 138.0.7204.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (3bfa0d3bc8684b22c62a13ee50228132)] -> xpath: //i[@class='dspIB naukicon naukicon-ot-checkbox']]
+Session ID: 3bfa0d3bc8684b22c62a13ee50228132
+	at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76) ~[selenium-remote-driver-4.26.0.jar:?]
+	at com.shaiksnet.pages.AccountDetailsPage.theuserapplyforjobsinnaukri(AccountDetailsPage.java:199) ~[classes/:?]
+	at com.shaiksnet.stepdefintions.AccountDetailsPageStep.theuserapplyforjobsinnaukri(AccountDetailsPageStep.java:47) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:53) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:84) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:147) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:162) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:145) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226) [cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) [junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) [junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]
+2025-07-29 03:27:45 INFO  Hooks:108 - Browser session terminated
+2025-07-29 03:29:46 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-29 03:29:48 INFO  Hooks:100 - Browser setup completed
+2025-07-29 03:29:48 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-29 03:29:48 INFO  LoginPage:29 - In OpenUrl
+2025-07-29 03:29:50 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-29 03:29:52 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-29 03:29:52 INFO  AccountDetailsPage:60 - In theUserUpdateNaukriKeywords started
+2025-07-29 03:29:56 ERROR AccountDetailsPage:98 - Failed to update Naukri keywords
+org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <span class="edit icon">...</span> is not clickable at point (825, 885). Other element would receive the click: <span class="chip typ-14Medium" title="...">Sliding Window</span>
+  (Session info: chrome=138.0.7204.169)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [fea9c66c3b57bbb609191a7040896268, clickElement {id=f.72F936756AC5D9075DDB6B18D36638AB.d.582893B1E30BF6573B03A1EBC5646ED5.e.243}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.169, chrome: {chromedriverVersion: 138.0.7204.92 (f079b9bc781e..., userDataDir: C:\Users\Kisha\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56657}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56657/devtoo..., se:cdpVersion: 138.0.7204.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (fea9c66c3b57bbb609191a7040896268)] -> xpath: //span[@class='edit icon'][1]]
+Session ID: fea9c66c3b57bbb609191a7040896268
+	at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76) ~[selenium-remote-driver-4.26.0.jar:?]
+	at com.shaiksnet.pages.AccountDetailsPage.theUserUpdateNaukriKeywords(AccountDetailsPage.java:64) ~[classes/:?]
+	at com.shaiksnet.stepdefintions.AccountDetailsPageStep.theUserUpdateNaukriKeywords(AccountDetailsPageStep.java:17) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:53) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:84) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:147) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:162) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:145) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226) [cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) [junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) [junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]
+2025-07-29 03:29:56 INFO  AccountDetailsPage:177 - In theuserapplyforjobsinnaukri started
+2025-07-29 03:30:08 INFO  AccountDetailsPage:221 - In theuserapplyforjobsinnaukri completed
+2025-07-29 03:30:08 INFO  AccountDetailsPage:104 - In userUploadsTheResumeToNaukriProfile Started
+2025-07-29 03:30:08 INFO  AccountDetailsPage:118 - Selected Resume: C:\Users\Kisha\IdeaProjects\ApplyMate\src\test\resources\resumeAI\Mahaboob-Subhani-Shaik-SDET Automation Test Engineer-3.8 Years.pdf.pdf
+2025-07-29 03:30:17 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-29 03:30:18 INFO  Hooks:100 - Browser setup completed
+2025-07-29 03:30:18 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-29 03:30:18 INFO  LoginPage:29 - In OpenUrl
+2025-07-29 03:30:21 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-29 03:30:23 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-29 03:30:23 INFO  AccountDetailsPage:177 - In theuserapplyforjobsinnaukri started
+2025-07-29 03:30:23 ERROR AccountDetailsPage:225 - Failed to apply for jobs in Naukri
+org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
+  (Session info: chrome=138.0.7204.169)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2de4df99a7728c43d7fcbc9d46917734, clickElement {id=f.2985DA0E9DB75FC0DF08DB1FE9B5AD45.d.926007F8B52EC078A9C3B79DADF2ACE1.e.121}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.169, chrome: {chromedriverVersion: 138.0.7204.92 (f079b9bc781e..., userDataDir: C:\Users\Kisha\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56713}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56713/devtoo..., se:cdpVersion: 138.0.7204.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (2de4df99a7728c43d7fcbc9d46917734)] -> xpath: //a[div[text()='Jobs']]]
+Session ID: 2de4df99a7728c43d7fcbc9d46917734
+	at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76) ~[selenium-remote-driver-4.26.0.jar:?]
+	at com.shaiksnet.pages.AccountDetailsPage.theuserapplyforjobsinnaukri(AccountDetailsPage.java:180) ~[classes/:?]
+	at com.shaiksnet.stepdefintions.AccountDetailsPageStep.theuserapplyforjobsinnaukri(AccountDetailsPageStep.java:47) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:53) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:84) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:147) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:162) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:145) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226) [cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) [junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) [junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]
+2025-07-29 03:30:24 INFO  Hooks:108 - Browser session terminated
+2025-07-29 03:30:48 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-29 03:30:49 INFO  Hooks:100 - Browser setup completed
+2025-07-29 03:30:49 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-29 03:30:49 INFO  LoginPage:29 - In OpenUrl
+2025-07-29 03:30:52 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-29 03:30:53 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-29 03:30:53 INFO  AccountDetailsPage:177 - In theuserapplyforjobsinnaukri started
+2025-07-29 03:30:54 ERROR AccountDetailsPage:225 - Failed to apply for jobs in Naukri
+org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
+  (Session info: chrome=138.0.7204.169)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [166a6d924c16f0b753f5119bbfc422a0, clickElement {id=f.63C50008C655925DFB81B76A374AC65F.d.042508FC8C7E143B0D007F8F8C19E421.e.123}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.169, chrome: {chromedriverVersion: 138.0.7204.92 (f079b9bc781e..., userDataDir: C:\Users\Kisha\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56770}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56770/devtoo..., se:cdpVersion: 138.0.7204.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (166a6d924c16f0b753f5119bbfc422a0)] -> xpath: //a[div[text()='Jobs']]]
+Session ID: 166a6d924c16f0b753f5119bbfc422a0
+	at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76) ~[selenium-remote-driver-4.26.0.jar:?]
+	at com.shaiksnet.pages.AccountDetailsPage.theuserapplyforjobsinnaukri(AccountDetailsPage.java:180) ~[classes/:?]
+	at com.shaiksnet.stepdefintions.AccountDetailsPageStep.theuserapplyforjobsinnaukri(AccountDetailsPageStep.java:47) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:53) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:84) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:147) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:162) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:145) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226) [cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) [junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) [junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]
+2025-07-29 03:30:54 INFO  Hooks:108 - Browser session terminated
+2025-07-29 03:31:21 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-29 03:31:22 INFO  Hooks:100 - Browser setup completed
+2025-07-29 03:31:22 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-29 03:31:22 INFO  LoginPage:29 - In OpenUrl
+2025-07-29 03:31:26 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-29 03:31:27 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-29 03:31:27 INFO  AccountDetailsPage:177 - In theuserapplyforjobsinnaukri started
+2025-07-29 03:31:42 INFO  AccountDetailsPage:222 - In theuserapplyforjobsinnaukri completed
+2025-07-29 03:31:42 INFO  AccountDetailsPage:60 - In theUserUpdateNaukriKeywords started
+2025-07-29 03:32:42 ERROR AccountDetailsPage:98 - Failed to update Naukri keywords
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[@href = '/mnjuser/profile']"}
+  (Session info: chrome=138.0.7204.169)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [220ac8178b6c849d887334334666e9c5, findElement {value=//a[@href = '/mnjuser/profile'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.169, chrome: {chromedriverVersion: 138.0.7204.92 (f079b9bc781e..., userDataDir: C:\Users\Kisha\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56825}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56825/devtoo..., se:cdpVersion: 138.0.7204.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 220ac8178b6c849d887334334666e9c5
+	at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362) ~[selenium-remote-driver-4.26.0.jar:?]
+	at com.shaiksnet.pages.AccountDetailsPage.theUserUpdateNaukriKeywords(AccountDetailsPage.java:61) ~[classes/:?]
+	at com.shaiksnet.stepdefintions.AccountDetailsPageStep.theUserUpdateNaukriKeywords(AccountDetailsPageStep.java:17) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:53) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:84) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:147) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:162) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:145) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226) [cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) [junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) [junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]
+2025-07-29 03:32:42 INFO  AccountDetailsPage:104 - In userUploadsTheResumeToNaukriProfile Started
+2025-07-29 03:32:42 INFO  AccountDetailsPage:118 - Selected Resume: C:\Users\Kisha\IdeaProjects\ApplyMate\src\test\resources\resumeAI\Mahaboob-Subhani-Shaik-SDET Automation Test Engineer-3.8 Years.pdf (3).pdf
+2025-07-29 03:35:36 INFO  Hooks:41 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-07-29 03:35:37 INFO  Hooks:100 - Browser setup completed
+2025-07-29 03:35:37 INFO  LoginPage:138 - userLoginIntonaukri started
+2025-07-29 03:35:37 INFO  LoginPage:29 - In OpenUrl
+2025-07-29 03:35:40 INFO  LoginPage:33 - OpenUrl Completed
+2025-07-29 03:35:42 INFO  LoginPage:194 - userLoginIntonaukri comple
+2025-07-29 03:35:42 INFO  AccountDetailsPage:177 - In theuserapplyforjobsinnaukri started
+2025-07-29 03:35:49 ERROR AccountDetailsPage:226 - Failed to apply for jobs in Naukri
+org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.169)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [89798cd811b9cbf7680201c976e6ba73, findElement {using=xpath, value=//button[@class='multi-apply-button typ-16Bold ']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.169, chrome: {chromedriverVersion: 138.0.7204.92 (f079b9bc781e..., userDataDir: C:\Users\Kisha\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56976}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56976/devtoo..., se:cdpVersion: 138.0.7204.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 89798cd811b9cbf7680201c976e6ba73
+	at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368) ~[selenium-remote-driver-4.26.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362) ~[selenium-remote-driver-4.26.0.jar:?]
+	at com.shaiksnet.pages.AccountDetailsPage.theuserapplyforjobsinnaukri(AccountDetailsPage.java:212) ~[classes/:?]
+	at com.shaiksnet.stepdefintions.AccountDetailsPageStep.theuserapplyforjobsinnaukri(AccountDetailsPageStep.java:47) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.Invoker.invoke(Invoker.java:24) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29) ~[cucumber-java-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:81) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:53) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:84) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89) ~[cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:147) ~[cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:162) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:145) [cucumber-core-7.17.0.jar:7.17.0]
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226) [cucumber-junit-7.17.0.jar:7.17.0]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) [junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) [junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]
+2025-07-29 03:35:49 INFO  Hooks:108 - Browser session terminated
