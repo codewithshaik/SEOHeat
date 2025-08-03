@@ -18,5 +18,6 @@ public class LoginPageStep {
 
     @And("the user login into flowCv")
     public void theUserLoginIntoFlowCv() {
+        LoginPage.userLoginIntoFlowCv();
     }
 }
