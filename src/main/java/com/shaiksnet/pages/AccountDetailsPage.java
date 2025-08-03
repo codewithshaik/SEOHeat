@@ -5,20 +5,14 @@ import com.shaiksnet.utility.Util;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import io.cucumber.datatable.DataTable;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.time.Duration;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class AccountDetailsPage {
     private final WebDriver driver;
@@ -65,6 +59,7 @@ public class AccountDetailsPage {
         try {
               logger.info("In theUserUpdateNaukriKeywords started");
               WebElement viewProfile = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"viewProfile")));
+              Thread.sleep(2000); // Wait for the element to be visible
               viewProfile.click();
            WebElement naukriSkill =  driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"updateHeadLine")));
            naukriSkill.click();
@@ -178,15 +173,71 @@ public class AccountDetailsPage {
         }
     }
 
-    public void theUserUpdatesNaukriJobSearch() {
+    public void theuserapplyforjobsinnaukri() {
         try{
-            logger.info("In theUserUpdatesNaukriJobSearch started");
+            logger.info("In theuserapplyforjobsinnaukri started");
+            Util.waitForPageToLoad(driver);
+
+            Thread.sleep(2000); // Wait for the page to load
+
+            WebElement jobsTab = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"jobs")));
+            Util.waitUntilElementIsClickable(driver, jobsTab);
+            jobsTab.click();
+
+            Thread.sleep(2000); // Wait for the jobs page to load
+
+            List<WebElement> jobSelectBoxList = driver.findElements(By.xpath(Util.getXpath(getClass().getSimpleName(),"jobCheckboxList")));
+            int count=0;
+             JavascriptExecutor js = (JavascriptExecutor) driver;
+            List<WebElement> shuffled = new ArrayList<>(jobSelectBoxList);
+            Collections.shuffle(shuffled);
+
+            for (WebElement job : shuffled) {
+                if (count == 5) break;
+
+                try {
+                    if (job.isDisplayed() && job.isEnabled()) {
+                        js.executeScript("arguments[0].scrollIntoView({block: 'center'});", job);
+                        try {
+                            job.click(); // Try normal click first
+                        } catch (ElementClickInterceptedException e) {
+                            js.executeScript("arguments[0].click();", job); // Fallback to JS click
+                        }
+                        Thread.sleep(1000);
+                        count++;
+                    }
+                } catch (Exception e) {
+                    System.out.println("Failed to click a checkbox: " + e.getMessage());
+                    // Continue to next checkbox
+                }
+
+            }
+
+            WebElement ApplyButton = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"applyBtn")));
+            ApplyButton.click();
+
+            Thread.sleep(2000); // Wait for the apply modal to appear
+
+            WebElement chatExitButton = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"exitBtn")));
+            if (chatExitButton.isDisplayed()) {
+                chatExitButton.click();
+            }
+
+//            WebElement homeButton = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"homeBtn")));
+            Thread.sleep(1000);
+//            homeButton.click();
+            driver.navigate().back();
+            Thread.sleep(1000); // Wait for the home page to load
+            driver.navigate().back();
+             // Wait for the home page to load
 
 
+            logger.info("In theuserapplyforjobsinnaukri completed");
 
 
-        }catch (Exception e) {
-            logger.error("Failed to update Naukri job search", e);
+        }catch(Exception e){
+            logger.error("Failed to apply for jobs in Naukri", e);
+            Assert.fail("Failed to apply for jobs in Naukri: " + e.getMessage());
         }
     }
 }

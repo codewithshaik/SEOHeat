@@ -7,8 +7,8 @@ Feature: Naukri Apply mate
 
 
   Scenario: updating naukri profile with keywords, job application and resume
+    When the user apply for jobs in naukri
     When the user update naukri keywords
-    When the user updates naukri job search
     And the user login into flowCv
     And user update the resume and download
     Then user uploads the resume to naukri profile

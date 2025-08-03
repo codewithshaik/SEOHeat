@@ -119,7 +119,7 @@ pipeline {
             }
         }
 
-    stage('Publish Cucumber HTML Report') {
+     stage('Publish Cucumber HTML Report') {
   steps {
     publishHTML(target: [
       reportName: 'Cucumber Report',
