@@ -6113,3 +6113,6 @@ Caused by: java.util.concurrent.TimeoutException
 2025-08-04 21:07:25 INFO  Hooks:72 - Starting new browser session for scenario: ApplyMate_Naukri
 2025-08-04 21:07:26 INFO  Hooks:127 - Browser setup completed
 2025-08-04 21:07:26 INFO  AccountDetailsPage:180 - In theuserapplyforjobsinnaukri started
+2025-08-04 21:08:14 INFO  Hooks:72 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-08-04 21:08:16 INFO  Hooks:127 - Browser setup completed
+2025-08-04 21:08:16 INFO  AccountDetailsPage:253 - In userMakeAVisitInGitAndLinkedIn started
