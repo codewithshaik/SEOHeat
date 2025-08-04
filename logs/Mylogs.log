@@ -6710,3 +6710,19 @@ Session ID: 2f5fc94ea44fe3595e1ff443b904985f
 2025-08-04 23:33:29 INFO  LoginPage:198 - userLoginIntonaukri comple
 2025-08-04 23:33:29 INFO  AccountDetailsPage:253 - In userMakeAVisitInGitAndLinkedIn started
 2025-08-04 23:33:49 INFO  AccountDetailsPage:292 - Visited: https://github.com/Mrshaik-hub
+2025-08-04 23:35:37 INFO  Hooks:72 - Starting new browser session for scenario: ApplyMate_Naukri
+2025-08-04 23:35:39 INFO  Hooks:127 - Browser setup completed
+2025-08-04 23:35:39 INFO  LoginPage:198 - userLoginIntonaukri comple
+2025-08-04 23:35:39 INFO  AccountDetailsPage:253 - In userMakeAVisitInGitAndLinkedIn started
+2025-08-04 23:35:40 INFO  AccountDetailsPage:292 - Visited: https://github.com/Mrshaik-hub
+2025-08-04 23:35:52 INFO  AccountDetailsPage:288 - Clicked on LinkedIn button
+2025-08-04 23:36:01 INFO  AccountDetailsPage:292 - Visited: https://medium.com/@shaikmahaboobsubhani00/how-to-automate-naukri-login-using-java-selenium-d38a9a7feb20
+2025-08-04 23:36:15 INFO  AccountDetailsPage:292 - Visited: https://github.com/Mrshaik-hub
+2025-08-04 23:36:27 INFO  AccountDetailsPage:288 - Clicked on LinkedIn button
+2025-08-04 23:36:39 INFO  AccountDetailsPage:292 - Visited: https://medium.com/@shaikmahaboobsubhani00/how-to-automate-naukri-login-using-java-selenium-d38a9a7feb20
+2025-08-04 23:36:54 INFO  AccountDetailsPage:292 - Visited: https://github.com/Mrshaik-hub
+2025-08-04 23:37:08 INFO  AccountDetailsPage:288 - Clicked on LinkedIn button
+2025-08-04 23:37:15 INFO  AccountDetailsPage:292 - Visited: https://medium.com/@shaikmahaboobsubhani00/how-to-automate-naukri-login-using-java-selenium-d38a9a7feb20
+2025-08-04 23:37:26 INFO  AccountDetailsPage:292 - Visited: https://github.com/Mrshaik-hub
+2025-08-04 23:37:42 INFO  AccountDetailsPage:288 - Clicked on LinkedIn button
+2025-08-04 23:37:51 INFO  AccountDetailsPage:292 - Visited: https://medium.com/@shaikmahaboobsubhani00/how-to-automate-naukri-login-using-java-selenium-d38a9a7feb20
