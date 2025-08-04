@@ -62,4 +62,9 @@ public class AccountDetailsPageStep {
     public void userUploadsTheResumeToNaukriProfile() {
         accountDetailsPage.userUploadsTheResumeToNaukriProfile();
     }
+
+    @Then("the user visit the git hub and linkedIn")
+    public void theUserVisitTheGitHubAndLinkedIn() {
+        accountDetailsPage.userMakeAVisitInGitAndLinkedIn();
+    }
 }
