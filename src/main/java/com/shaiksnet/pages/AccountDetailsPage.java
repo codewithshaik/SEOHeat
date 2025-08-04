@@ -7,6 +7,8 @@ import org.apache.logging.log4j.core.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import io.cucumber.datatable.DataTable;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -29,13 +31,13 @@ public class AccountDetailsPage {
                 "Kubernetes", "Linux", "MySQL", "MongoDB", "Oracle", "Swagger", "JSON", "XML", "YAML", "STLC", "SDLC",
                 "JIRA", "Confluence", "XPath", "Playwright", "Cypress", "Appium", "BrowserStack", "Sauce Labs",
                 "Bug Tracking", "Test Strategy", "Test Planning", "Smoke Testing", "Regression Testing",
-                "Functional Testing", "Cross Browser Testing", "Test Reporting", "Version Control",
-                //-- DSA & Problem Solving Keywords --//
-                "Data Structures", "Algorithms", "Problem Solving", "Time Complexity", "Space Complexity",
-                "Arrays", "Strings", "Linked Lists", "Trees", "Graphs", "Recursion", "Backtracking",
-                "Dynamic Programming", "Greedy Algorithms", "HashMap", "Stack", "Queue", "Heap", "Binary Search",
-                "BFS", "DFS", "Two Pointers", "Sliding Window", "Bit Manipulation", "Sorting", "Searching",
-                "LeetCode", "HackerRank", "Codeforces", "Algorithm Optimization", "Coding Challenges"
+                "Functional Testing", "Cross Browser Testing", "Test Reporting", "Version Control"
+//                //-- DSA & Problem Solving Keywords --//
+//                "Data Structures", "Algorithms", "Problem Solving", "Time Complexity", "Space Complexity",
+//                "Arrays", "Strings", "Linked Lists", "Trees", "Graphs", "Recursion", "Backtracking",
+//                "Dynamic Programming", "Greedy Algorithms", "HashMap", "Stack", "Queue", "Heap", "Binary Search",
+//                "BFS", "DFS", "Two Pointers", "Sliding Window", "Bit Manipulation", "Sorting", "Searching",
+//                "LeetCode", "HackerRank", "Codeforces", "Algorithm Optimization", "Coding Challenges"
         );
 
         Collections.shuffle(allSkills);
@@ -239,5 +241,85 @@ public class AccountDetailsPage {
             logger.error("Failed to apply for jobs in Naukri", e);
             Assert.fail("Failed to apply for jobs in Naukri: " + e.getMessage());
         }
+
+
+
+
+
     }
+
+    public void userMakeAVisitInGitAndLinkedIn() {
+        try {
+            logger.info("In userMakeAVisitInGitAndLinkedIn started");
+
+            List<String> urls = Arrays.asList(
+                    "https://github.com/Mrshaik-hub",
+                    "https://www.linkedin.com/in/mahaboob-subhani-shaik-896083203",
+                    "https://medium.com/@shaikmahaboobsubhani00/how-to-automate-naukri-login-using-java-selenium-d38a9a7feb20"
+            );
+
+            int repeatCount = 40; // Total visit iterations
+            Random random = new Random();
+
+            // Add screen size variations (desktop, mobile, tablet)
+            List<Dimension> screenSizes = Arrays.asList(
+                    new Dimension(1280, 800), // Desktop
+                    new Dimension(375, 667),  // iPhone X
+                    new Dimension(768, 1024)  // iPad
+            );
+
+            for (int i = 0; i < repeatCount; i++) {
+                for (String url : urls) {
+                    try {
+                        // Rotate screen size
+                        Dimension screenSize = screenSizes.get(random.nextInt(screenSizes.size()));
+                        driver.manage().window().setSize(screenSize);
+
+                        // Set user-agent and referer (if not set in your Hooks already)
+                        // You can customize this in your Hooks ChromeOptions
+                        // options.addArguments("user-agent=" + getRandomUserAgent());
+                        // options.addArguments("referer=https://www.google.com/search?q=mahaboob+subhani");
+
+                        driver.get(url);
+                        logger.info("Visited: " + url);
+
+                        // Scroll to bottom
+                        JavascriptExecutor js = (JavascriptExecutor) driver;
+                        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+                        Thread.sleep(3000);
+
+                        // Randomly click a link on the page (optional)
+                        List<WebElement> links = driver.findElements(By.tagName("a"));
+                        if (!links.isEmpty()) {
+                            WebElement randomLink = links.get(random.nextInt(links.size()));
+                            try {
+                                randomLink.click();
+                                Thread.sleep(3000);
+                            } catch (Exception ignored) {}
+                        }
+
+                        // Random wait between 10–30 seconds
+                        int waitTime = 10 + random.nextInt(21);
+                        Thread.sleep(waitTime * 1000);
+
+                    } catch (Exception e) {
+                        logger.warn("Failed visiting url: " + url + " | " + e.getMessage());
+                    }
+                }
+            }
+
+            if (driver != null) {
+                driver.quit();
+            }
+
+            logger.info("GitHub, LinkedIn & Medium visits completed");
+
+        } catch (Exception e) {
+            logger.error("Failed in SEO visit method", e);
+            Assert.fail("SEO automation failed: " + e.getMessage());
+        }
+    }
+
+
+
 }
