@@ -258,7 +258,7 @@ public class AccountDetailsPage {
                     "https://medium.com/@shaikmahaboobsubhani00/how-to-automate-naukri-login-using-java-selenium-d38a9a7feb20"
             );
 
-            int repeatCount = 10;
+            int repeatCount = 40;
             Random random = new Random();
 
             List<Dimension> screenSizes = Arrays.asList(
