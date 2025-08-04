@@ -201,4 +201,14 @@ public class LoginPage {
 
 
     }
+
+    public void userLoginIntoFlowCv() {
+        try{
+            logger.info("userLoginIntoFlowCv started");
+
+
+        }catch (Exception e){
+         e.printStackTrace();
+        }
+    }
 }
