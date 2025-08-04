@@ -134,9 +134,9 @@ public class LoginPage {
 
 
     public void userLoginIntonaukri( ) {
+        String currentTag = Util.getProperty("cucumber.filter.tags");
         try{
-            if (System.getProperty("Cucumber.filter.tags") != null && !System.getProperty("Cucumber.filter.tags").contains("Git")) {
-                System.out.println("Skipping naukri login as the tag is not @Git");
+            if (!currentTag.contains("Git")) {
                 logger.info("userLoginIntonaukri started");
                 String loginType = System.getProperty("loginType");
                 openUrl();
@@ -195,7 +195,7 @@ public class LoginPage {
 
 
 
-            logger.info("userLoginIntonaukri comple");
+            logger.info("userLoginIntonaukri completed");
         }catch (Exception e){
             logger.error("Step: userLoginIntonaukri failed");
         }
