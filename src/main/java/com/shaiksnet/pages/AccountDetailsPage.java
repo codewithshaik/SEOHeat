@@ -29,13 +29,13 @@ public class AccountDetailsPage {
                 "Kubernetes", "Linux", "MySQL", "MongoDB", "Oracle", "Swagger", "JSON", "XML", "YAML", "STLC", "SDLC",
                 "JIRA", "Confluence", "XPath", "Playwright", "Cypress", "Appium", "BrowserStack", "Sauce Labs",
                 "Bug Tracking", "Test Strategy", "Test Planning", "Smoke Testing", "Regression Testing",
-                "Functional Testing", "Cross Browser Testing", "Test Reporting", "Version Control",
-                //-- DSA & Problem Solving Keywords --//
-                "Data Structures", "Algorithms", "Problem Solving", "Time Complexity", "Space Complexity",
-                "Arrays", "Strings", "Linked Lists", "Trees", "Graphs", "Recursion", "Backtracking",
-                "Dynamic Programming", "Greedy Algorithms", "HashMap", "Stack", "Queue", "Heap", "Binary Search",
-                "BFS", "DFS", "Two Pointers", "Sliding Window", "Bit Manipulation", "Sorting", "Searching",
-                "LeetCode", "HackerRank", "Codeforces", "Algorithm Optimization", "Coding Challenges"
+                "Functional Testing", "Cross Browser Testing", "Test Reporting", "Version Control"
+//                //-- DSA & Problem Solving Keywords --//
+//                "Data Structures", "Algorithms", "Problem Solving", "Time Complexity", "Space Complexity",
+//                "Arrays", "Strings", "Linked Lists", "Trees", "Graphs", "Recursion", "Backtracking",
+//                "Dynamic Programming", "Greedy Algorithms", "HashMap", "Stack", "Queue", "Heap", "Binary Search",
+//                "BFS", "DFS", "Two Pointers", "Sliding Window", "Bit Manipulation", "Sorting", "Searching",
+//                "LeetCode", "HackerRank", "Codeforces", "Algorithm Optimization", "Coding Challenges"
         );
 
         Collections.shuffle(allSkills);
@@ -223,6 +223,7 @@ public class AccountDetailsPage {
                 chatExitButton.click();
             }
 
+
 //            WebElement homeButton = driver.findElement(By.xpath(Util.getXpath(getClass().getSimpleName(),"homeBtn")));
             Thread.sleep(1000);
 //            homeButton.click();
@@ -231,7 +232,6 @@ public class AccountDetailsPage {
             driver.navigate().back();
              // Wait for the home page to load
 
-
             logger.info("In theuserapplyforjobsinnaukri completed");
 
 
@@ -239,5 +239,103 @@ public class AccountDetailsPage {
             logger.error("Failed to apply for jobs in Naukri", e);
             Assert.fail("Failed to apply for jobs in Naukri: " + e.getMessage());
         }
+
+
+
+
+
     }
+
+    public void userMakeAVisitInGitAndLinkedIn() {
+        try {
+            logger.info("In userMakeAVisitInGitAndLinkedIn started");
+
+            List<String> urls = Arrays.asList(
+                    "https://github.com/Mrshaik-hub",
+                    "linkedin", // trigger element click when this is found
+                    "https://medium.com/@shaikmahaboobsubhani00/how-to-automate-naukri-login-using-java-selenium-d38a9a7feb20"
+            );
+
+            int repeatCount = 40;
+            Random random = new Random();
+
+            List<Dimension> screenSizes = Arrays.asList(
+                    new Dimension(1280, 800), // Desktop
+                    new Dimension(375, 667),  // Mobile
+                    new Dimension(768, 1024)  // Tablet
+            );
+
+            for (int i = 0; i < repeatCount; i++) {
+                for (String url : urls) {
+                    try {
+                        Dimension screenSize = screenSizes.get(random.nextInt(screenSizes.size()));
+                        driver.manage().window().setSize(screenSize);
+
+                        if (url.contains("linkedin")) {
+                            // ✅ Just find and click the LinkedIn button
+                            WebElement linkedInBtn = driver.findElement(By.xpath(
+                                    Util.getXpath(getClass().getSimpleName(), "linkedinBtn")
+                            ));
+
+                            ((JavascriptExecutor) driver).executeScript(
+                                    "arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});",
+                                    linkedInBtn
+                            );
+                            Thread.sleep(1000);
+                            linkedInBtn.click();
+                            logger.info("Clicked on LinkedIn button");
+                        } else {
+                            // Normal visit and scroll
+                            driver.get(url);
+                            logger.info("Visited: " + url);
+
+                            JavascriptExecutor js = (JavascriptExecutor) driver;
+                            int scrollSteps = 3;
+                            for (int j = 0; j < scrollSteps; j++) {
+                                int y = (j + 1) * (int) (driver.manage().window().getSize().getHeight() * 0.5);
+                                js.executeScript("window.scrollTo(0, arguments[0]);", y);
+                                Thread.sleep(1000 + random.nextInt(500));
+                            }
+
+                            // Optionally click a random visible link
+//                            List<WebElement> links = driver.findElements(By.xpath("//a[string-length(@href) > 5]"));
+//                            if (!links.isEmpty()) {
+//                                WebElement randomLink = links.get(random.nextInt(links.size()));
+//                                js.executeScript("arguments[0].scrollIntoView({block: 'center'});", randomLink);
+//                                Thread.sleep(500);
+//                                try {
+//                                    randomLink.click();
+//                                    driver.navigate().back();
+//                                } catch (Exception ignored) {}
+//                            }
+                        }
+
+                        // Wait 5–10 seconds
+                        Thread.sleep(5000 + random.nextInt(5000));
+
+                    } catch (Exception e) {
+                        logger.warn("Failed during visit/click for: " + url + " | " + e.getMessage());
+                    }
+                }
+            }
+
+            if (driver != null) {
+                driver.quit();
+            }
+
+            logger.info("GitHub, LinkedIn & Medium visits completed");
+
+        } catch (Exception e) {
+            logger.error("Failed in SEO visit method", e);
+            Assert.fail("SEO automation failed: " + e.getMessage());
+        }
+    }
+
+
+
+
+
+
+
+
 }
