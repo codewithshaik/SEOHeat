@@ -253,7 +253,7 @@ public class AccountDetailsPage {
             List<String> urls = Arrays.asList(
                     "https://github.com/Mrshaik-hub",
                     "linkedin", // trigger element click when this is found
-                    "https://medium.com/@shaikmahaboobsubhani00/how-to-automate-naukri-login-using-java-selenium-d38a9a7feb20"
+                    "https://medium.com/@shaikmahaboobsubhani00"
             );
 
             int repeatCount = 40;
