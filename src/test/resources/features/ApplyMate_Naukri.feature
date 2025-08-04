@@ -3,7 +3,7 @@ Feature: Naukri Apply mate
   I want to use this template for naukri daily login and resume
 
   Background:
-    #Given the user logs into naukri.com
+    Given the user logs into naukri.com
 
  @Naukri
   Scenario: updating naukri profile with keywords, job application and resume
