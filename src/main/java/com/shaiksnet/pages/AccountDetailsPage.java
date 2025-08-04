@@ -254,56 +254,69 @@ public class AccountDetailsPage {
 
             List<String> urls = Arrays.asList(
                     "https://github.com/Mrshaik-hub",
-                    "https://www.linkedin.com/in/mahaboob-subhani-shaik-896083203",
+                    "linkedin", // trigger element click when this is found
                     "https://medium.com/@shaikmahaboobsubhani00/how-to-automate-naukri-login-using-java-selenium-d38a9a7feb20"
             );
 
-            int repeatCount = 40; // Total visit iterations
+            int repeatCount = 10;
             Random random = new Random();
 
-            // Add screen size variations (desktop, mobile, tablet)
             List<Dimension> screenSizes = Arrays.asList(
                     new Dimension(1280, 800), // Desktop
-                    new Dimension(375, 667),  // iPhone X
-                    new Dimension(768, 1024)  // iPad
+                    new Dimension(375, 667),  // Mobile
+                    new Dimension(768, 1024)  // Tablet
             );
 
             for (int i = 0; i < repeatCount; i++) {
                 for (String url : urls) {
                     try {
-                        // Rotate screen size
                         Dimension screenSize = screenSizes.get(random.nextInt(screenSizes.size()));
                         driver.manage().window().setSize(screenSize);
 
-                        // Set user-agent and referer (if not set in your Hooks already)
-                        // You can customize this in your Hooks ChromeOptions
-                        // options.addArguments("user-agent=" + getRandomUserAgent());
-                        // options.addArguments("referer=https://www.google.com/search?q=mahaboob+subhani");
+                        if (url.contains("linkedin")) {
+                            // ✅ Just find and click the LinkedIn button
+                            WebElement linkedInBtn = driver.findElement(By.xpath(
+                                    Util.getXpath(getClass().getSimpleName(), "linkedinBtn")
+                            ));
 
-                        driver.get(url);
-                        logger.info("Visited: " + url);
+                            ((JavascriptExecutor) driver).executeScript(
+                                    "arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});",
+                                    linkedInBtn
+                            );
+                            Thread.sleep(1000);
+                            linkedInBtn.click();
+                            logger.info("Clicked on LinkedIn button");
+                        } else {
+                            // Normal visit and scroll
+                            driver.get(url);
+                            logger.info("Visited: " + url);
 
-                        // Scroll to bottom
-                        JavascriptExecutor js = (JavascriptExecutor) driver;
-                        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-                        Thread.sleep(3000);
+                            JavascriptExecutor js = (JavascriptExecutor) driver;
+                            int scrollSteps = 3;
+                            for (int j = 0; j < scrollSteps; j++) {
+                                int y = (j + 1) * (int) (driver.manage().window().getSize().getHeight() * 0.5);
+                                js.executeScript("window.scrollTo(0, arguments[0]);", y);
+                                Thread.sleep(1000 + random.nextInt(500));
+                            }
 
-                        // Randomly click a link on the page (optional)
-                        List<WebElement> links = driver.findElements(By.tagName("a"));
-                        if (!links.isEmpty()) {
-                            WebElement randomLink = links.get(random.nextInt(links.size()));
-                            try {
-                                randomLink.click();
-                                Thread.sleep(3000);
-                            } catch (Exception ignored) {}
+                            // Optionally click a random visible link
+//                            List<WebElement> links = driver.findElements(By.xpath("//a[string-length(@href) > 5]"));
+//                            if (!links.isEmpty()) {
+//                                WebElement randomLink = links.get(random.nextInt(links.size()));
+//                                js.executeScript("arguments[0].scrollIntoView({block: 'center'});", randomLink);
+//                                Thread.sleep(500);
+//                                try {
+//                                    randomLink.click();
+//                                    driver.navigate().back();
+//                                } catch (Exception ignored) {}
+//                            }
                         }
 
-                        // Random wait between 10–30 seconds
-                        int waitTime = 10 + random.nextInt(21);
-                        Thread.sleep(waitTime * 1000);
+                        // Wait 5–10 seconds
+                        Thread.sleep(5000 + random.nextInt(5000));
 
                     } catch (Exception e) {
-                        logger.warn("Failed visiting url: " + url + " | " + e.getMessage());
+                        logger.warn("Failed during visit/click for: " + url + " | " + e.getMessage());
                     }
                 }
             }
@@ -319,6 +332,11 @@ public class AccountDetailsPage {
             Assert.fail("SEO automation failed: " + e.getMessage());
         }
     }
+
+
+
+
+
 
 
 
