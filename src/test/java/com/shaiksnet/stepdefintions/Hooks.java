@@ -95,9 +95,10 @@ public class Hooks {
                     Proxy proxy = new Proxy();
                     proxy.setHttpProxy(getRandomProxy()).setSslProxy(getRandomProxy());
                     options.setProxy(proxy);
+                    options.addArguments("--disable-blink-features=AutomationControlled");
+                    options.addArguments("user-agent=" + getRandomUserAgent());
                 }
-                options.addArguments("--disable-blink-features=AutomationControlled");
-                options.addArguments("user-agent=" + getRandomUserAgent());
+
 
 
             } else if (host.equalsIgnoreCase("BrowserStack")) {
