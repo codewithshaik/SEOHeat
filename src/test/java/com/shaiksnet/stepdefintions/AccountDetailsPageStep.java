@@ -42,8 +42,9 @@ public class AccountDetailsPageStep {
 
     }
 
-    @When("the user updates naukri job search")
-    public void theUserUpdatesNaukriJobSearch() {
+    @When("the user apply for jobs in naukri")
+    public void theuserapplyforjobsinnaukri() {
+        accountDetailsPage.theuserapplyforjobsinnaukri();
 
     }
 
@@ -60,5 +61,10 @@ public class AccountDetailsPageStep {
     @Then("user uploads the resume to naukri profile")
     public void userUploadsTheResumeToNaukriProfile() {
         accountDetailsPage.userUploadsTheResumeToNaukriProfile();
+    }
+
+    @Then("the user visit the git hub and linkedIn")
+    public void theUserVisitTheGitHubAndLinkedIn() {
+        accountDetailsPage.userMakeAVisitInGitAndLinkedIn();
     }
 }
