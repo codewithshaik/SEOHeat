@@ -20,4 +20,8 @@ public class LoginPageStep {
     public void theUserLoginIntoFlowCv() {
         LoginPage.userLoginIntoFlowCv();
     }
+
+    @Given("the user get the SEOHeat URls")
+    public void theUserGetTheSEOHeatURls() {
+    }
 }
