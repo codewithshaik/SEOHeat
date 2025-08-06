@@ -1,5 +1,6 @@
 package com.shaiksnet.pages;
 
+import com.shaiksnet.utility.DataManager;
 import io.cucumber.datatable.DataTable;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
@@ -12,6 +13,7 @@ import org.openqa.selenium.WebElement;
 
 import javax.mail.*;
 import javax.mail.internet.MimeMultipart;
+import javax.xml.crypto.Data;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -213,6 +215,25 @@ public class LoginPage {
 
         }catch (Exception e){
          e.printStackTrace();
+        }
+    }
+
+    public void getSEOHeatUrls() {
+        try{
+            logger.info("getSEOHeatUrls started");
+            String gitProfileUrl = System.getProperty("gitProfileUrl");
+            String linkedInUrl = System.getProperty("linkedInUrl");
+            String mediumUrl = System.getProperty("mediumUrl");
+
+            DataManager.setString("gitProfileUrl", gitProfileUrl);
+            DataManager.setString("linkedInUrl", linkedInUrl);
+            DataManager.setString("mediumUrl", mediumUrl);
+
+            logger.info("getSEOHeatUrls completed");
+
+        }catch (Exception e){
+            e.printStackTrace();
+            fail("Step: getSEOHeatUrls failed");
         }
     }
 }
