@@ -251,9 +251,9 @@ public class AccountDetailsPage {
             logger.info("In userMakeAVisitInGitAndLinkedIn started");
 
             List<String> urls = Arrays.asList(
-                    "https://github.com/Mrshaik-hub",
-                    "linkedin", // trigger element click when this is found
-                    "https://medium.com/@shaikmahaboobsubhani00"
+                    DataManager.getString("gitProfileUrl"), // GitHub profile URL
+                    DataManager.getString("linkedInUrl"), // trigger element click when this is found
+                    DataManager.getString("mediumUrl") // Medium profile URL
             );
 
             int repeatCount = 40;
