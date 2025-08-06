@@ -23,5 +23,6 @@ public class LoginPageStep {
 
     @Given("the user get the SEOHeat URls")
     public void theUserGetTheSEOHeatURls() {
+
     }
 }
